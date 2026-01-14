@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+<head>
+  <meta charset="utf-8" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWBRDF94HH"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("js", new Date());gtag("set", "developer_id.dMDhkMT", true);gtag("config", "G-TWBRDF94HH", {"groups":"default","page_placeholder":"PLACEHOLDER_page_location"});</script>
+<meta name="description" content="PMS461 | NWCG Incident Response Pocket Guide (IRPG), PMS 461" />
+<meta name="keywords" content="" />
+<link rel="canonical" href="http://www.nwcg.gov/publications/pms461" />
+<meta property="og:site_name" content="NWCG" />
+<meta property="og:type" content="Website" />
+<meta property="og:url" content="http://www.nwcg.gov/publications/pms461" />
+<meta property="og:title" content="NWCG Incident Response Pocket Guide (IRPG), PMS 461 | NWCG" />
+<meta property="og:description" content="PMS461 | NWCG Incident Response Pocket Guide (IRPG), PMS 461" />
+<meta property="og:image" content="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/2025-11/nwcg_medium_landscape_logo.png" />
+<meta name="dcterms.title" content="NWCG Incident Response Pocket Guide (IRPG), PMS 461 | NWCG" />
+<meta name="dcterms.description" content="PMS461 | NWCG Incident Response Pocket Guide (IRPG), PMS 461" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="PMS461 | NWCG Incident Response Pocket Guide (IRPG), PMS 461" />
+<meta name="twitter:title" content="NWCG Incident Response Pocket Guide (IRPG), PMS 461 | NWCG" />
+<meta name="twitter:site:id" content="@NWCG" />
+<script>(function() {var sz = document.createElement('script');
+      sz.type = 'text/javascript'; sz.async = true;
+      sz.src = '//siteimproveanalytics.com/js/siteanalyze_6125046.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+      })();
+</script>
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/core/misc/favicon.ico" type="image/vnd.microsoft.icon" />
+<script>window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};a2a_config.templates.x = { text: "Reading: ${title} ${link} | from @NWCG",hashtags: "sharing,social"}; a2a_config.templates.facebook = {app_id: "5303202981", redirect_uri: "https://static.addtoany.com/menu/thanks.html",}; a2a_config.templates.email = { subject: "Check this out: ${title}", body: "Click the link:\n${link}",}; a2a_config.icon_color = "#005ea2";</script>
+
+  <title>NWCG Incident Response Pocket Guide (IRPG), PMS 461 | NWCG</title>
+  <link rel="stylesheet" media="all" href="/core/misc/components/progress.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/misc/components/ajax-progress.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/align.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/fieldgroup.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/container-inline.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/clearfix.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/details.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/hidden.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/item-list.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/js.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/nowrap.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/position-container.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/reset-appearance.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/resize.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/system-status-counter.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/system-status-report-counters.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/system-status-report-general-info.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/tablesort.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/views/css/views.module.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/modules/contrib/addtoany/css/addtoany.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/modules/contrib/colorbox/styles/stockholmsyndrome/colorbox_style.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/modules/contrib/extlink/css/extlink.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/layout_builder/layouts/twocol_section/twocol_section.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/core/modules/layout_discovery/layouts/onecol/onecol.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/modules/custom/SOP/sop_views_importer/css/sop-views-importer.css?t8s8bb" />
+<link rel="stylesheet" media="all" href="/themes/uswds_base_subtheme/assets/css/minified/uswds.min.css?t8s8bb" />
+
+  
+</head>
+<body class="publications pms-four hundred sixty-one">
+<a href="#main-content" class="usa-sr-only focusable">
+  Skip to main content
+</a>
+
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+          <section class="usa-banner">
+      
+<div class="usa-banner">
+  <div class="usa-accordion">
+    <header class="usa-banner__header">
+      <div class="usa-banner__inner">
+        <div class="grid-col-auto">
+          <img class="usa-banner__header-flag" aria-hidden="true" src="/themes/uswds_base_subtheme/assets/img/us_flag_small.png" alt="">
+        </div>
+        <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+          <p class="usa-banner__header-text">An official website of the United States government</p>
+          <p class="usa-banner__header-action" aria-hidden="true">Here's how you know</p>
+        </div>
+        <button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">
+          <span class="usa-banner__button-text">Here's how you know</span>
+        </button>
+      </div>
+    </header>
+    <div class="usa-banner__content usa-accordion__content" id="gov-banner" hidden="">
+      <div class="grid-row grid-gap-lg">
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/themes/uswds_base_subtheme/assets/img/icon-dot-gov.svg" alt="Dot gov">
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Official websites use .gov</strong>
+              <br>
+              A <strong>.gov</strong> website belongs to an official government organization in the United States.
+            </p>
+          </div>
+        </div>
+        <div class="usa-banner__guidance tablet:grid-col-6">
+          <img class="usa-banner__icon usa-media-block__img" src="/themes/uswds_base_subtheme/assets/img/icon-https.svg" alt="Https">
+          <div class="usa-media-block__body">
+            <p>
+              <strong>Secure .gov websites use HTTPS</strong>
+              <br>
+              A <strong>lock</strong> (   <span class="icon-lock">
+    <svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description" focusable="false">
+      <title id="banner-lock-title">Lock</title>
+      <desc id="banner-lock-description">Locked padlock</desc>
+      <path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"/>
+    </svg>
+  </span>
+ ) or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </section>
+  
+<div class="usa-overlay"></div>
+
+  <header class="usa-header usa-header--extended" id="header" role="banner">
+
+  
+  
+    
+
+    <div class="header-middle-section-main-container">
+
+      <div class="grid-container">
+        <div class="header-middle-section--wrapper">
+                                
+
+<div class="header-left-container">
+  <div class="header-left-container--content">
+          <a class="logo-img" href="/" accesskey="1" title="Home" aria-label="Home">
+        <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/2023-01/logo.png?VersionId=Fjk_6yLHwqWKqo9rzr3ugr4l0hWXuWUX" alt="Home" />
+      </a>
+      </div>
+
+  <div class="header-right-container--content">
+          <div class="site-name">
+        NWCG
+      </div>
+    
+          <div class="usa-font-lead">
+        National Wildfire Coordinating Group
+      </div>
+      </div>
+</div>
+
+
+  
+            
+            <div class="header-right-container">
+              <div class="header-right-top-section">
+
+                <div class="header-right-social-icons">
+                                        <div>
+    <div id="block-headersocialmedia" class="block block-block-content block-block-content8eae0a9c-80ca-4f90-bd74-b3929dd83cef">
+  
+    
+        <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="block block-layout-builder block-field-blockblock-contentbasicbody">
+  
+    
+      
+
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><ul class="header-social-media">
+	<li class="social-item"><a class="usa-social-link usa-social-link--facebook" href="https://www.facebook.com/NationalWildfireCoordinatingGroup/"><img alt="Facebook" class="usa-social-link__icon" data-entity-type data-entity-uuid src="/themes/uswds_base_subtheme/assets/img/usa-icons/facebook-white.svg"> </a></li>
+	<li class="social-item"><a class="usa-social-link usa-social-link--twitter" href="https://twitter.com/NWCG"><img alt="Twitter" class="usa-social-link__icon" data-entity-type data-entity-uuid src="/themes/uswds_base_subtheme/assets/img/usa-icons/twitter-white.svg"> </a></li>
+</ul>
+</div>
+      
+  </div>
+
+    </div>
+  </div>
+
+  </div>
+
+  </div>
+
+                                  </div>
+
+                <div class="header-right-form-section">
+                                          
+<form class="usa-search usa-search--small" action="https://search.usa.gov/search" method="get" id="search-block-form" accept-charset="UTF-8">
+  <div role="search">
+        <input class="usa-input" id="extended-search-field-small" type="search" name="query"  aria-label="Search through site content">
+    <label id="searchAffiliate" class="usa-sr-only search"><input class="usa-input display-none" id="extended-search-field-small2" aria-labelledby="searchAffiliate" type="search" name="affiliate" value="nwcg"/>Search Affiliate NWCG</label>
+    <label  id="searchType" class="usa-sr-only search"><input class="usa-input display-none" id="extended-search-field-small3" aria-labelledby="searchType" type="search" name="commit" value="Search"/>Search Commit</label>
+    <button class="usa-button" type="submit">
+      <img src="/themes/uswds_base_subtheme/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search NWCG Site">
+    </button>
+  </div>
+</form>
+
+  
+                                  </div>
+
+              </div>
+              <div class="header-right-bottom-section">
+                                      <nav role="navigation" aria-labelledby="block-headersearchmenu-menu" id="block-headersearchmenu">
+            
+  <h2 class="usa-sr-only" id="block-headersearchmenu-menu">Header Search Menu</h2>
+  
+
+        
+      <ul class="menu menu--header-search-menu nav">
+                              <li class="first">
+                                                  <a href="/contact-us" class="first" data-drupal-link-system-path="node/41934">Contact Us</a>
+                  </li>
+                              <li>
+                                                  <a href="/executive-board" data-drupal-link-system-path="node/33">Executive Board</a>
+                  </li>
+                              <li>
+                                                  <a href="/nwcg-committees" data-drupal-link-system-path="node/21">Committees</a>
+                  </li>
+                              <li class="last">
+                                                  <a href="/about-us" class="last" data-drupal-link-system-path="node/41999">About Us</a>
+                  </li>
+          </ul>
+  
+
+  </nav>
+
+  
+                
+              </div>
+            </div>
+
+            <button class="usa-menu-btn">Menu</button>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="usa-nav" role="navigation">
+
+      <button class="usa-nav__close">
+          <img src="/themes/uswds_base_subtheme/assets/img/close-white-alt.svg" alt="close"/>
+      </button>
+
+      <div class="mobile-only">
+                      
+<form class="usa-search usa-search--small" action="https://search.usa.gov/search" method="get" id="search-block-form" accept-charset="UTF-8">
+  <div role="search">
+        <input class="usa-input" id="extended-search-field-small" type="search" name="query"  aria-label="Search through site content">
+    <label id="searchAffiliate" class="usa-sr-only search"><input class="usa-input display-none" id="extended-search-field-small2" aria-labelledby="searchAffiliate" type="search" name="affiliate" value="nwcg"/>Search Affiliate NWCG</label>
+    <label  id="searchType" class="usa-sr-only search"><input class="usa-input display-none" id="extended-search-field-small3" aria-labelledby="searchType" type="search" name="commit" value="Search"/>Search Commit</label>
+    <button class="usa-button" type="submit">
+      <img src="/themes/uswds_base_subtheme/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search NWCG Site">
+    </button>
+  </div>
+</form>
+
+  
+              </div>
+
+              <div class="usa-nav__inner">
+      
+
+        
+        
+                          <div class="primary-menu--wrapper">
+                <div class="primary-menu--left">
+                    
+          
+  
+  
+  
+          <ul class="usa-nav__primary usa-accordion">
+    
+                        
+                    
+      
+              <li class="usa-nav__primary-item">
+      
+              <button type="button" class="usa-accordion__button usa-nav__link " aria-expanded="false" aria-controls="basic-nav-section-1">
+          <span>Positions</span>
+        </button>
+      
+                
+          
+  
+  
+  
+          <ul id="basic-nav-section-1" class="usa-nav__submenu" hidden="">
+
+          
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/nwcg-positions" class="link" data-drupal-link-system-path="node/37">          <span>Positions Home</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog" class="link" data-drupal-link-system-path="node/40785">          <span>Position Catalog</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/committee-assignments" class="link" data-drupal-link-system-path="node/30798">          <span>Committee Assignments</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/air_operations" class="link" data-drupal-link-system-path="node/40776">          <span>Air Operations</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/command" class="link" data-drupal-link-system-path="node/40777">          <span>Command</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/dispatch" class="link" data-drupal-link-system-path="node/40778">          <span>Dispatch</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/finance_administration" class="link" data-drupal-link-system-path="node/40779">          <span>Finance/Administration</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/logistics" class="link" data-drupal-link-system-path="node/40780">          <span>Logistics</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/operations" class="link" data-drupal-link-system-path="node/40781">          <span>Operations</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/planning" class="link" data-drupal-link-system-path="node/40782">          <span>Planning</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/prescribed_fire" class="link" data-drupal-link-system-path="node/40783">          <span>Prescribed Fire</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/position-catalog/prevention_and_investigation" class="link" data-drupal-link-system-path="node/40784">          <span>Prevention &amp; Investigation</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/incident-position-descriptions-ipds" class="link" data-drupal-link-system-path="node/41937">          <span>Incident Positions Descriptions (IPD&#039;s)</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/incident-position-performance-cycle" title="Incident Position Performance Cycle" class="link" data-drupal-link-system-path="node/19">          <span>Incident Positions Performance Cycle</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/positions/alternative-pathways-nwcg-qualification" class="link" data-drupal-link-system-path="node/36651">          <span>Alternative Pathways to NWCG Qualifications</span>
+        </a>
+              
+              </li>
+      
+    
+          </ul>
+    
+  
+
+      
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__primary-item">
+      
+              <button type="button" class="usa-accordion__button usa-nav__link " aria-expanded="false" aria-controls="basic-nav-section-2">
+          <span>Publications</span>
+        </button>
+      
+                
+          
+  
+  
+  
+          <ul id="basic-nav-section-2" class="usa-nav__submenu" hidden="">
+
+          
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/nwcg-publications" class="link" data-drupal-link-system-path="node/34">          <span>Publications Home</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/nwcg-publication-catalog" class="link" data-drupal-link-system-path="node/38905">          <span>Publication Catalog</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/publications/publication-and-web-portal-management" class="link" data-drupal-link-system-path="node/22">          <span>Publication Management</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/ics-forms" class="link" data-drupal-link-system-path="node/38904">          <span>ICS Forms</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/publications/nfes-catalogs" class="link" data-drupal-link-system-path="node/35923">          <span>NFES Catalogs</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/publications/pms910/nwcg-data-standards-pms-910" class="link" data-drupal-link-system-path="node/24961">          <span>Data Standards PMS 910</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/publications/pms205/nwcg-glossary-of-wildland-fire-pms-205" class="link" data-drupal-link-system-path="node/36828">          <span>Glossary of Wildland Fire PMS 205</span>
+        </a>
+              
+              </li>
+      
+    
+          </ul>
+    
+  
+
+      
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__primary-item">
+      
+              <button type="button" class="usa-accordion__button usa-nav__link " aria-expanded="false" aria-controls="basic-nav-section-3">
+          <span>Training</span>
+        </button>
+      
+                
+          
+  
+  
+  
+          <ul id="basic-nav-section-3" class="usa-nav__submenu" hidden="">
+
+          
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/nwcg-training" class="link" data-drupal-link-system-path="node/16">          <span>Training Home</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/training-catalog-and-index" class="link" data-drupal-link-system-path="node/441421">          <span>Training Course Catalog and Index</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training-courses/wfstar-catalog" class="link" data-drupal-link-system-path="node/32174">          <span>RT-130 (WFSTAR) Catalog</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/iptm" class="link" data-drupal-link-system-path="node/37476">          <span>Incident Performance and Training Modernization (IPTM)</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/virtual-delivery-of-nwcg-training-courses" class="link" data-drupal-link-system-path="node/34873">          <span>Virtual Instructor-Led Delivery</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/job-aids" class="link" data-drupal-link-system-path="node/126">          <span>Job Aids</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/nwcg-incident-position-standards-catalog" class="link" data-drupal-link-system-path="node/38919">          <span> Incident Position Standards Catalog</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/nwcg-position-task-books" class="link" data-drupal-link-system-path="node/85">          <span>Position Task Books (PTBs)</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/agency-specific-position-task-books" class="link" data-drupal-link-system-path="node/41941">          <span>Agency Specific PTBs</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/wildland-fire-leadership-development-program" class="link" data-drupal-link-system-path="node/40682">          <span>Wildland Fire Leadership Development Program</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/wfldp/wfldp-toolbox" class="link" data-drupal-link-system-path="node/36411">          <span>Wildland Fire Leadership Development Program Toolbox</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/fema-nims-training" class="link" data-drupal-link-system-path="node/28545">          <span>FEMA Course Information</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="https://www.wildlandfirelearningportal.net" class="link">          <span>Wildland Fire Learning Portal</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/course-steward-training-revision-process" class="link" data-drupal-link-system-path="node/36823">          <span>Course Steward Training Revision Process</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/quicklinks-training-schedules-and-related-links" class="link" data-drupal-link-system-path="node/28134">          <span>Training Quick Links</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/training/training-templates" class="link" data-drupal-link-system-path="node/1127447">          <span>Training Templates</span>
+        </a>
+              
+              </li>
+      
+    
+          </ul>
+    
+  
+
+      
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__primary-item">
+      
+              <button type="button" class="usa-accordion__button usa-nav__link " aria-expanded="false" aria-controls="basic-nav-section-4">
+          <span>Tools &amp; Technology</span>
+        </button>
+      
+                
+          
+  
+  
+  
+          <ul id="basic-nav-section-4" class="usa-nav__submenu" hidden="">
+
+          
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/publications/pms205/how-to-access-edg" class="link" data-drupal-link-system-path="node/367618">          <span>EDG Explorer</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/tools-technology/wildland-fire-information-and-technology-wfit-support-to-nwcg-business-needs" class="link" data-drupal-link-system-path="node/28532">          <span>Wildland Fire Information Technology</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/library-collections" class="link" data-drupal-link-system-path="node/41759">          <span>Library Collections</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/tools-technology/nwcg-systems-improvement" class="link" data-drupal-link-system-path="node/29884">          <span>Systems Improvement</span>
+        </a>
+              
+              </li>
+      
+    
+          </ul>
+    
+  
+
+      
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__primary-item">
+      
+              <button type="button" class="usa-accordion__button usa-nav__link " aria-expanded="false" aria-controls="basic-nav-section-5">
+          <span>Communications</span>
+        </button>
+      
+                
+          
+  
+  
+  
+          <ul id="basic-nav-section-5" class="usa-nav__submenu" hidden="">
+
+          
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/frequently-asked-questions" class="link" data-drupal-link-system-path="node/93621">          <span>Frequently Asked Questions (FAQ)</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/communications/nwcg-announcements" title="Announcements" class="link" data-drupal-link-system-path="communications/nwcg-announcements">          <span>Announcements</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/communications-guidance" class="link" data-drupal-link-system-path="node/33805">          <span>Communications Guidance</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/communications-templates" class="link" data-drupal-link-system-path="node/33807">          <span>Communications Templates</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/media-tips" class="link" data-drupal-link-system-path="node/36507">          <span>Media Tips &amp; Tricks</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="https://www.flickr.com/photos/165415395@N07/albums" class="link">          <span>NIFC Photo Library</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/web-platform-guidance-and-support" class="link" data-drupal-link-system-path="node/33516">          <span>Web Platform Guidance and Support</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/firenet-sop" class="link" data-drupal-link-system-path="node/36036">          <span>FireNet Utilization SOP</span>
+        </a>
+              
+              </li>
+      
+                        
+                    
+      
+              <li class="usa-nav__submenu-item">
+      
+      
+              
+        
+                        <a href="/user-submissions/submit-innovative-ideas" class="link" data-drupal-link-system-path="node/25070">          <span>Submit Innovative Ideas</span>
+        </a>
+              
+              </li>
+      
+    
+          </ul>
+    
+  
+
+      
+              </li>
+      
+    
+          </ul>
+    
+  
+
+
+
+
+
+                </div>
+                <div class="primary-menu--right">
+                  <!-- Alerts start here !-->
+<a href="/communications/alerts">
+  <div class="alert-cta">
+      <button class="alert__close">
+        <img src="/themes/uswds_base_subtheme/assets/img/close-white-alt.svg" alt="Close Alert"/>
+      </button>
+    <span class="default">Alerts</span>
+  </div>
+</a>
+
+
+<!-- Alerts Ends here !-->
+                </div>
+              </div>
+
+            
+            
+            
+        <div class="mobile-only">
+
+                          <nav role="navigation" aria-labelledby="block-headersearchmenu-menu" id="block-headersearchmenu">
+            
+  <h2 class="usa-sr-only" id="block-headersearchmenu-menu">Header Search Menu</h2>
+  
+
+        
+      <ul class="menu menu--header-search-menu nav">
+                              <li class="first">
+                                                  <a href="/contact-us" class="first" data-drupal-link-system-path="node/41934">Contact Us</a>
+                  </li>
+                              <li>
+                                                  <a href="/executive-board" data-drupal-link-system-path="node/33">Executive Board</a>
+                  </li>
+                              <li>
+                                                  <a href="/nwcg-committees" data-drupal-link-system-path="node/21">Committees</a>
+                  </li>
+                              <li class="last">
+                                                  <a href="/about-us" class="last" data-drupal-link-system-path="node/41999">About Us</a>
+                  </li>
+          </ul>
+  
+
+  </nav>
+
+  
+          
+                        <div>
+    <div id="block-headersocialmedia" class="block block-block-content block-block-content8eae0a9c-80ca-4f90-bd74-b3929dd83cef">
+  
+    
+        <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="block block-layout-builder block-field-blockblock-contentbasicbody">
+  
+    
+      
+
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><ul class="header-social-media">
+	<li class="social-item"><a class="usa-social-link usa-social-link--facebook" href="https://www.facebook.com/NationalWildfireCoordinatingGroup/"><img alt="Facebook" class="usa-social-link__icon" data-entity-type data-entity-uuid src="/themes/uswds_base_subtheme/assets/img/usa-icons/facebook-white.svg"> </a></li>
+	<li class="social-item"><a class="usa-social-link usa-social-link--twitter" href="https://twitter.com/NWCG"><img alt="Twitter" class="usa-social-link__icon" data-entity-type data-entity-uuid src="/themes/uswds_base_subtheme/assets/img/usa-icons/twitter-white.svg"> </a></li>
+</ul>
+</div>
+      
+  </div>
+
+    </div>
+  </div>
+
+  </div>
+
+  </div>
+
+          
+              </div>
+          </nav>
+
+    
+</header>
+
+
+  <main class="main-content usa-layout-docs usa-section " role="main"
+        id="main-content">
+
+    <div class="grid-container">
+
+                        <div class="grid-row">
+            
+          </div>
+        
+                  <div class="">
+            <div data-drupal-messages-fallback class="hidden"></div>
+
+
+          </div>
+        
+                                      <div class="grid-row ">
+              
+            </div>
+                        
+      <div class="grid-row grid-gap">
+        
+                  <div class="usa-layout-docs__main desktop:grid-col-fill mobile-lg:grid-col-12">
+                  
+  <h1 class="margin-0">
+<span>NWCG Incident Response Pocket Guide (IRPG), PMS 461</span>
+</h1>
+
+
+<div id="block-uswds-base-subtheme-content" class="block block-system block-system-main-block">
+  
+    
+      <article data-history-node-id="24105" about="/publications/pms461">
+
+  
+    
+
+  
+  <div>
+      <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-this-document">
+  
+    
+      
+
+  <div class="field field--name-field-this-document field--type-file field--label-inline clearfix">
+    <div class="title display-inline">PDF Publication</div>
+                  <div class="field__item display-inline"><div class="file file--mime-application-pdf file--application-pdf">
+  <a href="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/publication/pms461.pdf">NWCG Incident Response Pocket Guide (IRPG), PMS 461 (Click to View)</a>
+</div>
+</div>
+              </div>
+
+  </div>
+
+    </div>
+  </div>
+  <div class="layout layout--twocol-section layout--twocol-section--50-50">
+
+          <div  class="layout__region layout__region--first">
+        <div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-current-publication-date">
+  
+    
+      
+
+  <div class="field field--name-field-current-publication-date field--type-datetime field--label-inline clearfix">
+    <div class="title display-inline">Current Publication Date</div>
+                  <div class="field__item display-inline">Jan 2025</div>
+              </div>
+
+  </div>
+<div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-pub-parent-committee">
+  
+    
+      
+
+  <div class="field field--name-field-pub-parent-committee field--type-entity-reference field--label-inline clearfix">
+    <div class="title display-inline">Parent Committee</div>
+                  <div class="field__item display-inline"><a href="/committee/incident-and-position-standards-committee" hreflang="en">Incident and Position Standards Committee</a></div>
+              </div>
+
+  </div>
+<div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-pub-previous-edition">
+  
+    
+      
+
+  <div class="field field--name-field-pub-previous-edition field--type-datetime field--label-inline clearfix">
+    <div class="title display-inline">Previous Edition</div>
+                  <div class="field__item display-inline">Jan 2022</div>
+              </div>
+
+  </div>
+<div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-pub-next-revision">
+  
+    
+      
+
+  <div class="field field--name-field-pub-next-revision field--type-datetime field--label-inline clearfix">
+    <div class="title display-inline">Next Revision</div>
+                  <div class="field__item display-inline">Jan 2029</div>
+              </div>
+
+  </div>
+<div class="layout-builder-gray-block-bg layout-builder-field-item-list block block-layout-builder block-field-blocknodepublications-uswds-pagefield-pub-assoc-forms-and-pubs">
+  
+    
+      
+
+  <div class="field field--name-field-pub-assoc-forms-and-pubs field--type-link field--label-above">
+    <div class="title">Associated Forms and Publications</div>
+        <div class="field field--name-field-pub-assoc-forms-and-pubs field--type-link field--label-above field__items">
+                    <div class="field__item"><a href="https://www.nwcg.gov/publications/pms461/2025-nwcg-incident-response-pocket-guide-irpg">2025 NWCG Incident Response Pocket Guide (IRPG), PMS 461</a></div>
+              <div class="field__item"><a href="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/publication/pms461-2025-summary-of-changes.pdf">Summary of 2025 Updates</a></div>
+              <div class="field__item"><a href="/publications/pms461-es">NWCG Guia de Respuesta de Incidente de Bolsllo, PMS 461 ES</a></div>
+              <div class="field__item"><a href="/publications/pms437">Fire Behavior Field Reference Guide, PMS 437, Temp, RH, and Dew Point Tables</a></div>
+                </div>
+      </div>
+
+  </div>
+
+      </div>
+    
+          <div  class="layout__region layout__region--second">
+        <div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-nfes-number">
+  
+    
+      
+
+  <div class="field field--name-field-nfes-number field--type-string field--label-inline clearfix">
+    <div class="title display-inline">NFES #</div>
+                  <div class="field__item display-inline">1077</div>
+              </div>
+
+  </div>
+<div class="layout-builder-field-item-list layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-pub-steward">
+  
+    
+      
+
+  <div class="field field--name-field-pub-steward field--type-entity-reference field--label-above">
+    <div class="title">Steward</div>
+        <div class="field field--name-field-pub-steward field--type-entity-reference field--label-above field__items">
+                    <div class="field__item"><a href="/committee/incident-operations-subcommittee" hreflang="en">Incident Operations Subcommittee</a></div>
+                </div>
+      </div>
+
+  </div>
+<div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-pms-type">
+  
+    
+      
+
+  <div class="field field--name-field-pms-type field--type-list-string field--label-inline clearfix">
+    <div class="title display-inline">Publication Type</div>
+                  <div class="field__item display-inline">PDF</div>
+              </div>
+
+  </div>
+<div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-pub-frequency-of-revision1">
+  
+    
+      
+
+  <div class="field field--name-field-pub-frequency-of-revision1 field--type-list-string field--label-above">
+    <div class="title">Frequency of Revision</div>
+                  <div class="field__item">4 Years</div>
+              </div>
+
+  </div>
+<div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-catalogs-and-ordering-info">
+  
+    
+      
+
+  <div class="field field--name-field-catalogs-and-ordering-info field--type-entity-reference field--label-above">
+    <div class="title">Catalogs and Ordering Information</div>
+                  <div class="field__item"><div about="/taxonomy/term/41990">
+  
+      <h2><a href="/taxonomy/term/41990">
+
+            <div class="field field--name-name field--type-string field--label-hidden field__item">Catalogs and Ordering Information</div>
+      </a></h2>
+    
+  
+
+            <div class="field field--name-description field--type-text-long field--label-hidden field__item"><p>This item can be ordered through the Great Basin Cache via the <a href="/publications/pms449-2/nwcg-nfes-catalog-part-2-publications-pms-449-2">NWCG NFES Catalog - Part 2: Publications, PMS 449-2</a>.</p>
+</div>
+      
+</div>
+</div>
+              </div>
+
+  </div>
+
+      </div>
+    
+  </div>
+  <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="layout-builder-gray-block-bg block block-layout-builder block-field-blocknodepublications-uswds-pagefield-feedback">
+  
+    
+      
+
+  <div class="field field--name-field-feedback field--type-entity-reference field--label-above">
+    <div class="title">Feedback</div>
+                  <div class="field__item"><div about="/taxonomy/term/41989">
+  
+      <h2><a href="/taxonomy/term/41989">
+
+            <div class="field field--name-name field--type-string field--label-hidden field__item">Feedback</div>
+      </a></h2>
+    
+  
+
+  <div class="field field--name-description field--type-text-long field--label-visually_hidden">
+    <div class="title usa-sr-only">Description</div>
+                  <div class="field__item"><p>Please use the&nbsp;<a href="/publications/publication-review-form">NWCG Publication Revision Form</a>&nbsp;to provide feedback on this publication to your agency representative on the steward committee.</p>
+</div>
+              </div>
+
+</div>
+</div>
+              </div>
+
+  </div>
+
+    </div>
+  </div>
+
+  </div>
+
+</article>
+
+  </div>
+<div id="block-uswds-base-subtheme-addtoanysharebuttons" class="block block-addtoany block-addtoany-block">
+  
+      <h2>Share on Social Media</h2>
+    
+      <span class="a2a_kit a2a_kit_size_45 addtoany_list" data-a2a-url="http://www.nwcg.gov/publications/pms461" data-a2a-title="NWCG Incident Response Pocket Guide (IRPG), PMS 461"><a class="a2a_button_facebook"></a><a class="a2a_button_x"></a><a class="a2a_button_email"></a></span>
+
+  </div>
+<div id="block-uswds-base-subtheme-printbutton" class="block block-block-content block-block-content9b1ac3df-ab1c-4eb7-94a0-ff3ed6ec4118">
+  
+    
+        <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="block block-layout-builder block-field-blockblock-contentbasicbody">
+  
+    
+      
+
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><p id="printpdf"><a class="usa-button color1 radius-lg bottom-1" href="" onclick="window.print();">Print PDF</a></p>
+</div>
+      
+  </div>
+
+    </div>
+  </div>
+
+  </div>
+<div class="views-element-container block block-views block-views-blocklatest-announcements-announcements-block" id="block-uswds-base-subtheme-views-block-latest-announcements">
+  
+      <h2>NWCG Latest Announcements</h2>
+    
+      <div><div class="latest-announcements-attachment-wrapper grid-container js-view-dom-id-787ff311c96dcaa2f51899e19f8481348909b0c1ec136a41e4bb6c1205900de8">
+  
+  
+  
+
+  
+  
+  
+
+    <div class="views-view-grid horizontal cols-4 clearfix">
+            <div class="grid-row grid-gap-lg latest-announcements--row views-row clearfix row-1">
+                  <div class="grid-col-fill latest-announcements--column">
+
+
+
+
+
+
+
+</div>
+                  <div class="grid-col-fill latest-announcements--column">
+
+
+
+
+
+
+
+</div>
+                  <div class="grid-col-fill latest-announcements--column">
+
+
+
+
+
+
+
+</div>
+                  <div class="grid-col-fill latest-announcements--column">
+
+
+
+
+
+
+
+</div>
+              </div>
+      </div>
+
+    
+
+  <div class="views-element-container"><div class="latest-announcements-attachment-wrapper grid-container js-view-dom-id-0c6c76b9348af3f48ae2a14f682a70ecfdd808168c8f6f968165f743532845fe">
+  
+  
+  
+
+  
+  
+  
+
+    <div class="views-view-grid horizontal cols-4 clearfix">
+            <div class="grid-row grid-gap-lg latest-announcements--row views-row clearfix row-1">
+                  <div class="grid-col-fill latest-announcements--column"><a href="/announcement/training/new-s-390-introduction-to-wildland-fire-behavior-calculations-blended-available-now" >
+  <div class="announcement-image">
+      <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-new-s-390.jpg?VersionId=aRe3xdvy282X.ZRCKUxuPl7.bbvp7f3v&amp;h=7a61604b&amp;itok=MD8Z5Xrs" alt="">
+  </div>
+  <div class="announcement-paragraph title">
+      NEW! S-390, Introduction to Wildland Fire Behavior Calculations (Blended) Available Now
+  </div>
+</a>
+<div class="announcement-image page-view">
+  <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-new-s-390.jpg?VersionId=aRe3xdvy282X.ZRCKUxuPl7.bbvp7f3v&amp;h=7a61604b&amp;itok=MD8Z5Xrs" alt="">
+</div>
+<div class="announcement-paragraph page-view paragraph">
+  <p class="text-align-right"><strong>Date: </strong>December 22, 2025<br><strong>Questions about RT-130?&nbsp;</strong><br><strong>Please contact: </strong><a href="https://www.nwcg.gov/committee/fire-behavior-subcommittee/roster">Fire Behavior Subcommittee</a></p><p>NWCG is excited to announce that the new S-390, Introduction to Wildland Fire Behavior Calculations (Blended) training is now available on the Wildland Fire Learning Portal.</p><p>This third course in the series combines online and instructor-led training components aimed at individuals who are involved in planning, managing, and executing wildland fire and prescribed burn operations; who require a thorough understanding of fire behavior calculations to enhance effectiveness and safety. This includes students who require the knowledge and skill necessary to perform the duties of a Type 3 Incident Commander (ICT3), Division/Group Supervisor (DIVS), or Prescribed Fire Burn Boss Type 2 (RXB2).</p><p>Students are required to be qualified as any Single Resource Boss position and complete the prerequisite S-290, Intermediate Wildland Fire behavior (Blended) course, before enrolling in S-390.</p><h3>References:</h3><p class="ltbluebkgrd"><a href="https://www.wildlandfirelearningportal.net/course/view.php?id=4409">S-390, Introduction to Wildland Fire Behavior Calculations (Blended)</a></p><p class="ltbluebkgrd"><a href="https://www.wildlandfirelearningportal.net/login/index.php">Wildland Fire Learning Portal</a></p>
+</div>
+</div>
+                  <div class="grid-col-fill latest-announcements--column"><a href="/announcement/training/new-s-320-introduction-to-incident-management-teams-blended-available-now" >
+  <div class="announcement-image">
+      <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-s320-introduction.jpg?VersionId=6BCa63VillO80Nyee8vFZ75gS8oLzc8g&amp;h=c4d35d3b&amp;itok=4XOTq-Rj" alt="">
+  </div>
+  <div class="announcement-paragraph title">
+      NEW! S-320, Introduction to Incident Management Teams (Blended) Available Now
+  </div>
+</a>
+<div class="announcement-image page-view">
+  <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-s320-introduction.jpg?VersionId=6BCa63VillO80Nyee8vFZ75gS8oLzc8g&amp;h=c4d35d3b&amp;itok=4XOTq-Rj" alt="">
+</div>
+<div class="announcement-paragraph page-view paragraph">
+  <p class="text-align-right"><strong>Date: </strong>December 18, 2025<br><strong>Questions about RT-130?&nbsp;</strong><br><strong>Please contact: </strong><a href="/committee/incident-and-position-standards-committee/roster">Incident and Position Standards Committee</a></p><p>NWCG is excited to announce that S-320, Introduction to Incident Management Teams (Blended) is now available on the Wildland Fire Learning Portal!</p><p>This blended course combines online learning with instructor-led training, designed for individuals seeking to build leadership skills and gain experience in incident management.</p><p>Students are required to complete the prerequisite trainings ICS-100, Introduction to Incident Command System (ICS), ICS-200, Basic ICS for Initial Response, and ICS-700, An Introduction to the National Incident Management System (NIMS) prior to attending S-320.</p><h3>References:</h3><p class="ltbluebkgrd"><a href="https://www.wildlandfirelearningportal.net/course/view.php?id=4524">S-320, Introduction to Incident Management Teams (Blended)</a></p><p class="ltbluebkgrd"><a href="https://www.wildlandfirelearningportal.net/login/index.php">Wildland Fire Learning Portal</a></p>
+</div>
+</div>
+                  <div class="grid-col-fill latest-announcements--column"><a href="/announcement/training/new-ransom-road-wfstar-module" >
+  <div class="announcement-image">
+      <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-ransom-road-thumbnail.jpg?VersionId=NlSEUxjSKCtMyvk_JABV3kgpIMr_VXMu&amp;h=8e0a25ac&amp;itok=afjAWSxs" alt="">
+  </div>
+  <div class="announcement-paragraph title">
+      New! Ransom Road WFSTAR Module
+  </div>
+</a>
+<div class="announcement-image page-view">
+  <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-ransom-road-thumbnail.jpg?VersionId=NlSEUxjSKCtMyvk_JABV3kgpIMr_VXMu&amp;h=8e0a25ac&amp;itok=afjAWSxs" alt="">
+</div>
+<div class="announcement-paragraph page-view paragraph">
+  <p class="text-align-right"><strong>Date: </strong>December 16, 2025<br><strong>Questions about RT-130?&nbsp;</strong><br><strong>Please contact: </strong><a href="mailto:mschindel@blm.gov">NWCG Audiovisual Specialist</a></p><p>NWCG is excited to announce the release of the new Ransom Road Fire Module to&nbsp;RT-130, Wildland Fire Safety Training Annual Refresher (WFSTAR).</p><p>This module features&nbsp;a firsthand account&nbsp;from Rob Lee, official reports, and animated maps of the Ransom&nbsp;Road Fire which&nbsp;occurred on June 8, 1981,&nbsp;in Florida's Merritt Island National Wildlife Refuge.</p><p>The module is&nbsp;available now in NWCG's&nbsp;RT-130, WFSTAR Catalog.</p><h3>References:</h3><p class="ltbluebkgrd"><a href="/training-courses/wfstar-catalog">WFSTAR Catalog</a></p><p class="ltbluebkgrd"><a href="https://lessons.wildfire.gov/incident/ransom-road-fire-fatalities-1981">Wildland Fire Lessons Learned Center</a></p>
+</div>
+</div>
+                  <div class="grid-col-fill latest-announcements--column"><a href="/announcement/general/call-for-nominations-paul-gleason-lead-by-example-award" >
+  <div class="announcement-image">
+      <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-paul-gleason-call-nominations.png?VersionId=fN2OaGfoBUwpQPs9NHJUy_s3dUbzm2ZG&amp;h=b7ce557f&amp;itok=AK9TNzOp" alt="">
+  </div>
+  <div class="announcement-paragraph title">
+      Call for Nominations: Paul Gleason Lead by Example Award
+  </div>
+</a>
+<div class="announcement-image page-view">
+  <img src="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/styles/tiles_anouncements_focal/public/2025-12/mc-paul-gleason-call-nominations.png?VersionId=fN2OaGfoBUwpQPs9NHJUy_s3dUbzm2ZG&amp;h=b7ce557f&amp;itok=AK9TNzOp" alt="">
+</div>
+<div class="announcement-paragraph page-view paragraph">
+  <p class="text-align-right"><strong>Date: </strong>December 11, 2025<br><strong>Questions? Please contact:</strong><br><strong>&nbsp;</strong><a href="https:/committee/leadership-committee/roster">Leadership Committee&nbsp;</a></p><p>Do you know someone working in wildland fire who strives to make positive change and is undeterred by obstacles or setbacks? Now is your chance to give that person the acknowledgment they deserve by nominating them for a Paul Gleason Lead by Example Award.</p><p>This award, is presented by the NWCG Leadership Committee to remember Paul Gleason's contributions to the wildland fire community and to recognize individuals or groups that exhibit the same spirit and dedication to leadership – those who lead by example.</p><p>Nominations can be submitted via email with an attached Lead by Example Form to <a href="mailto:BLM_FA_Leadership_Feedback@blm.gov">BLM_FA_Leadership_Feedback@blm.gov</a> or through the <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=urWTBhhLe02TQfMvQApUlIqsb3D9cVJKnNh0aiI_JfNUMFlNTlg4S1dQQkNESjlZSVRDNUJPN0hLTC4u" data-entity-type="external">online form</a>.&nbsp;<br><br><a href="https://www.nwcg.gov/wfldp/lbe#tips" data-entity-type="external">Tips for successful nominations </a>and more information can be found on the Lead by Example webpage. All nominations must be submitted by December 31, 2025.</p><h3>References:</h3><p class="ltbluebkgrd"><a href="/wfldp/lbe" data-entity-type="external">Paul Gleason Lead By Example Award&nbsp;</a></p><p class="ltbluebkgrd"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=urWTBhhLe02TQfMvQApUlIqsb3D9cVJKnNh0aiI_JfNUMFlNTlg4S1dQQkNESjlZSVRDNUJPN0hLTC4u">Paul Gleason Lead by Example Award Nomination Form 2025&nbsp;</a></p><p class="ltbluebkgrd"><a href="/committee/leadership-committee" data-entity-type="external">Leadership Committee&nbsp;</a></p>
+</div>
+</div>
+              </div>
+      </div>
+
+    
+
+  
+  
+
+      <footer>
+        <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="block block-layout-builder block-field-blockblock-contentbasicbody">
+  
+    
+      
+
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><div class="announcements-footer-wrapper"><a class="announcements-footer-cta" href="/communications/nwcg-announcements">All NWCG Announcements </a></div>
+</div>
+      
+  </div>
+
+    </div>
+  </div>
+
+    </footer>
+  
+  
+</div>
+</div>
+
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+
+
+          </div>        
+        
+      </div>
+    </div>
+  </main>
+
+  <footer class="usa-footer usa-footer--big" role="contentinfo">
+    <div class="grid-container usa-footer__return-to-top">
+      <a href="#">Return to top</a>
+    </div>
+
+          <div class="usa-footer__primary-section">
+
+        <div class="usa-footer__primary-content">
+                    <div class="grid-container">
+            <div class="grid-row grid-gap">
+              
+                                  
+          <div class="tablet:grid-col-12">
+                      <nav class="usa-footer__nav">
+    
+                  <div class="grid-row grid-gap-4">
+    
+    
+                        
+                    
+      
+              <div class="mobile-lg:grid-col-6 desktop:grid-col">
+          <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+            <span class="nolink usa-footer__primary-link text-bold">NWCG Primary Members</span>
+            <ul class="usa-list usa-list--unstyled">
+                                  
+        
+    
+    
+                        
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.bia.gov/bia/ots/dfwfm/bwfm" class="link">Bureau of Indian Affairs </a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.blm.gov/programs/fire" class="link">Bureau of Land Management</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.fws.gov/fire/" class="link">Fish and Wildlife Service</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.fs.usda.gov/managing-land/fire" class="link">Forest Service</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.iafc.org/topics-and-tools/wildland" class="link">International Association of Fire Chiefs</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.itcnet.org/issues_projects/issues_2/fire.html" class="link">Intertribal Timber Council</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.stateforesters.org/where-we-stand/wildfire/" class="link">National Association of State Foresters</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.nps.gov/fire/" class="link">National Park Service</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.war.gov/" class="link">U.S. Department of Defense</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.usfa.fema.gov/" class="link">U.S. Fire Administration</a>
+        </li>
+          
+        
+    
+    
+  
+                          </ul>
+          </section>
+        </div>
+                              
+                    
+      
+              <div class="mobile-lg:grid-col-6 desktop:grid-col">
+          <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+            <span class="nolink usa-footer__primary-link text-bold">NWCG Associate Members</span>
+            <ul class="usa-list usa-list--unstyled">
+                                  
+        
+    
+    
+                        
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.nwcg.gov/positions/advanced-faller/qualification-requirements" class="link">Incident Management Teams Association</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.weather.gov/" class="link">National Weather Service</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.doi.gov/wildlandfire" class="link">Office of Wildland Fire</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.nasa.gov/" class="link">National Aeronautics and Space Administration</a>
+        </li>
+          
+        
+    
+    
+  
+                          </ul>
+          </section>
+        </div>
+                              
+                    
+      
+              <div class="mobile-lg:grid-col-6 desktop:grid-col">
+          <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+            <span class="nolink usa-footer__primary-link text-bold">Executive Board</span>
+            <ul class="usa-list usa-list--unstyled">
+                                  
+        
+    
+    
+                        
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/executive-board" class="link" data-drupal-link-system-path="node/33">Executive Board Home</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/2025-04/nwcg-executive-board-sops-04-23-2025.pdf" class="link">Executive Board SOPs</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/committee/executive-board/correspondence" class="link" data-drupal-link-system-path="committee/executive-board/correspondence">Correspondence</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/executive-board/course-steering-committee" title="Course Steering Committe" class="link" data-drupal-link-system-path="node/39">Course Steering Committee</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/executive-board/meeting-notes" class="link" data-drupal-link-system-path="executive-board/meeting-notes">Meeting Minutes</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/2025-01/eb-nwcg-charter.pdf" class="link">NWCG Charter</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/2023-06/nwcg-shared-funding-mou-7-6-2022.pdf" class="link">NWCG Shared Funding MOU</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/executive-board/partners-and-agreements" class="link" data-drupal-link-system-path="node/31326">Partners and Agreements</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/executive-board/nwcg-project-priorities" class="link" data-drupal-link-system-path="node/151">Project Priorities</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/executive-board/wildland-fire-learning-portal-governance-board" class="link" data-drupal-link-system-path="node/41943">WFLP Governance Board</a>
+        </li>
+          
+        
+    
+    
+  
+                          </ul>
+          </section>
+        </div>
+                              
+                    
+      
+              <div class="mobile-lg:grid-col-6 desktop:grid-col">
+          <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+            <span class="nolink usa-footer__primary-link text-bold">Committees</span>
+            <ul class="usa-list usa-list--unstyled">
+                                  
+        
+    
+    
+                        
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/nwcg-committees" class="link" data-drupal-link-system-path="node/21">Committees Home</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/list-of-committees" class="link" data-drupal-link-system-path="node/40">List of Committees</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://fs-prod-nwcg.s3.us-gov-west-1.amazonaws.com/s3fs-public/2023-06/nwcg-master-committee-charter.pdf" class="link">NWCG Master Committee Charter</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/organizational-types" class="link" data-drupal-link-system-path="node/44">Organizational Types</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/committee-roles-and-membership-information" class="link" data-drupal-link-system-path="node/36">Committee Roles &amp; Membership Information</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/committees/nwcg-course-steering-committee-standard-operating-guidelines" class="link" data-drupal-link-system-path="node/39244">CSC Standard Operating Guidelines</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/committee-roles-and-membership-information#guidance-templates" class="link" data-drupal-link-system-path="node/36">Meetings Agenda &amp; Notes Template</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/criteria-for-becoming-an-nwcg-committee" class="link" data-drupal-link-system-path="node/42">Committee Criteria</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/committees/budget-guidance" class="link" data-drupal-link-system-path="node/24609">Budget Guidance</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/committees/committee-connections" class="link" data-drupal-link-system-path="node/35216">Committee Connections</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/committees/travel-reimbursement-for-nwcg-state-member-representatives" class="link" data-drupal-link-system-path="node/28632">State Member Travel Guidance</a>
+        </li>
+          
+        
+    
+    
+  
+                          </ul>
+          </section>
+        </div>
+                              
+                    
+      
+              <div class="mobile-lg:grid-col-6 desktop:grid-col">
+          <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+            <span class="nolink usa-footer__primary-link text-bold">Rosters &amp; Memberships</span>
+            <ul class="usa-list usa-list--unstyled">
+                                  
+        
+    
+    
+                        
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/executive-board/nwcg-staff" class="link" data-drupal-link-system-path="node/41">NWCG Staff Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/nwcg-master-roster" class="link" data-drupal-link-system-path="node/119">NWCG Master Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/bureau-of-land-management-roster" class="link" data-drupal-link-system-path="node/41919">Bureau of Land Management Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/bureau-of-indian-affairs-roster" class="link" data-drupal-link-system-path="node/41917">Bureau of Indian Affairs Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/fish-and-wildlife-service-roster" class="link" data-drupal-link-system-path="node/41920">Fish &amp; Wildlife Service Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/forest-service-roster" class="link" data-drupal-link-system-path="node/41921">Forest Service Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.nwcg.gov/partners/incident-workforce-development-group#iwdgmembership" class="link"> Incident Workforce Development Group Membership</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/international-association-of-fire-chiefs-roster" class="link" data-drupal-link-system-path="node/41923">International Association of Fire Chiefs Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/national-association-of-state-foresters-roster" class="link" data-drupal-link-system-path="node/41924">National Association of State Foresters Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/national-park-service-roster" class="link" data-drupal-link-system-path="node/41922">National Park Service Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/us-fire-administration-roster" class="link" data-drupal-link-system-path="node/41925">US Fire Administration Roster</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/other-roster" class="link" data-drupal-link-system-path="node/41926">Other Roster</a>
+        </li>
+          
+        
+    
+    
+  
+                          </ul>
+          </section>
+        </div>
+                              
+                    
+      
+              <div class="mobile-lg:grid-col-6 desktop:grid-col">
+          <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+            <span class="nolink usa-footer__primary-link text-bold">Quick Links</span>
+            <ul class="usa-list usa-list--unstyled">
+                                  
+        
+    
+    
+                        
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/about-us" class="link" data-drupal-link-system-path="node/41999">About Us</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/frequently-asked-questions" class="link" data-drupal-link-system-path="node/93621">Frequently Asked Questions (FAQ)</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/training/iptm" class="link" data-drupal-link-system-path="node/37476">Incident Performance and Training Modernization (IPTM)</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/positions/incident-position-management" class="link" data-drupal-link-system-path="node/40759">Incident Position Management</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/training/nwcg-position-task-books" class="link" data-drupal-link-system-path="node/85">Position Task Books (PTB&#039;s)</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/nwcg-publications" class="link" data-drupal-link-system-path="node/34">Publications</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/nwcg-training" class="link" data-drupal-link-system-path="node/16">Training</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://wildlandfirelearningportal.net/" class="link">Wildland Fire Learning Portal</a>
+        </li>
+          
+        
+    
+    
+  
+                          </ul>
+          </section>
+        </div>
+                              
+                    
+      
+              <div class="mobile-lg:grid-col-6 desktop:grid-col">
+          <section class="usa-footer__primary-content usa-footer__primary-content--collapsible">
+            <span class="nolink usa-footer__primary-link text-bold">Helpful Links</span>
+            <ul class="usa-list usa-list--unstyled">
+                                  
+        
+    
+    
+                        
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/notices#accessibility" class="link" data-drupal-link-system-path="node/29314">Accessibility</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/notices#copyrights" class="link" data-drupal-link-system-path="node/29314">Copyrights</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/notices#linking" class="link" data-drupal-link-system-path="node/29314">Linking Policy</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/notices" class="link" data-drupal-link-system-path="node/29314">Notices</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/nwcg-branding-guidelines" class="link" data-drupal-link-system-path="node/35741">NWCG Branding Guidelines</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="/notices#records" class="link" data-drupal-link-system-path="node/29314">Records Management</a>
+        </li>
+                              
+                    
+      
+              <li class="usa-footer__secondary-link">
+            <a href="https://www.usa.gov/" class="link">USA.GOV</a>
+        </li>
+          
+        
+    
+    
+  
+                          </ul>
+          </section>
+        </div>
+          
+          </div>
+              </nav>
+    
+          </div>
+    
+    
+  
+
+
+
+
+              
+              
+                          </div>
+          </div>
+          
+                  </div>
+
+      </div>
+    
+          <div class="usa-footer__secondary-section">
+        <div class="grid-container">
+          <div class="grid-row grid-gap">
+                        <div
+              class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+
+                            <a href="https://www.nwcg.gov/">
+              
+                <div class="footer-left-wrapper">
+                  <div class="footer-left--content">
+                                          <div class="mobile-lg:grid-col-auto">
+                        <img class="usa-footer__logo-img"
+                             src="/themes/uswds_base_subtheme/logo.png"
+                             alt="Agency logo">
+                      </div>
+                                      </div>
+
+                  <div class="footer-right--content">
+                                          <div class="mobile-lg:grid-col-auto">
+                        <h3 class="usa-footer__logo-heading">
+                          <div class="site-name">
+                              NWCG
+                          </div>  <br/>
+                          <div class="site-slogan">
+                              National Wildfire Coordinating Group
+                          </div>
+                        </h3>
+                      </div>
+                                      </div>
+                </div>
+
+                            </a>
+              
+            </div>
+
+                          <div class="usa-footer__contact-links desktop:grid-col-6">
+                <address class="usa-footer__address">
+                  <div class="usa-footer__contact-info grid-row grid-gap">
+                                          <div class="grid-col-auto">
+                        <a href="/contact-us">Contact Us</a>
+                      </div>
+                                                              <div class="grid-col-auto subscribe-link">|</div>
+                      <div class="grid-col-auto">
+                        <a href="https://nwcg.us15.list-manage.com/subscribe?u=f6ef65083afb95841916d1a7f&amp;id=dcf602e34c">Subscribe</a>
+                      </div>
+                                        
+                                      </div>
+                </address>
+                                  <div class="usa-footer__social-links grid-row grid-gap-1">
+                    <div class="grid-col-auto footer-label">Follow Us</div>
+                                          <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--facebook" href="https://www.facebook.com/NationalWildfireCoordinatingGroup/">
+                          <img class="usa-social-link__icon" src="/themes/uswds_base_subtheme/assets/img/usa-icons/facebook-white.svg" alt="Facebook">
+                        </a>
+                      </div>
+                    
+                                          <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--twitter" href="https://twitter.com/NWCG">
+                          <img class="usa-social-link__icon" src="/themes/uswds_base_subtheme/assets/img/usa-icons/twitter-white.svg" alt="Twitter">
+                        </a>
+                      </div>
+                    
+                                          <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--youtube" href="https://www.youtube.com/channel/UC2UGc-Go278iRaagyubI6VQ/videos">
+                          <img class="usa-social-link__icon" src="/themes/uswds_base_subtheme/assets/img/usa-icons/youtube-white.svg" alt="YouTube">
+                        </a>
+                      </div>
+                    
+                    
+                                      </div>
+                              </div>
+            
+          </div>
+          
+                  </div>
+      </div>
+    
+  </footer>
+
+
+  </div>
+
+
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/24105","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJx1kWuOwyAMhC9E6yMhB9zUG8CR7TTN7Ze26WMr7R88M58wBjBnF2wb4C6OJ5XmIU2U2UVjkiI6yDVyK9wI_gPh6cFc0nSWUm1rWaW-0avH11a6eq8TZF1mLMfdhhP7hbPBXl-eG3sYRcZCERuWzTkZfAeh4CaLx2HhkknBV-nnRqPkLO1JM1uSC-kG0qjzMCs3j6iE8JZBqcQmMlPrncYiA5ZgMscL02qR6yzqnfTocI8Oz-hgvhUKtplThQGNwmJrtniTcFKstIpOH2G0ZfAzVQI0I7cdvd69z0Sj4u0S8ECYkmju_vF31HK4DwH39Yg_eP0TVMlLoV_YI8pc","theme":"uswds_base_subtheme","theme_token":null},"ajaxTrustedUrl":[],"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"fitvids":{"selectors":".node\r,.nwcg-responsive-iframe","custom_vendors":["iframe[src^=\u0022https:\/\/youtu.be\u0022]"],"ignore_selectors":""},"google_analytics":{"account":"G-TWBRDF94HH","trackOutbound":true,"trackMailto":true,"trackTel":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackColorbox":true},"data":{"extlink":{"extTarget":false,"extTargetAppendNewWindowDisplay":false,"extTargetAppendNewWindowLabel":"(opens in a new window)","extTargetNoOverride":false,"extNofollow":false,"extTitleNoOverride":false,"extNoreferrer":true,"extFollowNoOverride":false,"extClass":"ext","extLabel":"(link is external)","extImgClass":false,"extSubdomains":true,"extExclude":".*\\.gov","extInclude":"","extCssExclude":".usa-footer__primary-content","extCssInclude":"","extCssExplicit":"","extAlert":true,"extAlertText":"This link will direct you to a non-government website that may have different policies from those of NWCG.","extHideIcons":false,"mailtoClass":"0","telClass":"tel","mailtoLabel":"(link sends email)","telLabel":"(link is a phone number)","extUseFontAwesome":false,"extIconPlacement":"after","extPreventOrphan":false,"extFaLinkClasses":"fa fa-external-link","extFaMailtoClasses":"fa fa-envelope-o","extAdditionalLinkClasses":"","extAdditionalMailtoClasses":"","extAdditionalTelClasses":"","extFaTelClasses":"fa fa-phone","allowedDomains":null,"extExcludeNoreferrer":""}},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:787ff311c96dcaa2f51899e19f8481348909b0c1ec136a41e4bb6c1205900de8":{"view_name":"latest_announcements","view_display_id":"announcements_block","view_args":"","view_path":"\/node\/1591841","view_base_path":"communications\/nwcg-announcements","view_dom_id":"787ff311c96dcaa2f51899e19f8481348909b0c1ec136a41e4bb6c1205900de8","pager_element":0},"views_dom_id:0c6c76b9348af3f48ae2a14f682a70ecfdd808168c8f6f968165f743532845fe":{"view_name":"latest_announcements","view_display_id":"latest_announcements","view_args":"","view_path":"\/node\/1591841","view_base_path":"communications\/nwcg-announcements","view_dom_id":"0c6c76b9348af3f48ae2a14f682a70ecfdd808168c8f6f968165f743532845fe","pager_element":0}}},"csp":{"nonce":"MBEZbfGcRI_hhYTOBdh1mQ"},"user":{"uid":0,"permissionsHash":"47febaf8a54c1275d345ad37b4e0b15d8ada609125d58f5f03d6a29d46378773"}}</script>
+<script src="/core/assets/vendor/jquery/jquery.min.js?v=3.7.1"></script>
+<script src="/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
+<script src="/core/misc/drupalSettingsLoader.js?v=10.4.9"></script>
+<script src="/core/misc/drupal.js?v=10.4.9"></script>
+<script src="/core/misc/drupal.init.js?v=10.4.9"></script>
+<script src="/core/assets/vendor/tabbable/index.umd.min.js?v=6.2.0"></script>
+<script src="https://static.addtoany.com/menu/page.js" defer></script>
+<script src="/modules/contrib/addtoany/js/addtoany.js?v=10.4.9"></script>
+<script src="/modules/contrib/colorbox/js/colorbox.js?v=10.4.9"></script>
+<script src="/modules/contrib/colorbox/styles/stockholmsyndrome/colorbox_style.js?v=10.4.9"></script>
+<script src="/libraries/colorbox/jquery.colorbox-min.js?v=10.4.9"></script>
+<script src="/modules/contrib/colorbox_inline/js/colorbox_inline.js?t8s8bb"></script>
+<script src="/modules/contrib/extlink/js/extlink.js?t8s8bb"></script>
+<script src="/libraries/fitvids/jquery.fitvids.js?v=10.4.9"></script>
+<script src="/modules/contrib/fitvids/js/init-fitvids.js?v=10.4.9"></script>
+<script src="/modules/contrib/google_analytics/js/google_analytics.js?v=10.4.9"></script>
+<script src="/modules/custom/custom-hooks/print_area/js/print_area.js?v=1"></script>
+<script src="/modules/custom/rel_noopener/js/rel-noopener.js?t8s8bb"></script>
+<script src="/themes/uswds_base_subtheme/assets/js/uswds-init.min.js?v=10.4.9"></script>
+<script src="/themes/uswds_base_subtheme/assets/js/uswds.min.js?v=10.4.9"></script>
+<script src="/themes/uswds_base_subtheme/assets/js/minified/main.min.js?v=10.4.9"></script>
+<script src="/modules/contrib/uswds_ckeditor_integration/js/aftermarket/uswds_accordion.js?t8s8bb"></script>
+<script src="/core/misc/jquery.form.js?v=4.3.0"></script>
+<script src="/core/misc/progress.js?v=10.4.9"></script>
+<script src="/core/assets/vendor/loadjs/loadjs.min.js?v=4.3.0"></script>
+<script src="/core/misc/debounce.js?v=10.4.9"></script>
+<script src="/core/misc/announce.js?v=10.4.9"></script>
+<script src="/core/misc/message.js?v=10.4.9"></script>
+<script src="/core/misc/ajax.js?v=10.4.9"></script>
+<script src="/core/modules/views/js/base.js?v=10.4.9"></script>
+<script src="/core/modules/views/js/ajax_view.js?v=10.4.9"></script>
+
+</body>
+</html>

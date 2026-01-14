@@ -1,0 +1,75 @@
+INFO:     Will watch for changes in these directories: ['/home/camdenrose5/.gemini/antigravity/scratch/firefighter-exam-prep/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [26745] using WatchFiles
+INFO:     Started server process [26756]
+INFO:     Waiting for application startup.
+/home/camdenrose5/.gemini/antigravity/scratch/firefighter-exam-prep/backend/venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py:433: UserWarning: This feature is deprecated as of June 24, 2025 and will be removed on June 24, 2026. For details, see https://cloud.google.com/vertex-ai/generative-ai/docs/deprecations/genai-vertexai-sdk.
+  warning_logs.show_deprecation_warning()
+/home/camdenrose5/.gemini/antigravity/scratch/firefighter-exam-prep/backend/venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py:433: UserWarning: This feature is deprecated as of June 24, 2025 and will be removed on June 24, 2026. For details, see https://cloud.google.com/vertex-ai/generative-ai/docs/deprecations/genai-vertexai-sdk.
+  warning_logs.show_deprecation_warning()
+/home/camdenrose5/.gemini/antigravity/scratch/firefighter-exam-prep/backend/venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py:433: UserWarning: This feature is deprecated as of June 24, 2025 and will be removed on June 24, 2026. For details, see https://cloud.google.com/vertex-ai/generative-ai/docs/deprecations/genai-vertexai-sdk.
+  warning_logs.show_deprecation_warning()
+INFO:     Application startup complete.
+🔥 Fire Captain Quiz Engine initialized (production mode)
+   Project: project-bdf7b730-5186-489d-b01, DataStore: fire-exam-prep-v2_1768345287877
+🎓 Fire Captain Tutor initialized (production mode)
+🔥 Firefighter Exam Prep backend initialized!
+INFO:     127.0.0.1:55828 - "POST /api/quiz/batch HTTP/1.1" 200 OK
+⚠️ RAW RESPONSE TEXT: ```json
+{
+  "question": "In a training video, you observe Firefighter Chen consistently using their personal cell phone during non-emergency training drills, distracting themselves and occasionally missing instructions. This behavior has been noted by other crew members.",
+  "options": [
+    "A. Publicly call out Firefighter Chen during the next drill to make an example for the rest of the crew.",
+    "B. Report Firefighter Chen's behavior to the Battalion Chief, requesting a formal reprimand.",
+    "C. Ignore the behavior, assuming it's a personal choice that doesn't significantly impact team performance.",
+    "D. Speak with Firefighter Chen privately after the drill to discuss the observed behavior and its potential impact on safety and team cohesion.",
+  ],
+  "correct_answer": "D",
+  "explanation": "Addressing issues at the lowest possible level, privately and respectfully, is crucial for maintaining team morale and resolving minor conflicts. Confronting publicly (A) can cause embarrassment and resentment. Escalating immediately to a Battalion Chief (B) is often an overreaction for a first step. Ignoring the issue (C) allows the problem to persist and potentially worsen. A private conversation (D) allows for understanding and a chance for the individual to correct their behavior without unnecessary conflict."
+}
+```
+⚠️ Generator error: Could not parse JSON from response: ```json
+{
+  "question": "In a training video, you observe Firefighter Chen consistently using their personal cell phone during non-emergency training drills, distracting themselves and occasionally mi
+⚠️ Generation failed: Could not parse JSON from response: ```json
+{
+  "question": "In a training video, you observe Firefighter Chen consistently using their personal cell phone during non-emergency training drills, distracting themselves and occasionally mi
+INFO:     127.0.0.1:40470 - "POST /api/quiz/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35332 - "OPTIONS /api/quiz/batch HTTP/1.1" 200 OK
+⚠️ RAW RESPONSE TEXT: ```json
+{
+  "question": "A new Standard Operating Procedure (SOP) has been issued for initial attack on commercial structure fires. It states: 'Upon arrival at a confirmed commercial structure fire, the first-due Engine Company Officer (ECO) shall establish Command. If the structure is single-story with light smoke showing, deploy a 1.75-inch attack line for an offensive interior attack and request one additional engine. If the structure is multi-story or has heavy smoke/fire showing, deploy two 2.5-inch attack lines for a defensive exterior attack, request a second alarm, and ensure all personnel maintain a safe distance.'\n\nEngine 4 arrives first at a confirmed commercial structure fire. The ECO observes a two-story building with moderate smoke showing from the second-floor windows. According to the new SOP, what is the correct immediate action for Engine 4's ECO?",
+  "options": [
+    "Establish Command, deploy a 1.75-inch attack line for an offensive interior attack, and request one additional engine.",
+    "Establish Command, deploy two 2.5-inch attack lines for a defensive exterior attack, request a second alarm, and ensure personnel maintain a safe distance.",
+    "Establish Command, deploy a 1.75-inch attack line for
+⚠️ Generator error: Could not parse JSON from response: ```json
+{
+  "question": "A new Standard Operating Procedure (SOP) has been issued for initial attack on commercial structure fires. It states: 'Upon arrival at a confirmed commercial structure fire, t
+⚠️ Generation failed: Could not parse JSON from response: ```json
+{
+  "question": "A new Standard Operating Procedure (SOP) has been issued for initial attack on commercial structure fires. It states: 'Upon arrival at a confirmed commercial structure fire, t
+⚠️ RAW RESPONSE TEXT: ```json
+{
+  "question": "Read the following excerpt from a departmental Standard Operating Procedure (SOP) regarding apparatus maintenance:\n\n\"Upon completion of any shift, the assigned Apparatus Operator (AO) is responsible for conducting a thorough inspection of their assigned vehicle. This inspection includes checking all fluid levels, tire pressure, and ensuring all emergency lighting is operational. Following this, the AO must verify that all SCBA cylinders are at 90% capacity or greater and that all portable radios are fully charged. Any deficiencies found during this initial check must be immediately documented in the electronic logbook. Finally, the AO will report the apparatus status to the oncoming shift's Company Officer during the shift change briefing.\"\n\nBased on this SOP, what is the *next* action an Apparatus Operator should take immediately after checking all fluid levels, tire pressure, and emergency lighting?",
+  "options": [
+    "A) Document any deficiencies in the electronic logbook.",
+    "B) Report the apparatus status to the oncoming shift's Company Officer.",
+    "C) Verify that all SCBA cylinders are at 90% capacity or greater and portable radios are fully charged.",
+    "D) Conduct a thorough inspection of the assigned vehicle."
+  ],
+  "correct_answer":
+⚠️ Generator error: Could not parse JSON from response: ```json
+{
+  "question": "Read the following excerpt from a departmental Standard Operating Procedure (SOP) regarding apparatus maintenance:\n\n\"Upon completion of any shift, the assigned Apparatus Op
+⚠️ Generation failed: Could not parse JSON from response: ```json
+{
+  "question": "Read the following excerpt from a departmental Standard Operating Procedure (SOP) regarding apparatus maintenance:\n\n\"Upon completion of any shift, the assigned Apparatus Op
+INFO:     127.0.0.1:35332 - "POST /api/quiz/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44406 - "OPTIONS /api/quiz/report HTTP/1.1" 200 OK
+⚠️ [REPORT] Question 2072ef86-dd72-4ddd-a01e-a07829266d5a flagged. Reason: User flagged in UI
+INFO:     127.0.0.1:44406 - "POST /api/quiz/report HTTP/1.1" 200 OK
+⚠️ [REPORT] Question 2072ef86-dd72-4ddd-a01e-a07829266d5a flagged. Reason: User flagged in UI
+INFO:     127.0.0.1:44406 - "POST /api/quiz/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42220 - "GET /api/quiz/flashcards?subjects=human-relations,mechanical-aptitude,reading-ability,math HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37968 - "GET /api/quiz/flashcards?subjects=human-relations,mechanical-aptitude,reading-ability,math HTTP/1.1" 200 OK

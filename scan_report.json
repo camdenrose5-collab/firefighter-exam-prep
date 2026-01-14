@@ -1,0 +1,842 @@
+[
+  {
+    "filename": "FM_5-134_Demolition_Materials.pdf",
+    "pages": 176,
+    "image_count": 688,
+    "char_count": 203641,
+    "image_density": 3.91,
+    "text_density": 1157.05,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "FM_5-250_Explosives_and_Demolitions.pdf",
+    "pages": 274,
+    "image_count": 2927,
+    "char_count": 285221,
+    "image_density": 10.68,
+    "text_density": 1040.95,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Training_Requirements_by_Standard.pdf",
+    "pages": 270,
+    "image_count": 12,
+    "char_count": 545207,
+    "image_density": 0.04,
+    "text_density": 2019.29,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Aerial_Supervision_Logbook.pdf",
+    "pages": 25,
+    "image_count": 3,
+    "char_count": 24207,
+    "image_density": 0.12,
+    "text_density": 968.28,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Agency_Administrator\u2019s_Guide_To_Critical_Incident_Management.pdf",
+    "pages": 53,
+    "image_count": 3,
+    "char_count": 77390,
+    "image_density": 0.06,
+    "text_density": 1460.19,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "A_Preparedness_Guide_for_Wildland_Firefighters_and_Their_Families.pdf",
+    "pages": 24,
+    "image_count": 20,
+    "char_count": 53127,
+    "image_density": 0.83,
+    "text_density": 2213.62,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Basic_Land_Navigation.pdf",
+    "pages": 172,
+    "image_count": 135,
+    "char_count": 140619,
+    "image_density": 0.78,
+    "text_density": 817.55,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Buying_Team_Extension_Request_Form.pdf",
+    "pages": 1,
+    "image_count": 0,
+    "char_count": 1096,
+    "image_density": 0.0,
+    "text_density": 1096.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Buying_Team_Incident_Waybill.pdf",
+    "pages": 1,
+    "image_count": 0,
+    "char_count": 637,
+    "image_density": 0.0,
+    "text_density": 637.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Clinical_Treatment_Guidelines_for_Wildland_Fire_Medical_Units.pdf",
+    "pages": 52,
+    "image_count": 115,
+    "char_count": 65793,
+    "image_density": 2.21,
+    "text_density": 1265.25,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Comportamiento_Incidental_Form.pdf",
+    "pages": 1,
+    "image_count": 0,
+    "char_count": 1843,
+    "image_density": 0.0,
+    "text_density": 1843.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Design_and_Delivery_of_Tactical_Decision_Games.pdf",
+    "pages": 40,
+    "image_count": 8,
+    "char_count": 70458,
+    "image_density": 0.2,
+    "text_density": 1761.45,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Emergency_Facilities_&_Land_Use_Agreement.pdf",
+    "pages": 3,
+    "image_count": 0,
+    "char_count": 9467,
+    "image_density": 0.0,
+    "text_density": 3155.67,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Federal_Wildland_Fire_Temporary_Tower_Request_Form.pdf",
+    "pages": 2,
+    "image_count": 2,
+    "char_count": 2262,
+    "image_density": 1.0,
+    "text_density": 1131.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Fire_Behavior_Nomograms.pdf",
+    "pages": 28,
+    "image_count": 56,
+    "char_count": 40268,
+    "image_density": 2.0,
+    "text_density": 1438.14,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Fire_Weather_Cloud_Chart.pdf",
+    "pages": 1,
+    "image_count": 68,
+    "char_count": 5081,
+    "image_density": 68.0,
+    "text_density": 5081.0,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Guide_to_Preventing_Aquatic_Invasive_Species_Transport_by_Wildland_Fire_Operatio.pdf",
+    "pages": 66,
+    "image_count": 52,
+    "char_count": 115525,
+    "image_density": 0.79,
+    "text_density": 1750.38,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Guide_to_Wildland_Fire_Origin_and_Cause_Determination.pdf",
+    "pages": 248,
+    "image_count": 1037,
+    "char_count": 430749,
+    "image_density": 4.18,
+    "text_density": 1736.89,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Hazard_Relief_Participant_Request_Form.pdf",
+    "pages": 2,
+    "image_count": 1,
+    "char_count": 6218,
+    "image_density": 0.5,
+    "text_density": 3109.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Incident_Behavior_Form.pdf",
+    "pages": 1,
+    "image_count": 0,
+    "char_count": 1683,
+    "image_density": 0.0,
+    "text_density": 1683.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Incident_Commander's_Organizer.pdf",
+    "pages": 15,
+    "image_count": 3,
+    "char_count": 9896,
+    "image_density": 0.2,
+    "text_density": 659.73,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Leading_in_the_Wildland_Fire_Service.pdf",
+    "pages": 72,
+    "image_count": 10,
+    "char_count": 90702,
+    "image_density": 0.14,
+    "text_density": 1259.75,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "NWCG_Aircraft_Dispatch_Form.pdf",
+    "pages": 1,
+    "image_count": 1,
+    "char_count": 559,
+    "image_density": 1.0,
+    "text_density": 559.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "NWCG_Aviation_Mishap_Response_Guide_and_Checklist.pdf",
+    "pages": 19,
+    "image_count": 9,
+    "char_count": 34327,
+    "image_density": 0.47,
+    "text_density": 1806.68,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "NWCG_Data_Management_Strategy.pdf",
+    "pages": 14,
+    "image_count": 9,
+    "char_count": 25318,
+    "image_density": 0.64,
+    "text_density": 1808.43,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "NWCG_Fire_Environment_Poster.pdf",
+    "pages": 1,
+    "image_count": 82,
+    "char_count": 9698,
+    "image_density": 82.0,
+    "text_density": 9698.0,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "NWCG_Fire_Prevention_Education_Team_Guide.pdf",
+    "pages": 42,
+    "image_count": 10,
+    "char_count": 88392,
+    "image_density": 0.24,
+    "text_density": 2104.57,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "NWCG_Fire_Prevention_Education_Team_Host_Unit_Guide.pdf",
+    "pages": 20,
+    "image_count": 4,
+    "char_count": 43510,
+    "image_density": 0.2,
+    "text_density": 2175.5,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "NWCG_Guia_de_Respuesta_de_Incidente_de_Bolsillo.pdf",
+    "pages": 140,
+    "image_count": 24,
+    "char_count": 165690,
+    "image_density": 0.17,
+    "text_density": 1183.5,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "NWCG_Guide_for_Wildland_Fire_Modules.pdf",
+    "pages": 80,
+    "image_count": 79,
+    "char_count": 82279,
+    "image_density": 0.99,
+    "text_density": 1028.49,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "NWCG_Guide_to_Fire_Behavior_Assessment.pdf",
+    "pages": 123,
+    "image_count": 150,
+    "char_count": 152634,
+    "image_density": 1.22,
+    "text_density": 1240.93,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "NWCG_High_Pressure_Portable_Pump_Instructions_Poster.pdf",
+    "pages": 2,
+    "image_count": 26,
+    "char_count": 6405,
+    "image_density": 13.0,
+    "text_density": 3202.5,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "NWCG_Incident_Response_Pocket_Guide_(IRPG).pdf",
+    "pages": 140,
+    "image_count": 33,
+    "char_count": 137552,
+    "image_density": 0.24,
+    "text_density": 982.51,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Anchorage_Fire_Dept_Written_Test_Guide_1.pdf",
+    "pages": 22,
+    "image_count": 14,
+    "char_count": 41565,
+    "image_density": 0.64,
+    "text_density": 1889.32,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Anchorage_Fire_Dept_Written_Test_Guide.pdf",
+    "pages": 22,
+    "image_count": 14,
+    "char_count": 41565,
+    "image_density": 0.64,
+    "text_density": 1889.32,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Austin_Entry-Level_Firefighter_Study_Guide_1.pdf",
+    "pages": 16,
+    "image_count": 10,
+    "char_count": 17127,
+    "image_density": 0.62,
+    "text_density": 1070.44,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Austin_Entry-Level_Firefighter_Study_Guide.pdf",
+    "pages": 16,
+    "image_count": 10,
+    "char_count": 17127,
+    "image_density": 0.62,
+    "text_density": 1070.44,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "FCTC_Study_Guide_Booklet_2018.pdf",
+    "pages": 13,
+    "image_count": 9,
+    "char_count": 16724,
+    "image_density": 0.69,
+    "text_density": 1286.46,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "FCTC_Written_Test_Orientation.pdf",
+    "pages": 25,
+    "image_count": 29,
+    "char_count": 39790,
+    "image_density": 1.16,
+    "text_density": 1591.6,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "FCTC_Written_Test_Prep_Guide_2020.pdf",
+    "pages": 25,
+    "image_count": 26,
+    "char_count": 39674,
+    "image_density": 1.04,
+    "text_density": 1586.96,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "FCTC_Written_Test_Study_Guide_2017.pdf",
+    "pages": 24,
+    "image_count": 27,
+    "char_count": 34041,
+    "image_density": 1.12,
+    "text_density": 1418.38,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "FM_5-125_Rigging_Techniques_Procedures_and_Applications.pdf",
+    "pages": 169,
+    "image_count": 3031,
+    "char_count": 187159,
+    "image_density": 17.93,
+    "text_density": 1107.45,
+    "flags": {
+      "image_heavy": true,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Fort_Worth_Firefighter_Written_Exam_Study_Guide_1.pdf",
+    "pages": 23,
+    "image_count": 23,
+    "char_count": 23,
+    "image_density": 1.0,
+    "text_density": 1.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": true,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Fort_Worth_Firefighter_Written_Exam_Study_Guide.pdf",
+    "pages": 23,
+    "image_count": 23,
+    "char_count": 23,
+    "image_density": 1.0,
+    "text_density": 1.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": true,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Kern_County_Fire_Written_Exam_Study_Guide_1.pdf",
+    "pages": 57,
+    "image_count": 21,
+    "char_count": 55353,
+    "image_density": 0.37,
+    "text_density": 971.11,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Kern_County_Fire_Written_Exam_Study_Guide.pdf",
+    "pages": 57,
+    "image_count": 21,
+    "char_count": 55353,
+    "image_density": 0.37,
+    "text_density": 971.11,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "LA_County_Fire_Written_Test_Study_Guide_1.pdf",
+    "pages": 24,
+    "image_count": 13,
+    "char_count": 33698,
+    "image_density": 0.54,
+    "text_density": 1404.08,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "LA_County_Fire_Written_Test_Study_Guide.pdf",
+    "pages": 24,
+    "image_count": 13,
+    "char_count": 33698,
+    "image_density": 0.54,
+    "text_density": 1404.08,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Las_Vegas_Firefighter_Written_Exam_Process_2025.pdf",
+    "pages": 3,
+    "image_count": 1,
+    "char_count": 7028,
+    "image_density": 0.33,
+    "text_density": 2342.67,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Louisiana_State_Firefighter_Written_Exam_Guide.pdf",
+    "pages": 54,
+    "image_count": 64,
+    "char_count": 50471,
+    "image_density": 1.19,
+    "text_density": 934.65,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Lubbock_Entry_Level_Firefighter_Study_Guide.pdf",
+    "pages": 20,
+    "image_count": 13,
+    "char_count": 38566,
+    "image_density": 0.65,
+    "text_density": 1928.3,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "NTN_Firefighter_Candidate_Orientation_Guide.pdf",
+    "pages": 21,
+    "image_count": 17,
+    "char_count": 29816,
+    "image_density": 0.81,
+    "text_density": 1419.81,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "NTN_Firefighter_Self_Preparation_Information.pdf",
+    "pages": 3,
+    "image_count": 1,
+    "char_count": 7422,
+    "image_density": 0.33,
+    "text_density": 2474.0,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "OSHA_Rigging_Equipment_Safety.pdf",
+    "pages": 35,
+    "image_count": 5,
+    "char_count": 52551,
+    "image_density": 0.14,
+    "text_density": 1501.46,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Phoenix_2025_Firefighter_Recruit_Study_Guide_1.pdf",
+    "pages": 43,
+    "image_count": 2,
+    "char_count": 91389,
+    "image_density": 0.05,
+    "text_density": 2125.33,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Phoenix_2025_Firefighter_Recruit_Study_Guide.pdf",
+    "pages": 43,
+    "image_count": 2,
+    "char_count": 91389,
+    "image_density": 0.05,
+    "text_density": 2125.33,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "Seattle_Firefighter_Written_Test_Workshop.pdf",
+    "pages": 12,
+    "image_count": 1,
+    "char_count": 23222,
+    "image_density": 0.08,
+    "text_density": 1935.17,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": false
+    }
+  },
+  {
+    "filename": "Tulsa_Firefighter_Written_Exam_Study_Guide.pdf",
+    "pages": 37,
+    "image_count": 1,
+    "char_count": 53049,
+    "image_density": 0.03,
+    "text_density": 1433.76,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "USFA_Fire_Department_Safety_Officer_Guide.pdf",
+    "pages": 197,
+    "image_count": 7,
+    "char_count": 564834,
+    "image_density": 0.04,
+    "text_density": 2867.18,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  },
+  {
+    "filename": "usda_water_ax_math.pdf",
+    "pages": 275,
+    "image_count": 141,
+    "char_count": 402880,
+    "image_density": 0.51,
+    "text_density": 1465.02,
+    "flags": {
+      "image_heavy": false,
+      "low_text": false,
+      "potential_scan": false,
+      "table_keywords": true
+    }
+  }
+]

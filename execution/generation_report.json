@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-01-14T10:13:41.651210",
+  "stats": {
+    "total_generated": 10,
+    "total_passed": 9,
+    "total_failed": 1,
+    "by_subject": {
+      "human-relations": {
+        "generated": 9,
+        "failed": 1
+      }
+    },
+    "failures": [
+      {
+        "question": {
+          "question": "In a training video, you observe a new recruit consistently struggling with the proper operation of the K-tool during forcible entry drills, causing noticeable delays for the team. The recruit appears frustrated and hesitant.",
+          "options": [
+            "A) Inform the training officer about the recruit's difficulties after the drill concludes.",
+            "B) Publicly point out the recruit's errors during the drill so they can correct them immediately.",
+            "C) Approach the recruit privately after the drill and offer to practice the K-tool operation with them.",
+            "D) Continue with the drill, assuming the recruit will eventually master the skill with more practice."
+          ],
+          "correct_answer": "C",
+          "explanation": "This approach addresses the issue directly and constructively at the lowest level. Offering private assistance fosters teamwork, builds confidence, and avoids public embarrassment, which aligns with supporting colleagues and resolving issues without unnecessary escalation."
+        },
+        "issues": [
+          "Correct Answer: Correct answer not in options: C"
+        ]
+      }
+    ]
+  },
+  "failures": [
+    {
+      "question": {
+        "question": "In a training video, you observe a new recruit consistently struggling with the proper operation of the K-tool during forcible entry drills, causing noticeable delays for the team. The recruit appears frustrated and hesitant.",
+        "options": [
+          "A) Inform the training officer about the recruit's difficulties after the drill concludes.",
+          "B) Publicly point out the recruit's errors during the drill so they can correct them immediately.",
+          "C) Approach the recruit privately after the drill and offer to practice the K-tool operation with them.",
+          "D) Continue with the drill, assuming the recruit will eventually master the skill with more practice."
+        ],
+        "correct_answer": "C",
+        "explanation": "This approach addresses the issue directly and constructively at the lowest level. Offering private assistance fosters teamwork, builds confidence, and avoids public embarrassment, which aligns with supporting colleagues and resolving issues without unnecessary escalation."
+      },
+      "issues": [
+        "Correct Answer: Correct answer not in options: C"
+      ]
+    }
+  ]
+}

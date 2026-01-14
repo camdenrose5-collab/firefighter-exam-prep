@@ -1,0 +1,208 @@
+[
+  {
+    "pillar": "mechanical",
+    "category": "Mechanical",
+    "started_at": "2026-01-12T19:09:34.541755",
+    "total": 4,
+    "downloaded": 2,
+    "skipped": 0,
+    "failed": 2,
+    "downloads": [
+      {
+        "url": "https://www.globalsecurity.org/military/library/policy/army/fm/5-125/fm5-125.pdf",
+        "title": "FM 5-125 Rigging Techniques Procedures and Applications",
+        "category": "Mechanical",
+        "pillar": "mechanical",
+        "success": true,
+        "filename": "FM_5-125_Rigging_Techniques_Procedures_and_Applications.pdf",
+        "error": null,
+        "size_bytes": 3816989
+      },
+      {
+        "url": "https://www.osha.gov/sites/default/files/publications/osha3146.pdf",
+        "title": "OSHA Fall Protection in Construction",
+        "category": "Mechanical",
+        "pillar": "mechanical",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.osha.gov/sites/default/files/publications/osha3146.pdf"
+      },
+      {
+        "url": "https://www.osha.gov/sites/default/files/publications/OSHA3990.pdf",
+        "title": "OSHA Rigging Equipment Safety",
+        "category": "Mechanical",
+        "pillar": "mechanical",
+        "success": true,
+        "filename": "OSHA_Rigging_Equipment_Safety.pdf",
+        "error": null,
+        "size_bytes": 1564458
+      },
+      {
+        "url": "https://www.cdc.gov/niosh/docs/2004-101/pdfs/2004-101.pdf",
+        "title": "NIOSH Simple Solutions for Home Building Workers",
+        "category": "Mechanical",
+        "pillar": "mechanical",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.cdc.gov/niosh/docs/2004-101/pdfs/2004-101.pdf"
+      }
+    ],
+    "completed_at": "2026-01-12T19:09:52.954387"
+  },
+  {
+    "pillar": "math",
+    "category": "Math",
+    "started_at": "2026-01-12T19:09:52.954988",
+    "total": 2,
+    "downloaded": 0,
+    "skipped": 0,
+    "failed": 2,
+    "downloads": [
+      {
+        "url": "https://www.usfa.fema.gov/downloads/pdf/publications/fa-197.pdf",
+        "title": "USFA Firefighter Fatalities in the US",
+        "category": "Math",
+        "pillar": "math",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.usfa.fema.gov/downloads/pdf/publications/fa-197.pdf"
+      },
+      {
+        "url": "https://www.nist.gov/system/files/documents/el/fire_research/R0901309.pdf",
+        "title": "NIST Fire Dynamics and Forensic Analysis",
+        "category": "Math",
+        "pillar": "math",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.nist.gov/system/files/documents/el/fire_research/R0901309.pdf"
+      }
+    ],
+    "completed_at": "2026-01-12T19:10:00.123544"
+  },
+  {
+    "pillar": "human_relations",
+    "category": "Human_Relations",
+    "started_at": "2026-01-12T19:10:00.124072",
+    "total": 5,
+    "downloaded": 2,
+    "skipped": 0,
+    "failed": 3,
+    "downloads": [
+      {
+        "url": "https://www.nwcg.gov/sites/default/files/publications/pms494-2.pdf",
+        "title": "NWCG Incident Response Pocket Guide",
+        "category": "Human_Relations",
+        "pillar": "human_relations",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.nwcg.gov/sites/default/files/publications/pms494-2.pdf"
+      },
+      {
+        "url": "https://www.nwcg.gov/sites/default/files/publications/pms461.pdf",
+        "title": "NWCG Wildland Fire Incident Management Field Guide",
+        "category": "Human_Relations",
+        "pillar": "human_relations",
+        "success": true,
+        "filename": "NWCG_Wildland_Fire_Incident_Management_Field_Guide.pdf",
+        "error": null,
+        "size_bytes": 91324
+      },
+      {
+        "url": "https://www.nwcg.gov/sites/default/files/docs/eb-memo-wfdss-crm-quick-reference-guide.pdf",
+        "title": "NWCG Crew Resource Management Quick Reference",
+        "category": "Human_Relations",
+        "pillar": "human_relations",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.nwcg.gov/sites/default/files/docs/eb-memo-wfdss-crm-quick-reference-guide.pdf"
+      },
+      {
+        "url": "https://www.iafc.org/docs/default-source/1safehealthshs/safety-culture-change-in-the-fire-service.pdf",
+        "title": "IAFC Safety Culture Change in the Fire Service",
+        "category": "Human_Relations",
+        "pillar": "human_relations",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.iafc.org/docs/default-source/1safehealthshs/safety-culture-change-in-the-fire-service.pdf"
+      },
+      {
+        "url": "https://www.ihi.org/resources/Pages/Tools/SBARToolkit.aspx",
+        "title": "IHI SBAR Communication Toolkit",
+        "category": "Human_Relations",
+        "pillar": "human_relations",
+        "success": true,
+        "filename": "IHI_SBAR_Communication_Toolkit.pdf",
+        "error": null,
+        "size_bytes": 105213
+      }
+    ],
+    "completed_at": "2026-01-12T19:10:25.224911"
+  },
+  {
+    "pillar": "fire_science",
+    "category": "Fire_Science",
+    "started_at": "2026-01-12T19:10:25.225572",
+    "total": 6,
+    "downloaded": 1,
+    "skipped": 0,
+    "failed": 5,
+    "downloads": [
+      {
+        "url": "https://www.cdc.gov/niosh/fire/pdfs/face200701.pdf",
+        "title": "NIOSH LODD Report - Human Factors Case Study 2007-01",
+        "category": "Fire_Science",
+        "pillar": "fire_science",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.cdc.gov/niosh/fire/pdfs/face200701.pdf"
+      },
+      {
+        "url": "https://www.cdc.gov/niosh/fire/pdfs/face200717.pdf",
+        "title": "NIOSH LODD Report - Contributing Factors 2007-17",
+        "category": "Fire_Science",
+        "pillar": "fire_science",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.cdc.gov/niosh/fire/pdfs/face200717.pdf"
+      },
+      {
+        "url": "https://www.cdc.gov/niosh/fire/pdfs/face200811.pdf",
+        "title": "NIOSH LODD Report - Team Communication 2008-11",
+        "category": "Fire_Science",
+        "pillar": "fire_science",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.cdc.gov/niosh/fire/pdfs/face200811.pdf"
+      },
+      {
+        "url": "https://www.cdc.gov/niosh/fire/pdfs/face200901.pdf",
+        "title": "NIOSH LODD Report - Incident Command 2009-01",
+        "category": "Fire_Science",
+        "pillar": "fire_science",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.cdc.gov/niosh/fire/pdfs/face200901.pdf"
+      },
+      {
+        "url": "https://www.cdc.gov/niosh/fire/pdfs/face201011.pdf",
+        "title": "NIOSH LODD Report - Situational Awareness 2010-11",
+        "category": "Fire_Science",
+        "pillar": "fire_science",
+        "success": false,
+        "filename": null,
+        "error": "404 Client Error: Not Found for url: https://www.cdc.gov/niosh/fire/pdfs/face201011.pdf"
+      },
+      {
+        "url": "https://www.usfa.fema.gov/downloads/pdf/publications/fa-220.pdf",
+        "title": "USFA Fire Department Safety Officer Guide",
+        "category": "Fire_Science",
+        "pillar": "fire_science",
+        "success": true,
+        "filename": "USFA_Fire_Department_Safety_Officer_Guide.pdf",
+        "error": null,
+        "size_bytes": 2957309
+      }
+    ],
+    "completed_at": "2026-01-12T19:10:53.427828"
+  }
+]

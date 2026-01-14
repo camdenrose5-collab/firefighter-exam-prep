@@ -1,0 +1,154 @@
+{
+  "started_at": "2026-01-12T18:37:11.547333",
+  "total": 18,
+  "downloaded": 18,
+  "failed": 0,
+  "skipped": 0,
+  "files": [
+    {
+      "url": "https://www.phoenix.gov/firesite/Documents/2025PHX%20FF%20Recruit%20Study%20Guide%20Final%20.pdf",
+      "title": "Phoenix 2025 Firefighter Recruit Study Guide",
+      "success": true,
+      "filename": "Phoenix_2025_Firefighter_Recruit_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.muni.org/Departments/Fire/Documents/2022%20AFD%20Online%20FF%20Test%20Orientation%20Guide.pdf",
+      "title": "Anchorage Fire Dept Written Test Guide",
+      "success": true,
+      "filename": "Anchorage_Fire_Dept_Written_Test_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.fortworthtexas.gov/files/assets/public/public-safety/fire/documents/fire-study-guide.pdf",
+      "title": "Fort Worth Firefighter Written Exam Study Guide",
+      "success": true,
+      "filename": "Fort_Worth_Firefighter_Written_Exam_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "http://fire.lacounty.gov/wp-content/uploads/2019/09/LACoFD-Test-StudyGuide_May1_2019-Final.pdf",
+      "title": "LA County Fire Written Test Study Guide",
+      "success": true,
+      "filename": "LA_County_Fire_Written_Test_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.austintexas.gov/sites/default/files/files/Employment/2021/2021-STUDY_GUIDE-AustinEntry-LevelFire_StudyGuide.pdf",
+      "title": "Austin Entry-Level Firefighter Study Guide",
+      "success": true,
+      "filename": "Austin_Entry-Level_Firefighter_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://kerncountyfire.org/wp-content/uploads/2022-FARP-Study-Guide.pdf",
+      "title": "Kern County Fire Written Exam Study Guide",
+      "success": true,
+      "filename": "Kern_County_Fire_Written_Exam_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.fctconline.org/media/uploads/fctc_written_test_orientation_2222019.pdf",
+      "title": "FCTC Written Test Orientation",
+      "success": true,
+      "filename": "FCTC_Written_Test_Orientation.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://cityoftulsa.org/media/1973/writtenexamstudyguide1.pdf",
+      "title": "Tulsa Firefighter Written Exam Study Guide",
+      "success": true,
+      "filename": "Tulsa_Firefighter_Written_Exam_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://ci.lubbock.tx.us/storage/images/hsEsXRC55ngb70kKJA2eFtTsiNRuXPWovf2StKNe.pdf",
+      "title": "Lubbock Entry Level Firefighter Study Guide",
+      "success": true,
+      "filename": "Lubbock_Entry_Level_Firefighter_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.seattle.gov/documents/Departments/fireJobs/FFApplicantWorkshopHandout.pdf",
+      "title": "Seattle Firefighter Written Test Workshop",
+      "success": true,
+      "filename": "Seattle_Firefighter_Written_Test_Workshop.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://ose.louisiana.gov/wp-content/uploads/2023/05/FF-Study-Guide-2021.pdf",
+      "title": "Louisiana State Firefighter Written Exam Guide",
+      "success": true,
+      "filename": "Louisiana_State_Firefighter_Written_Exam_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://docs.bryantx.gov/hr/StudyGuide.pdf",
+      "title": "Bryan TX Firefighter Written Exam Study Guide",
+      "success": true,
+      "filename": "Bryan_TX_Firefighter_Written_Exam_Study_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.fctconline.org/media/uploads/fctc_study_guide_-_2017_for_web.pdf",
+      "title": "FCTC Written Test Study Guide 2017",
+      "success": true,
+      "filename": "FCTC_Written_Test_Study_Guide_2017.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.fctconline.org/media/uploads/online_prepguide_2020.pdf",
+      "title": "FCTC Written Test Prep Guide 2020",
+      "success": true,
+      "filename": "FCTC_Written_Test_Prep_Guide_2020.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.fctconline.org/media/uploads/fctc_study_guide_booklet_apr_2018_for_web.pdf",
+      "title": "FCTC Study Guide Booklet 2018",
+      "success": true,
+      "filename": "FCTC_Study_Guide_Booklet_2018.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://www.nationaltestingnetwork.com/publicsafetyjobs/pdf/ffm_candidate_orientation_guide.pdf",
+      "title": "NTN Firefighter Candidate Orientation Guide",
+      "success": true,
+      "filename": "NTN_Firefighter_Candidate_Orientation_Guide.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://files.nationaltestingnetwork.com/ntn/pdf/Firefighter_Mile_Self_Preparation_Information.pdf",
+      "title": "NTN Firefighter Self Preparation Information",
+      "success": true,
+      "filename": "NTN_Firefighter_Self_Preparation_Information.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    },
+    {
+      "url": "https://files.lasvegasnevada.gov/fire-rescue/2025/Firefighter_Trainee_Recruitment_Process_June-12-2025.pdf",
+      "title": "Las Vegas Firefighter Written Exam Process 2025",
+      "success": true,
+      "filename": "Las_Vegas_Firefighter_Written_Exam_Process_2025.pdf",
+      "error": null,
+      "note": "Skipped (exists)"
+    }
+  ],
+  "completed_at": "2026-01-12T18:38:46.144229"
+}

@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="SBAR (Situation-Background-Assessment-Recommendation) is an easy-to-remember, concrete communication mechanism for framing any conversation, especially critical ones, requiring a clinician’s immediate attention and action and can be used as a tool to foster a culture of patient safety." />
+<link rel="canonical" href="https://www.ihi.org/library/tools/sbar-tool-situation-background-assessment-recommendation" />
+<meta property="og:title" content="SBAR Tool: Situation-Background-Assessment-Recommendation" />
+<meta property="og:description" content="SBAR (Situation-Background-Assessment-Recommendation) is an easy-to-remember, concrete communication mechanism for framing any conversation, especially critical ones, requiring a clinician’s immediate attention and action and can be used as a tool to foster a culture of patient safety." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="SBAR (Situation-Background-Assessment-Recommendation) is an easy-to-remember, concrete communication mechanism for framing any conversation, especially critical ones, requiring a clinician’s immediate attention and action and can be used as a tool to foster a culture of patient safety." />
+<meta name="twitter:title" content="SBAR Tool: Situation-Background-Assessment-Recommendation" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/ihi/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="ar" href="https://www.ihi.org/ar/library/tools/sbar-tool-situation-background-assessment-recommendation" />
+<link rel="alternate" hreflang="en" href="https://www.ihi.org/library/tools/sbar-tool-situation-background-assessment-recommendation" />
+<link rel="alternate" hreflang="fr" href="https://www.ihi.org/fr/node/23161" />
+<link rel="alternate" hreflang="pt-br" href="https://www.ihi.org/pt-br/library/tools/sbar-tool-situation-background-assessment-recommendation" />
+<link rel="alternate" hreflang="es" href="https://www.ihi.org/es/library/tools/sbar-tool-situation-background-assessment-recommendation" />
+<script>window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};</script>
+
+    <title>SBAR Tool: Situation-Background-Assessment-Recommendation | Institute for Healthcare Improvement</title>
+
+    <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NNXLDLJW');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_wEWhoslSjVj87WTEhI0vXPfpiQ5M0qdHIO8yXSJ-VSs.css?delta=0&amp;language=en&amp;theme=ihi&amp;include=eJwtjlEOxCAIRC_UrUcyKFhJVBqg2fT227r-zTyYzACiC4w7wBJ7URm-ceWQlACzXj1Ni_IdTQBjEe2TFBEnnfJokqB9zO_G45ioPul1VWrghFHJ5NJMtujfxRMOmsQqKEWv_H8w7mejmEFx64QMoXB7GvcMp7OMBYV6ItzfWeDvILvNqYcERj_aYVYb" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_VatV9h2J2iG6VOEPLw--fEQacLmxmZicKyjLgFFEofg.css?delta=1&amp;language=en&amp;theme=ihi&amp;include=eJwtjlEOxCAIRC_UrUcyKFhJVBqg2fT227r-zTyYzACiC4w7wBJ7URm-ceWQlACzXj1Ni_IdTQBjEe2TFBEnnfJokqB9zO_G45ioPul1VWrghFHJ5NJMtujfxRMOmsQqKEWv_H8w7mejmEFx64QMoXB7GvcMp7OMBYV6ItzfWeDvILvNqYcERj_aYVYb" />
+
+    
+    
+  </head>
+    <body class="path-node page-node-type-resource">
+    <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNXLDLJW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+        <a href="#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+  <header role="banner">
+    
+
+    
+<div data-ihi-component="header" class="header">
+          
+<div data-ihi-component="header-top"  class="header-top">
+  <div class="header-top-announcements">
+                <div data-sitewide-alert>
+                          </div>
+            </div>
+  <nav data-ihi-component="nav--top" class="header-top-menu" aria-label="Utility navigation">
+                  <a
+          href="https://my.ihi.org/myaccount"
+          role="menuitem"
+          aria-label="My IHI"
+                  >
+          My IHI
+        </a>
+                        <a
+          href="/help"
+          role="menuitem"
+          aria-label="Help"
+                  >
+          Help
+        </a>
+                        <a
+          href="https://my.ihi.org/donate/givenow.aspx"
+          role="menuitem"
+          aria-label="Donate"
+                  >
+          Donate
+        </a>
+                                <section class="block-language" role="menu" tabindex="0">
+          <div class="selected">
+            <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.98957 15.0278C6.19596 14.4625 4.01735 11.8561 4.01735 8.00001C4.01735 4.1439 6.19596 1.53751 7.98957 0.972229M7.98957 15.0278V0.972229M7.98957 15.0278C9.78318 14.4625 11.9618 11.8561 11.9618 8.00001C11.9618 4.1439 9.78318 1.53751 7.98957 0.972229M7.98957 15.0278C9.85345 15.0278 11.641 14.2874 12.959 12.9694C14.2769 11.6514 15.0173 9.86389 15.0173 8.00001C15.0173 6.13612 14.2769 4.34858 12.959 3.03062C11.641 1.71265 9.85345 0.972229 7.98957 0.972229M7.98957 15.0278C6.12569 15.0278 4.33814 14.2874 3.02018 12.9694C1.70222 11.6514 0.961792 9.86389 0.961792 8.00001C0.961792 6.13612 1.70222 4.34858 3.02018 3.03062C4.33814 1.71265 6.12569 0.972229 7.98957 0.972229M14.7118 5.86112H1.26735M14.7118 10.1389H1.26735" stroke="#005F74" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+            English
+                          <span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.0202 0.979735C9.21546 1.175 9.21546 1.49158 9.0202 1.68684L5.35353 5.35351L4.99998 5.70706L4.64643 5.35351L0.97976 1.68684C0.784497 1.49158 0.784497 1.175 0.97976 0.979736C1.17502 0.784474 1.4916 0.784473 1.68687 0.979736L4.99998 4.29285L8.31309 0.979735C8.50836 0.784473 8.82494 0.784473 9.0202 0.979735Z" fill="#005F74"/>
+</svg>
+</span>
+                      </div>
+          <ul>
+                          <li>
+                <a
+                  href="https://www.ihi.org/ar/library/tools/sbar-tool-situation-background-assessment-recommendation"
+                  role="menuitem"
+                  aria-label="Arabic"
+                                  >
+                  Arabic
+                </a>
+              </li>
+                          <li>
+                <a
+                  href="https://www.ihi.org/library/tools/sbar-tool-situation-background-assessment-recommendation"
+                  role="menuitem"
+                  aria-label="English"
+                                  >
+                  English
+                </a>
+              </li>
+                          <li>
+                <a
+                  href="https://www.ihi.org/fr/node/23161"
+                  role="menuitem"
+                  aria-label="French"
+                                  >
+                  French
+                </a>
+              </li>
+                          <li>
+                <a
+                  href="https://www.ihi.org/pt-br/library/tools/sbar-tool-situation-background-assessment-recommendation"
+                  role="menuitem"
+                  aria-label="Portuguese"
+                                  >
+                  Portuguese
+                </a>
+              </li>
+                          <li>
+                <a
+                  href="https://www.ihi.org/es/library/tools/sbar-tool-situation-background-assessment-recommendation"
+                  role="menuitem"
+                  aria-label="Spanish"
+                                  >
+                  Spanish
+                </a>
+              </li>
+                      </ul>
+        </section>
+                    </nav>
+</div>
+        <div class="header-main">
+    <span class="header-logo">
+      <a class="block--branding__logo" href="/" title="Home" rel="home" aria-label="Go to Homepage">
+        <svg width="170" height="56" viewBox="0 0 170 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6367_10277)">
+<path d="M52.2287 0H0V51.5623H52.2287V0Z" fill="white"/>
+<path d="M34.0108 0C34.4779 1.00294 34.739 2.12267 34.739 3.29735C34.739 7.63886 31.1737 11.2041 26.8322 11.2041C22.4907 11.2041 18.9254 7.63886 18.9254 3.29735C18.9254 2.12267 19.1865 1.00294 19.6536 0H0V51.5623H20.0383V26.9627H15.2296V23.2601H33.6261V51.5555H52.2287V0H34.0108Z" fill="#009fc2"/>
+<path d="M66.9088 1.75858V3.09126H66.5309C65.6379 3.09126 65.6379 3.33856 65.6379 4.13542V12.5711C65.6379 13.3268 65.6379 13.5397 66.5309 13.5397H66.9088V14.8724H62.0452V13.5397H62.4436C63.3366 13.5397 63.3366 13.3474 63.3366 12.5711V3.99803C63.3366 3.3523 63.3366 3.08439 62.4436 3.08439H62.0452V1.75171H66.9088V1.75858Z" fill="#455560"/>
+<path d="M71.2434 5.70853C71.3602 6.14817 71.3945 6.56721 71.3945 7.0412H71.4289C71.6556 6.66338 72.3768 5.50244 74.2041 5.50244C74.8499 5.50244 76.3474 5.67418 76.9382 7.19233C77.1443 7.72128 77.1443 8.78605 77.1443 9.08831V12.7154C77.1443 13.6428 77.1855 13.6428 78.2296 13.6428V14.8587H73.84V13.6496H74.1629C74.9254 13.6496 74.9254 13.4985 74.9254 12.5505V9.41804C74.9254 8.55936 74.9254 7.21294 73.4073 7.21294C71.4151 7.21294 71.4151 9.43178 71.4151 10.0226V12.6467C71.4151 13.5397 71.4151 13.6496 72.1364 13.6496H72.5142V14.8655H68.1246V13.6496H68.4475C69.265 13.6496 69.265 13.4985 69.265 12.6467V8.39449C69.265 7.37094 69.2444 7.17859 68.6398 7.17859C68.4132 7.17859 68.1452 7.1992 68.0491 7.1992V6.00391L71.2434 5.70853Z" fill="#455560"/>
+<path d="M85.6556 8.42885H84.0069V7.91364C84.0069 7.53582 84.0069 6.62218 82.6192 6.62218C82.0147 6.62218 81.1767 6.82827 81.1767 7.66634C81.1767 8.31207 81.7468 8.63494 82.2758 8.86163L83.3749 9.31502C84.7969 9.91953 86.1296 10.6477 86.1296 12.2964C86.1296 13.3405 85.5594 14.1923 84.7831 14.632C84.4053 14.8587 83.7939 15.1472 82.3926 15.1472C80.737 15.1472 79.8852 14.8449 79.1089 14.5221V11.8979H80.8401V12.3925C80.8401 12.8322 80.8401 13.8351 82.3239 13.8351C82.8185 13.8351 83.9382 13.7046 83.9382 12.5986C83.9382 11.8361 83.4985 11.6506 82.001 10.9431C80.4622 10.2218 79.1914 9.63101 79.1914 8.03729C79.1914 6.842 80.0432 5.39941 82.6673 5.39941C84.2267 5.39941 85.2915 5.8528 85.6693 6.00393V8.42885H85.6556Z" fill="#455560"/>
+<path d="M90.0658 3.01572V5.71542H92.3671V7.25419H90.0658V11.8911C90.0658 12.4063 90.0658 13.3749 91 13.3749C91.4534 13.3749 91.7625 13.2444 92.4838 12.9215V14.4397C91.7625 14.8587 90.9451 15.106 90.1276 15.106C87.8469 15.106 87.8469 13.2993 87.8469 12.5231V7.26105H86.7066V6.04516C88.4721 5.45438 88.6644 3.7851 88.7606 3.02259H90.0658V3.01572Z" fill="#455560"/>
+<path d="M96.8872 5.55741V12.6398C96.8872 13.5535 96.8872 13.6428 97.6428 13.6428H97.9313V14.8587H93.583V13.6497H94.0364C94.6271 13.6497 94.737 13.5741 94.737 12.8322V8.29146C94.737 7.30226 94.7576 7.07556 94.0157 7.07556H93.4662V5.85967L96.8872 5.55741ZM96.9834 2.65162C96.9834 3.37291 96.4132 3.88813 95.5957 3.88813C94.7783 3.88813 94.2287 3.41413 94.2287 2.67223C94.2287 1.93032 94.8332 1.45633 95.6163 1.45633C96.4132 1.45633 96.9834 1.93032 96.9834 2.65162Z" fill="#455560"/>
+<path d="M107.961 5.5574V11.2934C107.961 12.0903 107.961 13.3268 109.424 13.3268C111.114 13.3268 111.457 11.7537 111.457 10.6683V7.85868C111.457 7.1786 111.457 6.96565 110.942 6.96565C110.846 6.96565 110.578 6.96565 110.166 6.99999V5.7841L113.601 5.5574V12.5505C113.601 13.2718 113.642 13.4023 114.288 13.4023C114.459 13.4023 114.576 13.4023 114.817 13.368V14.5633L111.643 14.8655C111.45 14.1443 111.45 13.842 111.45 13.5191H111.409C111.141 14.0687 110.406 15.0922 108.524 15.0922C105.714 15.0922 105.714 12.6398 105.714 11.7674V8.18154C105.714 7.62512 105.714 7.23356 105.199 7.23356C105.021 7.23356 104.732 7.20608 104.444 7.22669V5.74288L107.961 5.5574Z" fill="#455560"/>
+<path d="M118.265 3.01572V5.71542H120.566V7.25419H118.265V11.8911C118.265 12.4063 118.265 13.3749 119.199 13.3749C119.653 13.3749 119.962 13.2444 120.683 12.9215V14.4397C119.962 14.8587 119.144 15.106 118.327 15.106C116.046 15.106 116.046 13.2993 116.046 12.5231V7.26105H114.906V6.04516C116.671 5.45438 116.864 3.7851 116.953 3.02259H118.265V3.01572Z" fill="#455560"/>
+<path d="M123.506 10.476C123.472 12.3719 124.681 13.4024 126.11 13.4024C127.539 13.4024 128.446 12.7223 129.112 12.262C129.167 12.2277 129.263 12.1452 129.304 12.1315V13.9519C128.83 14.2954 127.635 15.1472 125.547 15.1472C122.222 15.1472 121.233 12.4338 121.233 10.4416C121.233 7.85869 122.716 5.40628 125.636 5.40628C126.357 5.40628 128.102 5.55741 129.016 7.36408C129.565 8.44259 129.524 9.77527 129.51 10.476H123.506ZM127.291 8.97841C127.271 8.42885 127.237 6.79392 125.567 6.79392C124.372 6.79392 123.781 7.70756 123.568 8.97841H127.291Z" fill="#455560"/>
+<path d="M135.109 5.94896H136.655C137.19 3.29047 138.441 1.27771 140.872 1.27771C141.972 1.27771 142.789 1.63492 143.133 1.79292L142.617 3.63394H141.456C141.477 3.48281 141.498 3.34542 141.498 3.18056C141.498 2.57604 141.024 2.51422 140.797 2.51422C139.526 2.51422 139.107 4.3415 138.743 5.94896H140.673L140.275 7.41216H138.441L136.799 14.8793C136.38 17.0088 135.336 20.0039 132.505 20.0039C131.75 20.0039 131.214 19.7978 130.87 19.6467L131.152 17.8057H132.292C132.251 18.2453 132.238 18.7193 132.801 18.7193C133.364 18.7193 133.694 18.1904 133.845 17.9019C134.133 17.2973 134.395 16.5348 134.759 14.6938L136.345 7.41903H134.711L135.109 5.94896Z" fill="#455560"/>
+<path d="M144.706 5.74976C147.343 5.74976 148.333 7.55643 148.333 9.10893C148.333 10.3248 147.632 15.1678 143.263 15.1678C139.787 15.1678 139.636 12.0559 139.636 11.5407C139.636 9.50736 140.831 5.74976 144.706 5.74976ZM143.373 13.7458C145.557 13.7458 146.203 10.2699 146.203 9.05398C146.203 7.7213 145.406 7.158 144.589 7.158C142.652 7.158 141.738 9.96762 141.738 11.7331C141.745 12.791 142.294 13.7458 143.373 13.7458Z" fill="#455560"/>
+<path d="M152.798 5.99704L152.248 8.12658L152.283 8.16093C153.134 6.98625 154.144 5.92148 155.415 5.92148C155.869 5.92148 156.081 6.03139 156.274 6.16878L155.628 8.42884H154.433C154.453 8.2571 154.433 7.93424 154.069 7.93424C153.615 7.93424 153.196 8.42884 153.121 8.5044C152.132 9.66534 151.809 10.6339 151.314 12.1109L150.613 14.8655H148.752L150.366 8.33267C150.442 8.0098 150.462 7.95484 150.462 7.79685C150.462 7.59076 150.345 7.47398 150.098 7.47398C149.906 7.47398 149.796 7.49459 149.322 7.54954L149.679 6.37486L152.798 5.99704Z" fill="#455560"/>
+<path d="M66.7782 20.4573V21.7831H66.3592C65.5005 21.7831 65.4867 22.0854 65.4867 22.6555V25.7331H71.1884V22.6555C71.1884 22.0648 71.1678 21.7831 70.2748 21.7831H69.8969V20.4573H74.7605V21.7831H74.3415C73.5653 21.7831 73.4828 21.9342 73.4828 22.6555V31.3523C73.4828 31.9774 73.524 32.2247 74.3415 32.2247H74.7605V33.5574H69.8969V32.2247H70.2748C71.1472 32.2247 71.1884 31.998 71.1884 31.3523V27.4367H65.4867V31.1806C65.4867 31.998 65.5074 32.2247 66.3592 32.2247H66.7782V33.5574H61.9146V32.2247H62.3886C63.1649 32.2247 63.2061 32.0186 63.2061 31.3523V22.6624C63.2061 22.0373 63.1649 21.79 62.3337 21.79H61.9146V20.4642H66.7782V20.4573Z" fill="#455560"/>
+<path d="M77.474 29.1747C77.4328 31.0775 78.6487 32.1011 80.0775 32.1011C81.5064 32.1011 82.4132 31.4141 83.0795 30.9608C83.1344 30.9195 83.2306 30.844 83.2718 30.8302V32.6506C82.7978 32.9941 81.6025 33.8459 79.5142 33.8459C76.1894 33.8459 75.2002 31.1256 75.2002 29.1335C75.2002 26.5505 76.684 24.0981 79.6035 24.0981C80.3248 24.0981 82.0697 24.2493 82.9833 26.0559C83.5329 27.1413 83.4985 28.4671 83.4779 29.1678H77.474V29.1747ZM81.2522 27.684C81.2316 27.1345 81.1973 25.4995 79.5211 25.4995C78.3258 25.4995 77.735 26.4132 77.5289 27.684H81.2522Z" fill="#455560"/>
+<path d="M85.0648 25.1698C86.6997 24.105 88.2935 24.105 88.5957 24.105C89.6811 24.105 90.7802 24.3523 91.4809 25.1698C91.845 25.6094 92.0304 26.0628 92.0304 27.4642V31.0157C92.0304 31.7027 92.0854 32.1904 92.58 32.1904C92.8067 32.1904 93.0952 32.0599 93.3013 31.9637V33.2552C92.4838 33.633 91.9755 33.7841 91.4259 33.7841C90.8352 33.7841 90.0727 33.6124 89.9627 32.5339C89.6536 32.8911 88.8774 33.7841 87.1875 33.7841C84.8518 33.7841 84.2817 32.3003 84.2817 31.2012C84.2817 29.0167 86.0128 28.3366 88.6713 27.6703L89.9009 27.3474C89.8666 26.4956 89.8253 25.4102 88.266 25.4102C86.7066 25.4102 86.7066 26.475 86.7066 26.9078V27.3474H85.0579V25.1698H85.0648ZM89.9078 28.7763C87.5722 29.4426 86.4318 29.7449 86.4318 30.9608C86.4318 31.5515 86.8509 32.2866 87.8538 32.2866C88.3278 32.2866 88.8774 32.1148 89.3307 31.7164C89.9009 31.2012 89.9009 30.3494 89.9009 29.8754V28.7763H89.9078Z" fill="#455560"/>
+<path d="M93.8234 19.9421L97.2787 19.6192V31.3042C97.2787 32.0003 97.6268 32.3484 98.3229 32.3484V33.5643H93.9745V32.3484H94.2974C95.0942 32.3484 95.0942 32.2179 95.0942 31.3042V22.2915C95.0942 21.4946 95.0942 21.103 94.4279 21.103C94.2561 21.103 93.9951 21.2679 93.8234 21.2885V19.9421Z" fill="#455560"/>
+<path d="M102.177 21.7144V24.4141H104.478V25.9529H102.177V30.5898C102.177 31.105 102.177 32.0736 103.111 32.0736C103.564 32.0736 103.873 31.9431 104.595 31.6202V33.1384C103.873 33.5574 103.056 33.8047 102.239 33.8047C99.9578 33.8047 99.9578 31.998 99.9578 31.2218V25.946H98.8175V24.7301C100.583 24.1393 100.775 22.4701 100.871 21.7076H102.177V21.7144Z" fill="#455560"/>
+<path d="M108.648 19.6536V25.6232H108.689C108.881 25.2797 109.603 24.2012 111.389 24.2012C114.391 24.2012 114.37 26.6673 114.37 27.8077V31.4141C114.37 32.3484 114.411 32.3484 115.455 32.3484V33.5643H111.073V32.3484H111.396C112.151 32.3484 112.151 32.2316 112.151 31.2493V28.0756C112.151 27.2993 112.151 25.8911 110.654 25.8911C108.661 25.8911 108.661 28.1099 108.661 28.6801V31.3386C108.661 32.2316 108.661 32.3415 109.383 32.3415H109.747V33.5574H105.378V32.3415H105.701C106.477 32.3415 106.518 32.211 106.518 31.3386V22.5868C106.518 21.6938 106.518 21.1717 105.701 21.1717H105.22V19.9971L108.648 19.6536Z" fill="#455560"/>
+<path d="M123.513 27.8626H121.727V27.0108C121.727 26.5368 121.686 25.5682 120.34 25.5682C118.478 25.5682 117.963 27.5604 117.963 28.7419C117.963 30.7753 118.876 32.0461 120.566 32.0461C121.954 32.0461 123.094 31.2149 123.472 30.947V32.7331C122.449 33.475 121.363 33.8528 120.092 33.8528C116.506 33.8528 115.819 30.7547 115.819 29.2159C115.819 25.3621 118.382 24.105 120.47 24.105C120.642 24.105 122.181 24.105 123.513 24.9225V27.8626Z" fill="#455560"/>
+<path d="M125.128 25.1698C126.763 24.105 128.356 24.105 128.658 24.105C129.744 24.105 130.843 24.3523 131.544 25.1698C131.908 25.6094 132.093 26.0628 132.093 27.4642V31.0157C132.093 31.7027 132.148 32.1904 132.643 32.1904C132.876 32.1904 133.158 32.0599 133.364 31.9637V33.2552C132.547 33.633 132.038 33.7841 131.482 33.7841C130.891 33.7841 130.135 33.6124 130.019 32.5339C129.716 32.8911 128.94 33.7841 127.243 33.7841C124.908 33.7841 124.338 32.3003 124.338 31.2012C124.338 29.0167 126.062 28.3366 128.72 27.6703L129.957 27.3474C129.916 26.4956 129.881 25.4102 128.322 25.4102C126.763 25.4102 126.763 26.475 126.763 26.9078V27.3474H125.114V25.1698H125.128ZM129.971 28.7763C127.635 29.4426 126.495 29.7449 126.495 30.9608C126.495 31.5515 126.914 32.2866 127.917 32.2866C128.391 32.2866 128.94 32.1148 129.4 31.7164C129.971 31.2012 129.971 30.3494 129.971 29.8754V28.7763Z" fill="#455560"/>
+<path d="M137.039 24.4073C137.135 24.8606 137.19 25.2797 137.211 26.001H137.245C137.451 25.6232 138.214 24.2699 139.794 24.2699C140.323 24.2699 140.666 24.421 140.914 24.5378V26.9696H139.416C139.416 26.5299 139.416 26.1178 138.921 26.1178C138.489 26.1178 137.232 26.7841 137.232 29.6487V31.682C137.232 32.156 137.307 32.3484 137.953 32.3484H138.447V33.5643H134.058V32.3484H134.346C135.027 32.3484 135.164 32.2179 135.164 31.5103V26.6467C135.164 25.7949 134.958 25.7949 133.948 25.8498V24.6546L137.039 24.4073Z" fill="#455560"/>
+<path d="M143.476 29.1747C143.442 31.0775 144.651 32.1011 146.08 32.1011C147.508 32.1011 148.415 31.4141 149.081 30.9608C149.136 30.9195 149.233 30.844 149.274 30.8302V32.6506C148.8 32.9941 147.598 33.8459 145.509 33.8459C142.185 33.8459 141.195 31.1256 141.195 29.1335C141.195 26.5505 142.679 24.0981 145.599 24.0981C146.32 24.0981 148.065 24.2493 148.978 26.0559C149.528 27.1413 149.494 28.4671 149.473 29.1678H143.476V29.1747ZM147.254 27.684C147.234 27.1345 147.199 25.4995 145.53 25.4995C144.335 25.4995 143.744 26.4132 143.538 27.684H147.254Z" fill="#455560"/>
+<path d="M66.9088 38.3798V39.7056H66.5309C65.6379 39.7056 65.6379 39.9529 65.6379 40.7498V49.1855C65.6379 49.948 65.6379 50.1541 66.5309 50.1541H66.9088V51.4868H62.0452V50.1541H62.4436C63.3366 50.1541 63.3366 49.9617 63.3366 49.1855V40.6192C63.3366 39.9735 63.3366 39.7056 62.4436 39.7056H62.0452V38.3798H66.9088Z" fill="#455560"/>
+<path d="M71.106 42.3297C71.2022 42.6732 71.2365 42.9411 71.2571 43.6212H71.2983C71.58 43.1884 72.3219 42.1237 74.0736 42.1237C76.052 42.1237 76.581 43.3808 76.7527 43.8342C77.3984 42.7144 78.4426 42.1237 79.7341 42.1237C80.6614 42.1237 81.8018 42.5221 82.2208 43.3945C82.4269 43.8342 82.6399 44.2669 82.6399 45.4828V49.4328C82.6399 50.1747 82.736 50.2709 83.4367 50.2709H83.7046V51.4868H79.315V50.2709H79.7684C80.2974 50.2709 80.4141 50.1747 80.4141 49.4328V45.9225C80.4141 45.1256 80.4141 43.8135 78.9715 43.8135C76.9382 43.8135 76.9176 46.0942 76.9176 46.527V49.5633C76.9176 50.1884 77.0344 50.264 77.6183 50.264H78.0167V51.4799H73.6683V50.264H73.9706C74.7331 50.264 74.7674 50.1335 74.7674 49.3916V45.8813C74.7674 44.8165 74.5613 43.7929 73.3042 43.7929C71.2709 43.7929 71.2709 46.053 71.2709 46.5476V49.3984C71.2709 50.0442 71.2915 50.2709 71.9166 50.2709H72.37V51.4868H68.001V50.2709H68.3651C69.0864 50.2709 69.1276 50.003 69.1276 49.3984V44.5967C69.1276 44.0471 69.0726 43.7792 68.5368 43.7792H67.9117V42.6045L71.106 42.3297Z" fill="#455560"/>
+<path d="M86.8371 42.3297C86.9676 42.7831 86.9882 43.0922 86.9882 43.6418H87.0295C87.3317 43.1129 88.0187 42.0275 89.7841 42.0275C92.3121 42.0275 93.5074 44.2532 93.5074 46.6644C93.5074 49.3435 92.1953 51.7753 89.4406 51.7753C88.0736 51.7753 87.4485 51.1501 87.0089 50.7311V53.8911C87.0089 54.6673 87.0432 54.7841 87.8057 54.7841H88.2454V56H83.7459V54.7841H84.0275C84.8656 54.7841 84.8656 54.6536 84.8656 53.8155V44.9333C84.8656 43.8342 84.8656 43.7174 84.3366 43.7174C84.2198 43.7174 83.7871 43.7517 83.6703 43.7517V42.577L86.8371 42.3297ZM86.8509 47.0628C86.8509 49.1511 87.8401 50.1609 89.0697 50.1609C91.1786 50.1609 91.1786 47.4063 91.1786 46.9666C91.1786 45.0294 90.4573 43.8135 89.0697 43.8135C87.5378 43.8135 86.8509 45.4279 86.8509 47.0628Z" fill="#455560"/>
+<path d="M96.9352 42.3297C97.0314 42.7831 97.0864 43.2022 97.107 43.9235H97.1413C97.3474 43.5456 98.1099 42.1924 99.683 42.1924C100.219 42.1924 100.562 42.3435 100.803 42.4603V44.8921H99.3052C99.3052 44.4524 99.3052 44.0334 98.8106 44.0334C98.3778 44.0334 97.1207 44.6997 97.1207 47.5643V49.5977C97.1207 50.0716 97.1963 50.264 97.842 50.264H98.3366V51.4799H93.9539V50.264H94.2355C94.9225 50.264 95.053 50.1335 95.053 49.4259V44.5623C95.053 43.7036 94.8469 43.7036 93.8371 43.7655V42.5702L96.9352 42.3297Z" fill="#455560"/>
+<path d="M100.926 47.0422C100.926 44.7821 102.032 42.0275 105.501 42.0275C108.428 42.0275 110.063 43.8342 110.063 46.6987C110.063 49.055 108.964 51.7684 105.337 51.7684C102.218 51.7684 100.926 49.6045 100.926 47.0422ZM103.131 46.946C103.131 47.9352 103.454 50.2709 105.501 50.2709C107.823 50.2709 107.823 47.3239 107.823 46.7949C107.823 46.3003 107.823 43.5456 105.501 43.5456C103.64 43.5456 103.131 45.5034 103.131 46.946Z" fill="#455560"/>
+<path d="M109.699 42.3297H114.219V43.5456C113.614 43.5456 113.312 43.5456 113.312 43.8891C113.312 44.0196 113.408 44.3082 113.463 44.4387L115.153 48.8077L116.788 44.5555C116.864 44.3631 116.939 44.1021 116.939 43.9303C116.939 43.5731 116.582 43.5731 116.067 43.5525V42.3366H119.921V43.5525C119.295 43.5525 119.158 43.5937 118.705 44.6722L115.744 51.6585H114.027L111.045 44.6104C110.667 43.738 110.454 43.5869 109.699 43.5456V42.3297Z" fill="#455560"/>
+<path d="M121.913 47.0971C121.871 49 123.087 50.0235 124.516 50.0235C125.945 50.0235 126.852 49.3366 127.518 48.8832C127.573 48.8489 127.669 48.7664 127.71 48.7527V50.5731C127.237 50.9166 126.041 51.7684 123.953 51.7684C120.628 51.7684 119.639 49.0549 119.639 47.0559C119.639 44.473 121.123 42.0206 124.042 42.0206C124.763 42.0206 126.515 42.1717 127.422 43.9784C127.972 45.0638 127.937 46.3896 127.917 47.0903H121.913V47.0971ZM125.691 45.6065C125.67 45.0569 125.636 43.422 123.96 43.422C122.764 43.422 122.174 44.3356 121.968 45.6065H125.691Z" fill="#455560"/>
+<path d="M131.654 42.3297C131.75 42.6732 131.784 42.9411 131.805 43.6212H131.839C132.128 43.1884 132.869 42.1237 134.614 42.1237C136.593 42.1237 137.122 43.3808 137.293 43.8342C137.939 42.7144 138.983 42.1237 140.275 42.1237C141.209 42.1237 142.343 42.5221 142.762 43.3945C142.968 43.8342 143.181 44.2669 143.181 45.4828V49.4328C143.181 50.1747 143.277 50.2709 143.977 50.2709H144.245V51.4868H139.856V50.2709H140.309C140.838 50.2709 140.955 50.1747 140.955 49.4328V45.9225C140.955 45.1256 140.955 43.8135 139.512 43.8135C137.479 43.8135 137.458 46.0942 137.458 46.527V49.5633C137.458 50.1884 137.575 50.264 138.166 50.264H138.564V51.4799H134.216V50.264H134.518C135.281 50.264 135.315 50.1335 135.315 49.3916V45.8813C135.315 44.8165 135.109 43.7929 133.852 43.7929C131.818 43.7929 131.818 46.053 131.818 46.5476V49.3984C131.818 50.0442 131.839 50.2709 132.464 50.2709H132.918V51.4868H128.549V50.2709H128.913C129.634 50.2709 129.675 50.003 129.675 49.3984V44.5967C129.675 44.0471 129.62 43.7792 129.084 43.7792H128.459V42.6045L131.654 42.3297Z" fill="#455560"/>
+<path d="M146.485 47.0971C146.444 49 147.659 50.0235 149.088 50.0235C150.517 50.0235 151.424 49.3366 152.09 48.8832C152.145 48.8489 152.241 48.7664 152.283 48.7527V50.5731C151.809 50.9166 150.613 51.7684 148.525 51.7684C145.2 51.7684 144.211 49.0549 144.211 47.0559C144.211 44.473 145.695 42.0206 148.614 42.0206C149.336 42.0206 151.08 42.1717 151.994 43.9784C152.544 45.0638 152.509 46.3896 152.489 47.0903H146.485V47.0971ZM150.263 45.6065C150.242 45.0569 150.208 43.422 148.532 43.422C147.337 43.422 146.746 44.3356 146.54 45.6065H150.263Z" fill="#455560"/>
+<path d="M156.246 42.3297C156.363 42.7694 156.397 43.1884 156.397 43.6624H156.439C156.665 43.2846 157.387 42.1237 159.214 42.1237C159.86 42.1237 161.357 42.2954 161.948 43.8135C162.154 44.3425 162.154 45.4073 162.154 45.7164V49.3435C162.154 50.2709 162.188 50.2709 163.233 50.2709V51.4868H158.843V50.2709H159.166C159.928 50.2709 159.928 50.1197 159.928 49.1717V46.0393C159.928 45.1806 159.928 43.8342 158.41 43.8342C156.418 43.8342 156.418 46.053 156.418 46.6438V49.261C156.418 50.1541 156.418 50.2709 157.139 50.2709H157.517V51.4868H153.128V50.2709H153.45C154.268 50.2709 154.268 50.1197 154.268 49.261V45.0088C154.268 43.9853 154.247 43.7929 153.643 43.7929C153.416 43.7929 153.148 43.8135 153.052 43.8135V42.6183L156.246 42.3297Z" fill="#455560"/>
+<path d="M166.75 39.63V42.3297H169.044V43.8685H166.75V48.5054C166.75 49.0206 166.75 49.9892 167.677 49.9892C168.137 49.9892 168.44 49.8587 169.161 49.5358V51.054C168.44 51.473 167.622 51.7203 166.805 51.7203C164.524 51.7203 164.524 49.9205 164.524 49.1374V43.8754H163.384V42.6595C165.149 42.0687 165.342 40.3994 165.438 39.6369H166.75V39.63Z" fill="#455560"/>
+<path d="M101.6 3.01572V5.71542H105.467V7.25419H101.6V11.8911C101.6 12.4063 101.6 13.3749 102.534 13.3749C102.987 13.3749 103.296 13.2444 104.018 12.9215V14.4397C103.296 14.8587 102.479 15.106 101.661 15.106C99.3808 15.106 99.3808 13.2993 99.3808 12.5231V7.26105H98.2404V6.04516C100.006 5.45438 100.198 3.7851 100.294 3.02259H101.6V3.01572Z" fill="#455560"/>
+</g>
+<defs>
+<clipPath id="clip0_6367_10277">
+<rect width="169.161" height="56" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+
+      </a>
+    </span>
+    <div class="header-reversible">
+      <div class="header-navigation">
+                <div id="block-ihi-2025mainmenu">
+  
+    
+      <nav data-ihi-component="nav--primary"  class="tbm tbm-2025-main-menu tbm-no-arrows" id="2ce4ec21-819d-4b7f-9843-d4565ad621a2" data-breakpoint="1200" aria-label="2025-main-menu navigation">
+  <div class="mobile-nav">
+    <span class="mobile-nav-icon"><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="20" height="2" fill="#455560"/>
+<rect y="7" width="20" height="2" fill="#455560"/>
+<rect y="14" width="20" height="2" fill="#455560"/>
+</svg>
+</span>
+    <span class="mobile-close-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.879357 1.03805C1.07462 0.842786 1.3912 0.842786 1.58646 1.03805L5.19058 4.64217L8.7947 1.03805C8.98996 0.842786 9.30655 0.842786 9.50181 1.03805C9.69707 1.23331 9.69707 1.54989 9.50181 1.74515L5.89769 5.34927L9.50181 8.95339C9.69707 9.14865 9.69707 9.46524 9.50181 9.6605C9.30655 9.85576 8.98996 9.85576 8.7947 9.6605L5.19058 6.05638L1.58646 9.6605C1.3912 9.85576 1.07462 9.85576 0.879357 9.6605C0.684095 9.46524 0.684095 9.14865 0.879357 8.95339L4.48348 5.34927L0.879357 1.74515C0.684095 1.54989 0.684095 1.23331 0.879357 1.03805Z" fill="#2B3137"/>
+</svg>
+</span>
+  </div>
+      <button class="tbm-button" type="button">
+      <span class="tbm-button-container">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <div class="tbm-collapse ">
+    <ul  class="tbm-nav level-0 items-5">
+			    
+          
+<li  class="tbm-item level-1 tbm-item--has-dropdown">
+       <span class="mobile-back-arrow" style="display:none;"><svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.73786 2.1054L9.03014 2.81188L2.83091 9.00023L9.03014 15.1886L9.73786 15.8951L8.32489 17.3105L7.61717 16.604L0.708971 9.70796L0 9.00023L0.708971 8.2925L7.61717 1.39643L8.32489 0.689941L9.73786 2.1054Z" fill="#455560"/>
+</svg>
+</span>
+        <div class="tbm-link-container">
+            <span class="tbm-link level-1 no-link tbm-toggle" tabindex="0" aria-expanded="false" tabindex="0">
+                Learn
+                </span>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+         <span class="mobile-arrow"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 14L8 8L2 2" stroke="#0081A2" stroke-width="2" stroke-linecap="square"/>
+</svg>
+</span>
+        <div id="submenu--learn" role="menuitem">
+      <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+    <div class="simple-card-text  simple-card-text-no-image ">
+    <div class="simple-card-title">Learn</div>
+    <div class="simple-card-desc">Increase your impact with IHI accredited learning — expert-led training, online courses, and certifications designed to build skills to lead meaningful health care improvement. </div>
+  </div>
+            
+  <a
+    href="/learn"
+    class="button button--text-style button--light"
+              >
+  
+   Overview 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-6">
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/learn/courses"
+                   class="tbm-link level-2">
+                Courses
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/learn/certifications"
+                   class="tbm-link level-2">
+                Certifications
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/learn/fellowship-program"
+                   class="tbm-link level-2">
+                Fellowship Program
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/connect/communities"
+                   class="tbm-link level-2">
+                Communities
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/connect/events"
+                   class="tbm-link level-2">
+                Events
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library"
+                   class="tbm-link level-2">
+                Library
+                </a>
+            </div>
+          
+  </li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+      
+            <div>
+<div class="view-mode--mega-menu-cta">
+	
+	
+  <div>
+    <div class="visually-hidden">Image</div>
+              <div>  <img loading="lazy" src="/sites/default/files/global/Meganav-CTA-Open-School-350x150.jpg" width="350" height="150" alt="IHI Open School" title="IHI Open school" />
+
+</div>
+          </div>
+
+</div>
+
+</div>
+      
+    <div class="simple-card-text ">
+    <div class="simple-card-title">IHI Open School: Build skills with self-paced online courses </div>
+    <div class="simple-card-desc"></div>
+  </div>
+            
+  <a
+    href="/learn/courses/open-school"
+    class="button button--text-style button--light"
+              >
+  
+   Learn More 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+  </li>
+
+			    
+          
+<li  class="tbm-item level-1 tbm-item--has-dropdown">
+       <span class="mobile-back-arrow" style="display:none;"><svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.73786 2.1054L9.03014 2.81188L2.83091 9.00023L9.03014 15.1886L9.73786 15.8951L8.32489 17.3105L7.61717 16.604L0.708971 9.70796L0 9.00023L0.708971 8.2925L7.61717 1.39643L8.32489 0.689941L9.73786 2.1054Z" fill="#455560"/>
+</svg>
+</span>
+        <div class="tbm-link-container">
+            <span class="tbm-link level-1 no-link tbm-toggle" tabindex="0" aria-expanded="false" tabindex="0">
+                Connect
+                </span>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+         <span class="mobile-arrow"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 14L8 8L2 2" stroke="#0081A2" stroke-width="2" stroke-linecap="square"/>
+</svg>
+</span>
+        <div id="submenu--connect" role="menuitem">
+      <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+    <div class="simple-card-text  simple-card-text-no-image ">
+    <div class="simple-card-title">Connect</div>
+    <div class="simple-card-desc">Lead change on a global stage — connect with visionary leaders, share learning and strategies, and drive health care improvement and transformation worldwide. </div>
+  </div>
+            
+  <a
+    href="/connect"
+    class="button button--text-style button--light"
+              >
+  
+   Overview 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-4">
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/connect/events"
+                   class="tbm-link level-2">
+                Events
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/connect/communities"
+                   class="tbm-link level-2">
+                Communities
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/learn/fellowship-program"
+                   class="tbm-link level-2">
+                Fellowship Program
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/partner/consulting"
+                   class="tbm-link level-2">
+                Consulting
+                </a>
+            </div>
+          
+  </li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+      
+            <div>
+<div class="view-mode--mega-menu-cta">
+	
+	
+  <div>
+    <div class="visually-hidden">Image</div>
+              <div>  <img loading="lazy" src="/sites/default/files/global/Meganav-CTA-Forum-350x150.jpg" width="350" height="150" alt="IHI Forum" title="IHI Forum" />
+
+</div>
+          </div>
+
+</div>
+
+</div>
+      
+    <div class="simple-card-text ">
+    <div class="simple-card-title">IHI Forum: December 7–10 (Anaheim, CA, USA)</div>
+    <div class="simple-card-desc"></div>
+  </div>
+            
+  <a
+    href="https://events.ihi.org/forum"
+    class="button button--text-style button--light"
+              >
+  
+   Learn More 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+  </li>
+
+			    
+          
+<li  class="tbm-item level-1 tbm-item--has-dropdown">
+       <span class="mobile-back-arrow" style="display:none;"><svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.73786 2.1054L9.03014 2.81188L2.83091 9.00023L9.03014 15.1886L9.73786 15.8951L8.32489 17.3105L7.61717 16.604L0.708971 9.70796L0 9.00023L0.708971 8.2925L7.61717 1.39643L8.32489 0.689941L9.73786 2.1054Z" fill="#455560"/>
+</svg>
+</span>
+        <div class="tbm-link-container">
+            <span class="tbm-link level-1 no-link tbm-toggle" tabindex="0" aria-expanded="false" tabindex="0">
+                Partner
+                </span>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+         <span class="mobile-arrow"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 14L8 8L2 2" stroke="#0081A2" stroke-width="2" stroke-linecap="square"/>
+</svg>
+</span>
+        <div id="submenu--partner" role="menuitem">
+      <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+    <div class="simple-card-text  simple-card-text-no-image ">
+    <div class="simple-card-title">Partner</div>
+    <div class="simple-card-desc">Partner with IHI to accelerate and sustain health care improvement through expert-led consulting and collaborative initiatives. </div>
+  </div>
+            
+  <a
+    href="/partner"
+    class="button button--text-style button--light"
+              >
+  
+   Overview 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-4">
+        
+
+  <li  class="tbm-item level-2 header">
+        <div class="tbm-link-container">
+            <a href="/partner/consulting"
+                   class="tbm-link level-2">
+                Consulting
+              <span class="button--icon-svg-hover">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#455560"></path>
+              <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#455560" stroke-width="2" stroke-linecap="square"></path>
+            </svg>
+          </span>
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/partner/consulting"
+                   class="tbm-link level-2">
+                Health &amp; Health Care Consulting
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/partner/consulting/who-we-help"
+                   class="tbm-link level-2">
+                Who We Help
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/partner/consulting/where-we-work"
+                   class="tbm-link level-2">
+                Where We Work
+                </a>
+            </div>
+          
+  </li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-4">
+        
+
+  <li  class="tbm-item level-2 header">
+        <div class="tbm-link-container">
+            <a href="/partner/initiatives"
+                   class="tbm-link level-2">
+                Projects &amp; Initiatives
+              <span class="button--icon-svg-hover">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#455560"></path>
+              <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#455560" stroke-width="2" stroke-linecap="square"></path>
+            </svg>
+          </span>
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/partner/initiatives/age-friendly-health-systems"
+                   class="tbm-link level-2">
+                Age-Friendly Health Systems
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/partner/initiatives/national-steering-committee-patient-safety/national-action-plan-advance-patient-safety"
+                   class="tbm-link level-2">
+                National Action Plan to Advance Patient Safety
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/partner/initiatives"
+                   class="tbm-link level-2">
+                View All
+                </a>
+            </div>
+          
+  </li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+  </li>
+
+			    
+          
+<li  class="tbm-item level-1 tbm-item--has-dropdown">
+       <span class="mobile-back-arrow" style="display:none;"><svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.73786 2.1054L9.03014 2.81188L2.83091 9.00023L9.03014 15.1886L9.73786 15.8951L8.32489 17.3105L7.61717 16.604L0.708971 9.70796L0 9.00023L0.708971 8.2925L7.61717 1.39643L8.32489 0.689941L9.73786 2.1054Z" fill="#455560"/>
+</svg>
+</span>
+        <div class="tbm-link-container">
+            <span class="tbm-link level-1 no-link tbm-toggle" tabindex="0" aria-expanded="false" tabindex="0">
+                Library
+                </span>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+         <span class="mobile-arrow"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 14L8 8L2 2" stroke="#0081A2" stroke-width="2" stroke-linecap="square"/>
+</svg>
+</span>
+        <div id="submenu--library" role="menuitem">
+      <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+    <div class="simple-card-text  simple-card-text-no-image ">
+    <div class="simple-card-title">Library</div>
+    <div class="simple-card-desc">Explore tools, publications, and other resources that empower health care professionals to drive meaningful improvement and advance safety. </div>
+  </div>
+            
+  <a
+    href="/library"
+    class="button button--text-style button--light"
+              >
+  
+   Overview 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-6">
+        
+
+  <li  class="tbm-item level-2 header">
+        <div class="tbm-link-container">
+            <a href="/library"
+                   class="tbm-link level-2">
+                Resource Types
+              <span class="button--icon-svg-hover">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#455560"></path>
+              <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#455560" stroke-width="2" stroke-linecap="square"></path>
+            </svg>
+          </span>
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/tools"
+                   class="tbm-link level-2">
+                Tools
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/white-papers"
+                   class="tbm-link level-2">
+                White Papers
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/publications"
+                   class="tbm-link level-2">
+                Publications
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/blog"
+                   class="tbm-link level-2">
+                Blog
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/turn-on-the-lights-podcast"
+                   class="tbm-link level-2">
+                Podcast
+                </a>
+            </div>
+          
+  </li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-5">
+        
+
+  <li  class="tbm-item level-2 header">
+        <div class="tbm-link-container">
+            <a href="/library/topics"
+                   class="tbm-link level-2">
+                Improvement Topics
+              <span class="button--icon-svg-hover">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#455560"></path>
+              <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#455560" stroke-width="2" stroke-linecap="square"></path>
+            </svg>
+          </span>
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/topics/improvement-capability"
+                   class="tbm-link level-2">
+                Improvement Capability
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/topics/patient-safety"
+                   class="tbm-link level-2">
+                Patient Safety
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/topics/triple-aim"
+                   class="tbm-link level-2">
+                Triple Aim
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/library/topics"
+                   class="tbm-link level-2">
+                View All
+                </a>
+            </div>
+          
+  </li>
+
+  </ul>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+  </li>
+
+			    
+          
+<li  class="tbm-item level-1 tbm-item--has-dropdown">
+       <span class="mobile-back-arrow" style="display:none;"><svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.73786 2.1054L9.03014 2.81188L2.83091 9.00023L9.03014 15.1886L9.73786 15.8951L8.32489 17.3105L7.61717 16.604L0.708971 9.70796L0 9.00023L0.708971 8.2925L7.61717 1.39643L8.32489 0.689941L9.73786 2.1054Z" fill="#455560"/>
+</svg>
+</span>
+        <div class="tbm-link-container">
+            <span class="tbm-link level-1 no-link tbm-toggle" tabindex="0" aria-expanded="false" tabindex="0">
+                About
+                </span>
+                <button class="tbm-submenu-toggle"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+         <span class="mobile-arrow"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 14L8 8L2 2" stroke="#0081A2" stroke-width="2" stroke-linecap="square"/>
+</svg>
+</span>
+        <div id="submenu--about" role="menuitem">
+      <div  class="tbm-submenu tbm-item-child">
+      <div  class="tbm-row">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+    <div class="simple-card-text  simple-card-text-no-image ">
+    <div class="simple-card-title">About</div>
+    <div class="simple-card-desc">For more than 30 years, IHI has used improvement science to advance and sustain better outcomes in health and health care across the world. </div>
+  </div>
+            
+  <a
+    href="/about"
+    class="button button--text-style button--light"
+              >
+  
+   Overview 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+               <ul  class="tbm-subnav level-1 items-6">
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/about/vision-mission-values"
+                   class="tbm-link level-2">
+                Vision, Mission, &amp; Values
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/about/history"
+                   class="tbm-link level-2">
+                History
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/about/people"
+                   class="tbm-link level-2">
+                People
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/about/finances"
+                   class="tbm-link level-2">
+                Finances
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/about/careers"
+                   class="tbm-link level-2">
+                Careers
+                </a>
+            </div>
+          
+  </li>
+
+        
+
+<li  class="tbm-item level-2">
+        <div class="tbm-link-container">
+            <a href="/about/news"
+                   class="tbm-link level-2">
+                News
+                </a>
+            </div>
+          
+  </li>
+
+  </ul>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      
+
+<div class="simple-card">
+      
+            <div>
+<div class="view-mode--mega-menu-cta">
+	
+	
+  <div>
+    <div class="visually-hidden">Image</div>
+              <div>  <img loading="lazy" src="/sites/default/files/global/Meganav-CTA-Science-of-Improvement-PDSA-350x150.jpg" width="350" height="150" alt="IHI&#039;s Work Is Grounded in Improvement Science" title="IHI&#039;s Work Is Grounded in Improvement Science" />
+
+</div>
+          </div>
+
+</div>
+
+</div>
+      
+    <div class="simple-card-text ">
+    <div class="simple-card-title">IHI&#039;s Work Is Grounded in Improvement Science </div>
+    <div class="simple-card-desc"></div>
+  </div>
+            
+  <a
+    href="/about/history"
+    class="button button--text-style button--light"
+              >
+  
+   Learn More 
+        <span class="button--icon-svg-hover">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H0L0 9H1L1 7ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7V9ZM1 9L12 9V7L1 7L1 9Z" fill="#005F74"/>
+<path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="#005F74" stroke-width="2" stroke-linecap="square"/>
+</svg>
+
+    </span>
+    </a>
+      </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+  </div>
+
+  </div>
+
+    </div>
+  </li>
+
+	</ul>
+
+      </div>
+  </nav>
+
+<script>
+if (window.matchMedia("(max-width: 1200px)").matches) {
+  document.getElementById("2ce4ec21-819d-4b7f-9843-d4565ad621a2").classList.add('tbm--mobile')
+}
+
+</script>
+
+  </div>
+
+            </div>
+      <div class="header-search">
+                
+<div  id="block-simplesearchform">
+  <form 
+    class="simple-search-form" 
+    action="/search" 
+    id="simple-search-form" 
+    data-once="form-updated" 
+    data-drupal-selector="simple-search-form" 
+    method="get" data-drupal-form-fields="keys"
+  >
+    
+<div data-ihi-component="header-search" class="header-search" role="search">
+  <div class="header-search-icon">
+              <div class="close-icon">
+            
+  <button 
+    type="button" 
+     class="icon-button"
+     aria-label="Site Search"   >
+      <span class="button--icon-svg">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.0905 9.14917L13.4533 12.5119L12.5104 13.4547L9.14771 10.092C8.24459 10.794 7.10975 11.2121 5.87728 11.2121C2.93176 11.2121 0.543945 8.82426 0.543945 5.87874C0.543945 2.93322 2.93176 0.54541 5.87728 0.54541C8.8228 0.54541 11.2106 2.93322 11.2106 5.87874C11.2106 7.11122 10.7926 8.24605 10.0905 9.14917ZM5.87728 9.87874C8.08642 9.87874 9.87728 8.08788 9.87728 5.87874C9.87728 3.6696 8.08642 1.87874 5.87728 1.87874C3.66814 1.87874 1.87728 3.6696 1.87728 5.87874C1.87728 8.08788 3.66814 9.87874 5.87728 9.87874Z" fill="#2B3137"/>
+</svg>
+
+    </span>
+        <span class="button--icon-svg-hover">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.0905 9.14917L13.4533 12.5119L12.5104 13.4547L9.14771 10.092C8.24459 10.794 7.10975 11.2121 5.87728 11.2121C2.93176 11.2121 0.543945 8.82426 0.543945 5.87874C0.543945 2.93322 2.93176 0.54541 5.87728 0.54541C8.8228 0.54541 11.2106 2.93322 11.2106 5.87874C11.2106 7.11122 10.7926 8.24605 10.0905 9.14917ZM5.87728 9.87874C8.08642 9.87874 9.87728 8.08788 9.87728 5.87874C9.87728 3.6696 8.08642 1.87874 5.87728 1.87874C3.66814 1.87874 1.87728 3.6696 1.87728 5.87874C1.87728 8.08788 3.66814 9.87874 5.87728 9.87874Z" fill="white"/>
+</svg>
+
+    </span>
+    </button>
+          </div>
+          <div class="open-icon">
+            
+  <button 
+    type="button" 
+     class="icon-button"
+     aria-label="Close Site Search"   >
+      <span class="button--icon-svg">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.879357 1.03805C1.07462 0.842786 1.3912 0.842786 1.58646 1.03805L5.19058 4.64217L8.7947 1.03805C8.98996 0.842786 9.30655 0.842786 9.50181 1.03805C9.69707 1.23331 9.69707 1.54989 9.50181 1.74515L5.89769 5.34927L9.50181 8.95339C9.69707 9.14865 9.69707 9.46524 9.50181 9.6605C9.30655 9.85576 8.98996 9.85576 8.7947 9.6605L5.19058 6.05638L1.58646 9.6605C1.3912 9.85576 1.07462 9.85576 0.879357 9.6605C0.684095 9.46524 0.684095 9.14865 0.879357 8.95339L4.48348 5.34927L0.879357 1.74515C0.684095 1.54989 0.684095 1.23331 0.879357 1.03805Z" fill="#2B3137"/>
+</svg>
+
+    </span>
+        <span class="button--icon-svg-hover">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.879357 1.03805C1.07462 0.842786 1.3912 0.842786 1.58646 1.03805L5.19058 4.64217L8.7947 1.03805C8.98996 0.842786 9.30655 0.842786 9.50181 1.03805C9.69707 1.23331 9.69707 1.54989 9.50181 1.74515L5.89769 5.34927L9.50181 8.95339C9.69707 9.14865 9.69707 9.46524 9.50181 9.6605C9.30655 9.85576 8.98996 9.85576 8.7947 9.6605L5.19058 6.05638L1.58646 9.6605C1.3912 9.85576 1.07462 9.85576 0.879357 9.6605C0.684095 9.46524 0.684095 9.14865 0.879357 8.95339L4.48348 5.34927L0.879357 1.74515C0.684095 1.54989 0.684095 1.23331 0.879357 1.03805Z" fill="white"/>
+</svg>
+
+    </span>
+    </button>
+          </div>
+          </div>
+  <div class="header-search-field">
+              
+<div class="form-input  has-icon">
+      <span class="input-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.0905 9.14917L13.4533 12.5119L12.5104 13.4547L9.14771 10.092C8.24459 10.794 7.10975 11.2121 5.87728 11.2121C2.93176 11.2121 0.543945 8.82426 0.543945 5.87874C0.543945 2.93322 2.93176 0.54541 5.87728 0.54541C8.8228 0.54541 11.2106 2.93322 11.2106 5.87874C11.2106 7.11122 10.7926 8.24605 10.0905 9.14917ZM5.87728 9.87874C8.08642 9.87874 9.87728 8.08788 9.87728 5.87874C9.87728 3.6696 8.08642 1.87874 5.87728 1.87874C3.66814 1.87874 1.87728 3.6696 1.87728 5.87874C1.87728 8.08788 3.66814 9.87874 5.87728 9.87874Z" fill="#2B3137"/>
+</svg>
+</span>
+      <input
+        id="keys"
+        type="search"
+        name="keys"
+                                                          placeholder="Search"
+            title="Search"
+                                        />  </div>
+          </div>
+</div>
+  </form>
+</div>
+
+            </div>
+    </div>
+  </div>
+</div>
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div>
+    <div id="block-breadcrumbs">
+  
+    
+      
+  
+
+                      
+  
+<div data-ihi-component="breadcrumb" class="breadcrumb">
+  <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+  <nav role="navigation" aria-labelledby="system-breadcrumb">
+    <ol>
+          <li>
+                  <a
+            href="/"
+            aria-label="Home"
+                      >
+            Home
+          </a>
+              </li>
+          <li>
+                  <a
+            href="/library"
+            aria-label="Library"
+                      >
+            Library
+          </a>
+              </li>
+          <li>
+                  <a
+            href="/library/tools"
+            aria-label="Tools"
+             aria-current="page"           >
+            Tools
+          </a>
+              </li>
+        </ol>
+  </nav>
+</div>
+
+  </div>
+<div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-ihi-content">
+  
+    
+      
+<div>
+                                      
+    
+<script type="application/ld+json">
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "SoftwareApplication",
+    "dateCreated": "2023-08-02T16:39:44",
+    "dateModified": "2023-10-20T17:15:44",
+    "description": "SBAR Guidelines: Explains in detail how to implement the SBAR technique",
+    "name": "SBAR Tool: Situation-Background-Assessment-Recommendation",
+    "potentialAction": {
+        "@type": "Action",
+        "name": "Download",
+        "url": "https:\/\/www.ihi.org\/library\/tools\/sbar-tool-situation-background-assessment-recommendation#downloads"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Institute for Healthcare Improvement",
+        "url": "https:\/\/www.ihi.org"
+    },
+    "url": "https:\/\/www.ihi.org\/library\/tools\/sbar-tool-situation-background-assessment-recommendation"
+}
+</script>
+
+
+
+
+<article class="content-type--resource no-hero-image">
+  <div class="resource-container">
+    <div class="resource-banner">
+              <img src="/themes/custom/ihi/dist/assets/images/ghosted-bg.png" alt="Green ghosted shapes image"/>
+          </div>
+    <div class="resource-content">
+      <div class="resource-content-overlap">
+                      
+  <a
+    href="/library/tools"
+    class="button button--resource-label"
+              >
+  
+   Tools 
+      </a>
+                  <div class="resource-title">
+          <h1><span>SBAR Tool: Situation-Background-Assessment-Recommendation</span>
+</h1>
+        </div>
+                  <div class="resource-description">
+            <p>SBAR (Situation-Background-Assessment-Recommendation) is an easy-to-remember, concrete communication mechanism for framing any conversation, especially critical ones, requiring a clinician’s immediate attention and action and can be used as a tool to foster a culture of patient safety.</p>
+          </div>
+                          <div class="resource-top-cta">
+                          
+  <a
+    href="#downloads"
+    class="button button--secondary"
+              >
+  
+   Jump to Downloads 
+      </a>
+                    </div>
+              </div>
+              <div class="resource-whats-inside">
+          <div><h2>Highlights</h2>
+<div>
+      <div>
+        <ul>
+      <li>SBAR Guidelines: Explains in detail how to implement the SBAR technique</li>
+    </ul>
+      <ul>
+      <li>SBAR Worksheet: A worksheet/script that a provider can use to organize information in preparation for communicating with a physician about a critically ill patient</li>
+    </ul>
+      <ul>
+      <li>Both the worksheet and the guidelines use the physician team member as the example; however, they can be adapted for use with all other health professionals</li>
+    </ul>
+        </div>
+  </div>
+</div>
+        </div>
+                    <div class="resource-body ">
+          
+            <div><p>The SBAR (Situation-Background-Assessment-Recommendation) technique provides a framework for communication between members of the health care team about a patient's condition.&nbsp;</p><ul><li><strong>S = Situation</strong> (a concise statement of the problem)</li><li><strong>B = Background</strong> (pertinent and brief information related to the situation)</li><li><strong>A = Assessment</strong> (analysis and considerations of options — what you found/think)</li><li><strong>R = Recommendation</strong> (action requested/recommended — what you want)</li></ul><p>SBAR is an easy-to-remember, concrete mechanism useful for framing any conversation, especially critical ones, requiring a clinician’s immediate attention and action. It allows for an easy and focused way to set expectations for what will be communicated and how between members of the team, which is essential for developing teamwork and fostering a culture of patient safety.</p><h2 class="headline5">Directions</h2><p>This tool has two components:</p><ul><li>SBAR Guidelines (“Guidelines for Communicating with Physicians Using the SBAR Process”): Explains in detail how to implement the SBAR technique</li><li>SBAR Worksheet (“SBAR report to physician about a critical situation”): A worksheet/script that a provider can use to organize information in preparation for communicating with a physician about a critically ill patient</li></ul><p>Both the worksheet and the guidelines use the physician team member as the example; however, they can be adapted for use with all other health professionals.</p><p><em>*NOTE: Before filling out the templates, first save the PDF files to your computer. Then open and use that version of the tool. Otherwise, your changes will not be saved.</em></p><h2 class="headline5">Background</h2><p>Michael Leonard, MD, Physician Leader for Patient Safety, along with colleagues&nbsp;Doug Bonacum and Suzanne Graham&nbsp;at Kaiser Permanente&nbsp;of Colorado&nbsp;(Evergreen, Colorado, USA) developed this technique. The SBAR technique has been implemented widely at health systems such as Kaiser Permanente.</p><div class="remote-video-wrapper">
+	
+	
+            <div><iframe src="https://www.ihi.org/media/oembed?url=https%3A//www.youtube.com/watch%3Fv%3DaR-S8UUAG6Y&amp;max_width=0&amp;max_height=0&amp;hash=9mbzO42o_iA4iD4qnHTDUw3BOS7x-TcmNIbuU3KA2X0" width="200" height="113" class="media-oembed-content" loading="eager" title="SBAR Tool Overview and Example"></iframe>
+</div>
+      
+</div>
+
+<h2>Related Content</h2><ul><li><a href="/resources/tools/patient-safety-essentials-toolkit" target="_blank" title="Patient Safety Essentials Toolkit" data-entity-type="node" data-entity-uuid="fc51dc87-37d4-40fc-aec4-bf7f25242636" data-entity-substitution="canonical">Patient Safety Essentials Toolkit</a><br>&nbsp;</li></ul></div>
+      
+        </div>
+                                <div class="resource-tags">
+                                                                                                                                     
+  <a
+    href="/library/tools?field_topicfacet=716#v-embed"
+    class="button button--topic-tag"
+              >
+  
+   Patient Safety 
+      </a>
+                                                                                                                                               
+  <a
+    href="/library/tools?field_topicfacet=771#v-embed"
+    class="button button--topic-tag"
+              >
+  
+   Culture of Safety 
+      </a>
+                                                                                                                                               
+  <a
+    href="/library/tools?field_topicfacet=901#v-embed"
+    class="button button--topic-tag"
+              >
+  
+   Communication 
+      </a>
+                            </div>
+                      <div class="resource-social">
+        
+
+
+<div class="sharethis">
+	<div class="sharethis-title">Share</div>
+  <div class="sharethis-wrapper a2a_kit a2a_kit_size_32 addtoany_list" data-a2a-url="https://www.ihi.org/library/tools/sbar-tool-situation-background-assessment-recommendation" data-a2a-title="SBAR Tool: Situation-Background-Assessment-Recommendation">
+          <a aria-label="Bluesky" class="a2a_button_bluesky"><svg width="19" height="17" fill="none" viewBox="0 0 19 17" xmlns="http://www.w3.org/2000/svg"><path d="M 4.296875 1.414062 C 6.402344 3.011719 8.667969 6.261719 9.5 8.003906 C 10.332031 6.261719 12.597656 3.011719 14.703125 1.414062 C 16.222656 0.257812 18.683594 -0.636719 18.683594 2.207031 C 18.683594 2.777344 18.363281 6.980469 18.171875 7.664062 C 17.515625 10.035156 15.128906 10.640625 13.003906 10.273438 C 16.71875 10.914062 17.664062 13.035156 15.621094 15.15625 C 11.746094 19.1875 10.050781 14.144531 9.617188 12.855469 C 9.539062 12.617188 9.5 12.507812 9.5 12.601562 C 9.5 12.507812 9.460938 12.617188 9.382812 12.855469 C 8.949219 14.144531 7.253906 19.1875 3.378906 15.15625 C 1.335938 13.035156 2.28125 10.914062 5.996094 10.273438 C 3.871094 10.640625 1.480469 10.035156 0.828125 7.664062 C 0.636719 6.980469 0.316406 2.777344 0.316406 2.207031 C 0.316406 -0.636719 2.777344 0.257812 4.296875 1.414062 Z M 4.296875 1.414062 " fill="#455560"/></svg></a><a aria-label="Facebook" class="a2a_button_facebook"><svg width="9" height="19" viewbox="0 0 9 19" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7268_50464)"><path d="M2.57167 18.3995V10.7513H0V7.71205H2.57167V5.30736C2.57167 4.03823 2.92792 3.05297 3.64042 2.35161C4.35292 1.65024 5.29921 1.29956 6.47928 1.29956C7.4367 1.29956 8.21599 1.34409 8.81717 1.43315V4.13842H7.21404C6.61287 4.13842 6.20096 4.27201 5.97831 4.5392C5.80018 4.76186 5.71112 5.11811 5.71112 5.60795V7.71205H8.54998L8.1492 10.7513H5.71112V18.3995H2.57167Z" fill="#455560"></path></g><defs><clipPath id="clip0_7268_50464"><rect width="9" height="18" fill="white" transform="translate(0 0.961914)"></rect></clipPath></defs></svg></a><a aria-label="Linkedin" class="a2a_button_linkedin"><svg width="17" height="19" viewbox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7268_50472)"><path d="M3.69171 18.2225H0.262052V7.19599H3.69171V18.2225ZM1.99532 5.684C1.45444 5.684 0.98732 5.48731 0.593954 5.09395C0.200589 4.70058 0.00390625 4.23346 0.00390625 3.69258C0.00390625 3.15171 0.200589 2.68459 0.593954 2.29122C0.98732 1.89785 1.45444 1.70117 1.99532 1.70117C2.5362 1.70117 3.00332 1.89785 3.39668 2.29122C3.79005 2.68459 3.98673 3.15171 3.98673 3.69258C3.98673 4.23346 3.79005 4.70058 3.39668 5.09395C3.00332 5.48731 2.5362 5.684 1.99532 5.684ZM16.5252 18.2225H13.0956V12.8383C13.0956 11.9533 13.0218 11.314 12.8743 10.9207C12.6039 10.2569 12.0753 9.92496 11.2886 9.92496C10.5018 9.92496 9.94867 10.22 9.62906 10.81C9.38321 11.2526 9.26028 11.9041 9.26028 12.7646V18.2225H5.86751V7.19599H9.14965V8.70799H9.18653C9.43238 8.21628 9.82575 7.81063 10.3666 7.49102C10.9567 7.09765 11.6451 6.90097 12.4318 6.90097C14.0298 6.90097 15.1485 7.40497 15.7877 8.41297C16.2794 9.22428 16.5252 10.4781 16.5252 12.1745V18.2225Z" fill="#455560"></path></g><defs><clipPath id="clip0_7268_50472"><rect width="17" height="17.9375" fill="white" transform="translate(0 0.993164)"></rect></clipPath></defs></svg></a><a aria-label="Email" class="a2a_button_email"><svg width="19" height="14" viewbox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.25 0.711914C0.25 0.435772 0.473858 0.211914 0.75 0.211914H18.25C18.5261 0.211914 18.75 0.435772 18.75 0.711914V13.2119C18.75 13.4881 18.5261 13.7119 18.25 13.7119H0.75C0.473858 13.7119 0.25 13.4881 0.25 13.2119V0.711914ZM2.04788 1.21191L7.64796 6.27865L9.5 7.9543L11.352 6.27865L16.9521 1.21191H2.04788ZM17.75 1.83857L12.4127 6.66753L17.75 12.0048V1.83857ZM17.0429 12.7119L11.6703 7.33928L9.83546 8.99935C9.64501 9.17166 9.35499 9.17166 9.16454 8.99935L7.32974 7.33928L1.95711 12.7119H17.0429ZM1.25 12.0048V1.83857L6.58727 6.66753L1.25 12.0048Z" fill="#455560"></path></svg></a>
+      </div>
+</div>
+
+      </div>
+        </div>
+  </div>
+
+                
+        
+<div data-ihi-component="download-form" class="download-form"
+   id="downloads" >
+  <div class="content-text">
+    <h3>
+            <div>Download SBAR Tool</div>
+      </h3>
+    <div class="text-description">
+      
+            <div>Please provide your information to download the SBAR Tool.                                                                                                                      </div>
+      
+    </div>
+    <div class="content-downloads">
+                                  
+  <a
+    href="/sites/default/files/2023-10/SBARTechniqueforCommunication.pdf"
+    class="button button--download-link  button--icon"
+         target="_blank"      download   >
+      <span class="button--icon-svg">
+      <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.5 15V19C21.5 19.5304 21.2893 20.0391 20.9142 20.4142C20.5391 20.7893 20.0304 21 19.5 21H5.5C4.96957 21 4.46086 20.7893 4.08579 20.4142C3.71071 20.0391 3.5 19.5304 3.5 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7.5 10L12.5 15L17.5 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.5 15V3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </span>
+  
+   SBARTechniqueforCommunication.pdf 
+      </a>
+                          </div>
+  </div>
+  <div class="content-form">
+    
+  
+  
+  <div id="gate" class="ihi-form ihi-theme--darkmode">
+
+    <p class="requiredtxt">* Required fields</p>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "241684",
+        formId: "68e11340-443c-4b2f-91dd-865be056b85c",
+        cssClass: "ihiform"
+      });
+    </script>
+
+  </div>
+
+            </div>
+</div>
+          
+    
+</article>
+
+
+              
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                
+<div data-ihi-component="related-resources" class="related-resources">
+  <h2>Related Resources</h2>
+  <div class="resources-wrapper">
+          <div class="resource-item">
+                    
+  <a
+    href="/library/tools"
+    class="button button--resource-label"
+              >
+  
+   Tools 
+      </a>
+                  <div class="resource-text">
+                      <a href="/library/tools/change-packages-alliance-innovation-maternal-health-aim-patient-safety-bundles" aria-label="Change Packages for Alliance for Innovation on Maternal Health (AIM) Patient Safety Bundles">
+                      Change Packages for Alliance for Innovation on Maternal Health (AIM) Patient Safety Bundles
+                      </a>
+                  </div>
+      </div>
+          <div class="resource-item">
+                    
+  <a
+    href="/library/tools"
+    class="button button--resource-label"
+              >
+  
+   Tools 
+      </a>
+                  <div class="resource-text">
+                      <a href="/library/tools/what-matters-you-conversation-guide-improving-joy-work" aria-label="&quot;What Matters to You?&quot; Conversation Guide for Improving Joy in Work">
+                      &quot;What Matters to You?&quot; Conversation Guide for Improving Joy in Work
+                      </a>
+                  </div>
+      </div>
+          <div class="resource-item">
+                    
+  <a
+    href="/library/tools"
+    class="button button--resource-label"
+              >
+  
+   Tools 
+      </a>
+                  <div class="resource-text">
+                      <a href="/library/tools/ihi-trigger-tool-measuring-adverse-drug-events" aria-label="IHI Trigger Tool for Measuring Adverse Drug Events">
+                      IHI Trigger Tool for Measuring Adverse Drug Events
+                      </a>
+                  </div>
+      </div>
+      </div>
+              
+  <a
+    href="/library/tools"
+    class="button button--secondary"
+              >
+  
+   See More 
+      </a>
+          </div>
+          
+
+</div>
+
+  </div>
+
+  </div>
+
+    </div>  </main>
+
+      <footer role="contentinfo">
+      
+      
+<div data-ihi-component="footer" class="footer">
+  <div class="footer-sign-up">
+    
+          <div id="mailinglist"  class="footer-mailinglist">
+              <div class="footer-mailinglist_intro">
+                <h2>Subscribe to hear the latest from IHI.</h2>
+              </div>
+
+              <div id="footer-mailing-js" class="footer-mailinglist_form ihi-form ihi-theme--darkmode">
+                <p class="requiredtxt">* Required fields</p>
+                                <script>
+                  const script = document.createElement('script');
+                  script.src = '//js.hsforms.net/forms/embed/v2.js';
+                  script.setAttribute('async', '');
+                  script.setAttribute('defer', '');
+                  document.getElementById('footer-mailing-js').appendChild(script);
+                  script.onload = function() {
+                    if (hbspt) {
+                      hbspt.forms.create({
+                        region: "na1",
+                        portalId: "241684",
+                        formId: "8174b1cf-601e-438c-a0ad-8b7886ebe351",
+                        cssClass: "ihiform"
+                      });
+                    }
+                  }
+                </script>
+              </div>
+          </div>
+
+          </div>
+  <div class="footer-logo">
+    <span><svg width="177" height="59" viewBox="0 0 177 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_7455_78506)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M35.8858 0C36.3718 1.04349 36.6434 2.20849 36.6434 3.43066C36.6434 7.9477 32.934 11.6571 28.417 11.6571C23.9 11.6571 20.1906 7.9477 20.1906 3.43066C20.1906 2.20849 20.4622 1.04349 20.9482 0H0.5V53.6469H21.3484V28.0528H16.3454V24.2004H35.4856V53.6398H54.8402V0H35.8858Z" fill="white"/>
+<path d="M70.1139 1.82966V3.21622H69.7208C68.7917 3.21622 68.7917 3.47351 68.7917 4.30259V13.0794C68.7917 13.8656 68.7917 14.0871 69.7208 14.0871H70.1139V15.4737H65.0537V14.0871H65.4683C66.3974 14.0871 66.3974 13.887 66.3974 13.0794V4.15965C66.3974 3.48781 66.3974 3.20907 65.4683 3.20907H65.0537V1.82251H70.1139V1.82966Z" fill="white"/>
+<path d="M74.6233 5.93927C74.7448 6.39669 74.7805 6.83267 74.7805 7.32583H74.8162C75.0521 6.93273 75.8025 5.72485 77.7037 5.72485C78.3755 5.72485 79.9336 5.90353 80.5483 7.48307C80.7627 8.0334 80.7627 9.14122 80.7627 9.4557V13.2294C80.7627 14.1943 80.8056 14.1943 81.892 14.1943V15.4593H77.3249V14.2014H77.6608C78.4542 14.2014 78.4542 14.0442 78.4542 13.0579V9.79876C78.4542 8.90536 78.4542 7.50451 76.8746 7.50451C74.8019 7.50451 74.8019 9.81306 74.8019 10.4277V13.1579C74.8019 14.0871 74.8019 14.2014 75.5524 14.2014H75.9455V15.4665H71.3784V14.2014H71.7143C72.5649 14.2014 72.5649 14.0442 72.5649 13.1579V8.73383C72.5649 7.66889 72.5434 7.46877 71.9145 7.46877C71.6786 7.46877 71.3999 7.49021 71.2998 7.49021V6.2466L74.6233 5.93927Z" fill="white"/>
+<path d="M89.6189 8.76959H87.9036V8.23355C87.9036 7.84046 87.9036 6.88988 86.4598 6.88988C85.8309 6.88988 84.9589 7.10429 84.9589 7.97625C84.9589 8.64809 85.5521 8.98401 86.1025 9.21987L87.246 9.69158C88.7255 10.3205 90.1121 11.0781 90.1121 12.7935C90.1121 13.8798 89.5188 14.7661 88.7112 15.2235C88.3181 15.4594 87.682 15.7596 86.224 15.7596C84.5015 15.7596 83.6153 15.4451 82.8076 15.1092V12.3789H84.6087V12.8935C84.6087 13.351 84.6087 14.3944 86.1525 14.3944C86.6671 14.3944 87.8321 14.2586 87.8321 13.1079C87.8321 12.3146 87.3747 12.1216 85.8166 11.3855C84.2156 10.635 82.8934 10.0204 82.8934 8.3622C82.8934 7.11859 83.7796 5.61768 86.5099 5.61768C88.1323 5.61768 89.2401 6.08939 89.6332 6.24663V8.76959H89.6189Z" fill="white"/>
+<path d="M94.2069 3.13757V5.94643H96.6012V7.5474H94.2069V12.3718C94.2069 12.9078 94.2069 13.9156 95.1789 13.9156C95.6506 13.9156 95.9723 13.7798 96.7227 13.4438V15.0234C95.9723 15.4594 95.1217 15.7167 94.2712 15.7167C91.8983 15.7167 91.8983 13.8369 91.8983 13.0293V7.55455H90.7119V6.28949C92.5487 5.67483 92.7489 3.93806 92.8489 3.14472H94.2069V3.13757Z" fill="white"/>
+<path d="M101.304 5.78214V13.1509C101.304 14.1015 101.304 14.1944 102.091 14.1944H102.391V15.4595H97.8666V14.2016H98.3383C98.953 14.2016 99.0674 14.1229 99.0674 13.351V8.62673C99.0674 7.59753 99.0888 7.36167 98.3169 7.36167H97.7451V6.09662L101.304 5.78214ZM101.404 2.75887C101.404 3.50933 100.811 4.04537 99.9608 4.04537C99.1102 4.04537 98.5385 3.55221 98.5385 2.78031C98.5385 2.00842 99.1674 1.51526 99.9822 1.51526C100.811 1.51526 101.404 2.00842 101.404 2.75887Z" fill="white"/>
+<path d="M112.825 5.7821V11.75C112.825 12.5791 112.825 13.8656 114.348 13.8656C116.106 13.8656 116.463 12.2289 116.463 11.0996V8.17642C116.463 7.46884 116.463 7.24728 115.927 7.24728C115.827 7.24728 115.548 7.24728 115.12 7.28302V6.01796L118.693 5.7821V13.058C118.693 13.8084 118.736 13.9442 119.408 13.9442C119.587 13.9442 119.708 13.9442 119.958 13.9085V15.1521L116.656 15.4666C116.456 14.7161 116.456 14.4016 116.456 14.0657H116.413C116.135 14.6375 115.37 15.7024 113.411 15.7024C110.488 15.7024 110.488 13.1509 110.488 12.2432V8.51234C110.488 7.93341 110.488 7.52602 109.952 7.52602C109.766 7.52602 109.466 7.49743 109.166 7.51888V5.97508L112.825 5.7821Z" fill="white"/>
+<path d="M123.547 3.13757V5.94643H125.941V7.5474H123.547V12.3718C123.547 12.9078 123.547 13.9156 124.519 13.9156C124.99 13.9156 125.312 13.7798 126.063 13.4438V15.0234C125.312 15.4594 124.462 15.7167 123.611 15.7167C121.238 15.7167 121.238 13.8369 121.238 13.0293V7.55455H120.052V6.28949C121.889 5.67483 122.089 3.93806 122.182 3.14472H123.547V3.13757Z" fill="white"/>
+<path d="M129 10.8995C128.964 12.8721 130.222 13.9442 131.708 13.9442C133.195 13.9442 134.138 13.2367 134.832 12.7578C134.889 12.7221 134.989 12.6363 135.032 12.622V14.516C134.539 14.8734 133.295 15.7596 131.122 15.7596C127.663 15.7596 126.634 12.9365 126.634 10.8638C126.634 8.17643 128.178 5.62488 131.215 5.62488C131.966 5.62488 133.781 5.78212 134.732 7.66183C135.303 8.78394 135.26 10.1705 135.246 10.8995H129ZM132.938 9.34143C132.916 8.76965 132.88 7.06861 131.144 7.06861C129.9 7.06861 129.285 8.01919 129.064 9.34143H132.938Z" fill="white"/>
+<path d="M141.071 6.18945H142.679C143.237 3.42348 144.537 1.32935 147.067 1.32935C148.211 1.32935 149.062 1.701 149.419 1.86539L148.883 3.78084H147.675C147.696 3.6236 147.718 3.48066 147.718 3.30912C147.718 2.68017 147.225 2.61584 146.989 2.61584C145.667 2.61584 145.231 4.517 144.852 6.18945H146.86L146.446 7.7118H144.537L142.829 15.4808C142.393 17.6964 141.307 20.8126 138.362 20.8126C137.576 20.8126 137.018 20.5982 136.661 20.441L136.954 18.5255H138.141C138.098 18.9829 138.083 19.4761 138.67 19.4761C139.256 19.4761 139.599 18.9258 139.756 18.6256C140.056 17.9966 140.328 17.2033 140.706 15.2878L142.357 7.71895H140.656L141.071 6.18945Z" fill="white"/>
+<path d="M151.056 5.98218C153.8 5.98218 154.83 7.86189 154.83 9.47716C154.83 10.7422 154.101 15.781 149.555 15.781C145.938 15.781 145.781 12.5433 145.781 12.0073C145.781 9.8917 147.025 5.98218 151.056 5.98218ZM149.669 14.3015C151.942 14.3015 152.614 10.685 152.614 9.41998C152.614 8.03343 151.785 7.44736 150.934 7.44736C148.919 7.44736 147.968 10.3706 147.968 12.2074C147.975 13.3081 148.547 14.3015 149.669 14.3015Z" fill="white"/>
+<path d="M159.475 6.23951L158.904 8.45514L158.939 8.49088C159.826 7.26871 160.876 6.16089 162.198 6.16089C162.67 6.16089 162.892 6.27524 163.092 6.41819L162.42 8.76962H161.176C161.198 8.59094 161.176 8.25502 160.798 8.25502C160.326 8.25502 159.89 8.76962 159.811 8.84824C158.782 10.0561 158.446 11.0639 157.932 12.6005L157.203 15.4666H155.266L156.945 8.66956C157.024 8.33364 157.045 8.27646 157.045 8.11208C157.045 7.89766 156.924 7.77616 156.666 7.77616C156.466 7.77616 156.352 7.7976 155.859 7.85478L156.231 6.6326L159.475 6.23951Z" fill="white"/>
+<path d="M69.9782 21.2844V22.6638H69.5422C68.6488 22.6638 68.6345 22.9783 68.6345 23.5715V26.7735H74.5667V23.5715C74.5667 22.9569 74.5453 22.6638 73.6161 22.6638H73.223V21.2844H78.2833V22.6638H77.8473C77.0396 22.6638 76.9539 22.8211 76.9539 23.5715V32.6199C76.9539 33.2703 76.9968 33.5276 77.8473 33.5276H78.2833V34.9141H73.223V33.5276H73.6161C74.5238 33.5276 74.5667 33.2917 74.5667 32.6199V28.546H68.6345V32.4412C68.6345 33.2917 68.656 33.5276 69.5422 33.5276H69.9782V34.9141H64.918V33.5276H65.4111C66.2188 33.5276 66.2616 33.3132 66.2616 32.6199V23.5787C66.2616 22.9283 66.2188 22.671 65.3539 22.671H64.918V21.2916H69.9782V21.2844Z" fill="white"/>
+<path d="M81.106 30.3542C81.0631 32.334 82.3281 33.3989 83.8148 33.3989C85.3014 33.3989 86.2448 32.6842 86.9381 32.2124C86.9953 32.1696 87.0953 32.0909 87.1382 32.0767V33.9707C86.645 34.328 85.4014 35.2143 83.2287 35.2143C79.7694 35.2143 78.7402 32.384 78.7402 30.3113C78.7402 27.6239 80.284 25.0724 83.3216 25.0724C84.072 25.0724 85.8874 25.2296 86.838 27.1093C87.4098 28.2386 87.3741 29.618 87.3526 30.347H81.106V30.3542ZM85.0369 28.8032C85.0155 28.2315 84.9797 26.5304 83.2358 26.5304C81.9922 26.5304 81.3776 27.481 81.1631 28.8032H85.0369Z" fill="white"/>
+<path d="M89.0042 26.1874C90.7053 25.0796 92.3634 25.0796 92.6779 25.0796C93.8072 25.0796 94.9507 25.3369 95.6797 26.1874C96.0585 26.6448 96.2515 27.1165 96.2515 28.5746V32.2697C96.2515 32.9844 96.3087 33.4919 96.8233 33.4919C97.0591 33.4919 97.3593 33.3561 97.5737 33.256V34.5997C96.7232 34.9928 96.1943 35.15 95.6225 35.15C95.0079 35.15 94.2146 34.9713 94.1002 33.8492C93.7786 34.2209 92.9709 35.15 91.2127 35.15C88.7827 35.15 88.1895 33.6062 88.1895 32.4627C88.1895 30.1898 89.9905 29.4823 92.7565 28.789L94.0359 28.4531C94.0001 27.5668 93.9573 26.4376 92.3348 26.4376C90.7124 26.4376 90.7124 27.5454 90.7124 27.9956V28.4531H88.9971V26.1874H89.0042ZM94.043 29.9397C91.613 30.633 90.4265 30.9474 90.4265 32.2125C90.4265 32.8272 90.8625 33.5919 91.906 33.5919C92.3992 33.5919 92.9709 33.4132 93.4426 32.9987C94.0359 32.4627 94.0359 31.5764 94.0359 31.0832V29.9397H94.043Z" fill="white"/>
+<path d="M98.1162 20.7484L101.711 20.4125V32.5699C101.711 33.2941 102.073 33.6563 102.798 33.6563V34.9213H98.2735V33.6563H98.6094C99.4384 33.6563 99.4384 33.5205 99.4384 32.5699V23.1927C99.4384 22.3637 99.4384 21.9563 98.7452 21.9563C98.5665 21.9563 98.2949 22.1278 98.1162 22.1492V20.7484Z" fill="white"/>
+<path d="M106.807 22.5924V25.4012H109.202V27.0022H106.807V31.8265C106.807 32.3626 106.807 33.3703 107.78 33.3703C108.251 33.3703 108.573 33.2345 109.323 32.8986V34.4782C108.573 34.9141 107.722 35.1714 106.872 35.1714C104.499 35.1714 104.499 33.2917 104.499 32.4841V26.995H103.312V25.73C105.149 25.1153 105.349 23.3785 105.45 22.5852H106.807V22.5924Z" fill="white"/>
+<path d="M113.54 20.4481V26.659H113.583C113.783 26.3017 114.534 25.1796 116.392 25.1796C119.515 25.1796 119.494 27.7454 119.494 28.9319V32.6841C119.494 33.6562 119.537 33.6562 120.623 33.6562V34.9212H116.063V33.6562H116.399C117.185 33.6562 117.185 33.5347 117.185 32.5126V29.2106C117.185 28.403 117.185 26.9378 115.627 26.9378C113.554 26.9378 113.554 29.2463 113.554 29.8396V32.6055C113.554 33.5347 113.554 33.649 114.305 33.649H114.684V34.9141H110.138V33.649H110.474C111.282 33.649 111.324 33.5132 111.324 32.6055V23.5C111.324 22.5708 111.324 22.0277 110.474 22.0277H109.974V20.8055L113.54 20.4481Z" fill="white"/>
+<path d="M129.007 28.9891H127.149V28.1029C127.149 27.6097 127.106 26.6019 125.705 26.6019C123.768 26.6019 123.232 28.6746 123.232 29.904C123.232 32.0195 124.182 33.3418 125.941 33.3418C127.384 33.3418 128.571 32.4769 128.964 32.1982V34.0565C127.899 34.8284 126.77 35.2215 125.448 35.2215C121.717 35.2215 121.002 31.9981 121.002 30.3971C121.002 26.3875 123.668 25.0796 125.841 25.0796C126.019 25.0796 127.62 25.0796 129.007 25.9301V28.9891Z" fill="white"/>
+<path d="M130.686 26.1874C132.387 25.0796 134.045 25.0796 134.36 25.0796C135.489 25.0796 136.633 25.3369 137.362 26.1874C137.74 26.6448 137.933 27.1165 137.933 28.5746V32.2697C137.933 32.9844 137.991 33.4919 138.505 33.4919C138.748 33.4919 139.041 33.3561 139.256 33.256V34.5997C138.405 34.9928 137.876 35.15 137.297 35.15C136.683 35.15 135.897 34.9713 135.775 33.8492C135.461 34.2209 134.653 35.15 132.888 35.15C130.457 35.15 129.864 33.6062 129.864 32.4627C129.864 30.1898 131.658 29.4823 134.424 28.789L135.711 28.4531C135.668 27.5668 135.632 26.4376 134.01 26.4376C132.387 26.4376 132.387 27.5454 132.387 27.9956V28.4531H130.672V26.1874H130.686ZM135.725 29.9397C133.295 30.633 132.108 30.9474 132.108 32.2125C132.108 32.8272 132.544 33.5919 133.588 33.5919C134.081 33.5919 134.653 33.4132 135.132 32.9987C135.725 32.4627 135.725 31.5764 135.725 31.0832V29.9397Z" fill="white"/>
+<path d="M143.08 25.394C143.18 25.8658 143.237 26.3017 143.258 27.0522H143.294C143.508 26.6591 144.302 25.2511 145.946 25.2511C146.496 25.2511 146.853 25.4083 147.111 25.5298V28.0599H145.552C145.552 27.6025 145.552 27.1737 145.038 27.1737C144.588 27.1737 143.28 27.867 143.28 30.8474V32.9629C143.28 33.4561 143.358 33.6562 144.03 33.6562H144.545V34.9213H139.978V33.6562H140.278C140.985 33.6562 141.128 33.5204 141.128 32.7843V27.724C141.128 26.8378 140.914 26.8378 139.863 26.895V25.6513L143.08 25.394Z" fill="white"/>
+<path d="M149.776 30.3542C149.74 32.334 150.998 33.3989 152.485 33.3989C153.972 33.3989 154.915 32.6842 155.608 32.2124C155.666 32.1696 155.766 32.0909 155.808 32.0767V33.9707C155.315 34.328 154.065 35.2143 151.892 35.2143C148.433 35.2143 147.403 32.384 147.403 30.3113C147.403 27.6239 148.947 25.0724 151.985 25.0724C152.735 25.0724 154.551 25.2296 155.501 27.1093C156.073 28.2386 156.037 29.618 156.016 30.347H149.776V30.3542ZM153.707 28.8032C153.686 28.2315 153.65 26.5304 151.913 26.5304C150.67 26.5304 150.055 27.481 149.841 28.8032H153.707Z" fill="white"/>
+<path d="M70.1139 39.9314V41.3108H69.7208C68.7917 41.3108 68.7917 41.5681 68.7917 42.3972V51.174C68.7917 51.9673 68.7917 52.1817 69.7208 52.1817H70.1139V53.5683H65.0537V52.1817H65.4683C66.3974 52.1817 66.3974 51.9816 66.3974 51.174V42.2614C66.3974 41.5896 66.3974 41.3108 65.4683 41.3108H65.0537V39.9314H70.1139Z" fill="white"/>
+<path d="M74.4807 44.0411C74.5807 44.3984 74.6165 44.6772 74.6379 45.3848H74.6808C74.9738 44.9345 75.7457 43.8267 77.5683 43.8267C79.6267 43.8267 80.177 45.1346 80.3557 45.6063C81.0275 44.4413 82.1139 43.8267 83.4576 43.8267C84.4224 43.8267 85.6089 44.2412 86.0449 45.1489C86.2593 45.6063 86.4808 46.0566 86.4808 47.3216V51.4313C86.4808 52.2032 86.5809 52.3032 87.3099 52.3032H87.5887V53.5683H83.0216V52.3032H83.4933C84.0436 52.3032 84.1651 52.2032 84.1651 51.4313V47.7791C84.1651 46.95 84.1651 45.5849 82.6642 45.5849C80.5487 45.5849 80.5272 47.9577 80.5272 48.408V51.5671C80.5272 52.2175 80.6487 52.2961 81.2562 52.2961H81.6708V53.5612H77.1466V52.2961H77.4611C78.2544 52.2961 78.2901 52.1603 78.2901 51.3884V47.7362C78.2901 46.6284 78.0757 45.5634 76.7678 45.5634C74.6522 45.5634 74.6522 47.9149 74.6522 48.4295V51.3956C74.6522 52.0674 74.6737 52.3032 75.3241 52.3032H75.7958V53.5683H71.2501V52.3032H71.6289C72.3794 52.3032 72.4223 52.0245 72.4223 51.3956V46.3997C72.4223 45.8279 72.3651 45.5491 71.8076 45.5491H71.1572V44.327L74.4807 44.0411Z" fill="white"/>
+<path d="M90.8476 44.041C90.9834 44.5128 91.0048 44.8344 91.0048 45.4062H91.0477C91.3622 44.8558 92.0769 43.7266 93.9137 43.7266C96.5439 43.7266 97.7875 46.0423 97.7875 48.5509C97.7875 51.3383 96.4224 53.8685 93.5564 53.8685C92.1341 53.8685 91.4837 53.2181 91.0263 52.7821V56.0698C91.0263 56.8774 91.062 56.9989 91.8554 56.9989H92.3128V58.264H87.6314V56.9989H87.9244C88.7963 56.9989 88.7963 56.8631 88.7963 55.9912V46.7498C88.7963 45.6063 88.7963 45.4848 88.246 45.4848C88.1245 45.4848 87.6742 45.5205 87.5527 45.5205V44.2983L90.8476 44.041ZM90.8619 48.9655C90.8619 51.1382 91.8911 52.1889 93.1704 52.1889C95.3646 52.1889 95.3646 49.3228 95.3646 48.8654C95.3646 46.8499 94.6142 45.5848 93.1704 45.5848C91.5766 45.5848 90.8619 47.2644 90.8619 48.9655Z" fill="white"/>
+<path d="M101.354 44.0411C101.454 44.5129 101.511 44.9488 101.533 45.6993H101.569C101.783 45.3062 102.576 43.8982 104.213 43.8982C104.771 43.8982 105.128 44.0554 105.378 44.1769V46.707H103.82C103.82 46.2496 103.82 45.8136 103.305 45.8136C102.855 45.8136 101.547 46.5069 101.547 49.4873V51.6029C101.547 52.096 101.626 52.2962 102.298 52.2962H102.812V53.5612H98.2524V52.2962H98.5454C99.2601 52.2962 99.3959 52.1604 99.3959 51.4242V46.364C99.3959 45.4706 99.1815 45.4706 98.1309 45.5349V44.2913L101.354 44.0411Z" fill="white"/>
+<path d="M105.507 48.944C105.507 46.5926 106.658 43.7266 110.267 43.7266C113.312 43.7266 115.013 45.6063 115.013 48.5867C115.013 51.0382 113.869 53.8613 110.095 53.8613C106.851 53.8613 105.507 51.6099 105.507 48.944ZM107.801 48.844C107.801 49.8732 108.137 52.3032 110.267 52.3032C112.683 52.3032 112.683 49.2371 112.683 48.6867C112.683 48.1721 112.683 45.3061 110.267 45.3061C108.33 45.3061 107.801 47.343 107.801 48.844Z" fill="white"/>
+<path d="M114.634 44.0411H119.337V45.3062C118.708 45.3062 118.393 45.3062 118.393 45.6636C118.393 45.7994 118.493 46.0995 118.55 46.2353L120.309 50.781L122.01 46.3568C122.088 46.1567 122.167 45.8851 122.167 45.7064C122.167 45.3348 121.795 45.3348 121.259 45.3133V44.0483H125.269V45.3133C124.618 45.3133 124.475 45.3562 124.004 46.4783L120.923 53.747H119.137L116.035 46.414C115.642 45.5063 115.42 45.3491 114.634 45.3062V44.0411Z" fill="white"/>
+<path d="M127.341 49.0013C127.298 50.981 128.563 52.046 130.05 52.046C131.537 52.046 132.48 51.3313 133.173 50.8595C133.231 50.8238 133.331 50.738 133.374 50.7237V52.6178C132.88 52.9751 131.637 53.8614 129.464 53.8614C126.005 53.8614 124.976 51.0382 124.976 48.9584C124.976 46.271 126.519 43.7195 129.557 43.7195C130.307 43.7195 132.13 43.8767 133.073 45.7564C133.645 46.8857 133.609 48.2651 133.588 48.9941H127.341V49.0013ZM131.272 47.4503C131.251 46.8785 131.215 45.1775 129.471 45.1775C128.228 45.1775 127.613 46.1281 127.398 47.4503H131.272Z" fill="white"/>
+<path d="M137.476 44.0411C137.576 44.3984 137.612 44.6772 137.633 45.3848H137.669C137.969 44.9345 138.741 43.8267 140.556 43.8267C142.615 43.8267 143.165 45.1346 143.344 45.6063C144.015 44.4413 145.102 43.8267 146.446 43.8267C147.418 43.8267 148.597 44.2412 149.033 45.1489C149.247 45.6063 149.469 46.0566 149.469 47.3216V51.4313C149.469 52.2032 149.569 52.3032 150.298 52.3032H150.577V53.5683H146.01V52.3032H146.481C147.032 52.3032 147.153 52.2032 147.153 51.4313V47.7791C147.153 46.95 147.153 45.5849 145.652 45.5849C143.537 45.5849 143.515 47.9577 143.515 48.408V51.5671C143.515 52.2175 143.637 52.2961 144.251 52.2961H144.666V53.5612H140.142V52.2961H140.456C141.25 52.2961 141.285 52.1603 141.285 51.3884V47.7362C141.285 46.6284 141.071 45.5634 139.763 45.5634C137.647 45.5634 137.647 47.9149 137.647 48.4295V51.3956C137.647 52.0674 137.669 52.3032 138.319 52.3032H138.791V53.5683H134.245V52.3032H134.624C135.375 52.3032 135.417 52.0245 135.417 51.3956V46.3997C135.417 45.8279 135.36 45.5491 134.803 45.5491H134.152V44.327L137.476 44.0411Z" fill="white"/>
+<path d="M152.907 49.0013C152.864 50.981 154.129 52.046 155.616 52.046C157.102 52.046 158.046 51.3313 158.739 50.8595C158.796 50.8238 158.896 50.738 158.939 50.7237V52.6178C158.446 52.9751 157.202 53.8614 155.029 53.8614C151.57 53.8614 150.541 51.0382 150.541 48.9584C150.541 46.271 152.085 43.7195 155.122 43.7195C155.873 43.7195 157.688 43.8767 158.639 45.7564C159.211 46.8857 159.175 48.2651 159.153 48.9941H152.907V49.0013ZM156.838 47.4503C156.816 46.8785 156.781 45.1775 155.037 45.1775C153.793 45.1775 153.178 46.1281 152.964 47.4503H156.838Z" fill="white"/>
+<path d="M163.064 44.0411C163.185 44.4985 163.221 44.9345 163.221 45.4276H163.264C163.5 45.0345 164.25 43.8267 166.151 43.8267C166.823 43.8267 168.381 44.0053 168.996 45.5849C169.21 46.1352 169.21 47.243 169.21 47.5647V51.3384C169.21 52.3033 169.246 52.3032 170.332 52.3032V53.5683H165.765V52.3032H166.101C166.895 52.3032 166.895 52.146 166.895 51.1597V47.9006C166.895 47.0072 166.895 45.6063 165.315 45.6063C163.242 45.6063 163.242 47.9149 163.242 48.5295V51.2526C163.242 52.1817 163.242 52.3032 163.993 52.3032H164.386V53.5683H159.819V52.3032H160.155C161.005 52.3032 161.005 52.146 161.005 51.2526V46.8285C161.005 45.7636 160.984 45.5634 160.355 45.5634C160.119 45.5634 159.84 45.5849 159.74 45.5849V44.3413L163.064 44.0411Z" fill="white"/>
+<path d="M173.991 41.2322V44.041H176.379V45.642H173.991V50.4664C173.991 51.0024 173.991 52.0102 174.956 52.0102C175.435 52.0102 175.75 51.8744 176.5 51.5385V53.118C175.75 53.554 174.899 53.8113 174.049 53.8113C171.676 53.8113 171.676 51.9387 171.676 51.1239V45.6492H170.489V44.3841C172.326 43.7694 172.526 42.0327 172.626 41.2393H173.991V41.2322Z" fill="white"/>
+<path d="M106.207 3.13757V5.94643H110.231V7.5474H106.207V12.3718C106.207 12.9078 106.207 13.9156 107.179 13.9156C107.651 13.9156 107.972 13.7798 108.723 13.4438V15.0234C107.972 15.4594 107.122 15.7167 106.271 15.7167C103.898 15.7167 103.898 13.8369 103.898 13.0293V7.55455H102.712V6.28949C104.549 5.67483 104.749 3.93806 104.849 3.14472H106.207V3.13757Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_7455_78506">
+<rect width="176" height="58.264" fill="white" transform="translate(0.5)"/>
+</clipPath>
+</defs>
+</svg>
+</span>
+  </div>
+  <div class="footer-social">
+          <a href="https://www.facebook.com/TheIHI" aria-label="Facebook"  target="_blank" >
+        <div class="footer-social-item">
+          <img src="/themes/custom/ihi/dist/assets/icons/facebook.svg" alt="Facebook"/>
+        </div>
+      </a>
+          <a href="https://bsky.app/profile/ihi.org" aria-label="Bluesky" >
+        <div class="footer-social-item">
+          <img src="/themes/custom/ihi/dist/assets/icons/bluesky.svg" alt="Bluesky"/>
+        </div>
+      </a>
+          <a href="https://www.youtube.com/@IHIvideo" aria-label="YouTube"  target="_blank" >
+        <div class="footer-social-item">
+          <img src="/themes/custom/ihi/dist/assets/icons/youtube.svg" alt="YouTube"/>
+        </div>
+      </a>
+          <a href="https://www.instagram.com/theihi" aria-label="Instagram"  target="_blank" >
+        <div class="footer-social-item">
+          <img src="/themes/custom/ihi/dist/assets/icons/instagram.svg" alt="Instagram"/>
+        </div>
+      </a>
+          <a href="https://www.linkedin.com/company/ihi" aria-label="Linkedin"  target="_blank" >
+        <div class="footer-social-item">
+          <img src="/themes/custom/ihi/dist/assets/icons/linkedin.svg" alt="Linkedin"/>
+        </div>
+      </a>
+      </div>
+  <div class="footer-menu">
+          <a href="/about" aria-label="About" >
+        About
+      </a>
+          <a href="/help" aria-label="Contact" >
+        Contact
+      </a>
+          <a href="/about/careers" aria-label="Careers" >
+        Careers
+      </a>
+          <a href="/about/news" aria-label="News" >
+        News
+      </a>
+      </div>
+  <div class="footer-legal">
+      <div id="block-copyright">
+  
+    
+      © Institute for Healthcare Improvement. All Rights Reserved.
+  </div>
+<nav aria-label="Legal" role="navigation" aria-labelledby="block-privacy-menu"  id="block-privacy">
+						
+	<h2 class="visually-hidden" id="block-privacy-menu">Privacy</h2>
+	
+
+				
+              <ul>
+              <li>
+        <a href="/privacy-policy" data-drupal-link-system-path="node/25651">Privacy</a>
+              </li>
+          <li>
+        <a href="/terms-use" data-drupal-link-system-path="node/25656">Terms of Use</a>
+              </li>
+          <li>
+        <a href="/accessibility-statement" data-drupal-link-system-path="node/25661">Accessibility Statement</a>
+              </li>
+        </ul>
+  
+
+
+	</nav>
+
+
+  </div>
+</div>
+    </footer>
+  
+</div>
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/23161","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"feature_toggle":{"enabled":["flag_test_course_listings"]},"TBMegaMenu":{"TBElementsCounter":{"column":null},"theme":"ihi","2ce4ec21-819d-4b7f-9843-d4565ad621a2":{"arrows":""}},"user":{"uid":0,"permissionsHash":"c19a9b2bcae2e9dd7e07ce3410d1fee798157e497be629e6a9502fe90d175164"}}</script>
+<script src="/sites/default/files/js/js_zkNL18jPz4vhDrpCHziYdKS-pHQfTSnmDTaApJSGCzc.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=ihi&amp;include=eJwtjG0OxCAIRC-03R7JoOBHgtIAZtPbb2P9N-_BDCC6wLhP2OGbVYZ_Wm1nVAJMOntciPIbLIAhi_ZlsoiTrlhYIvBhfnMbZan6tPdVicEJg5LJ1ES27UvhgkLLWAWl4LW9D9b6xRQSKC6e4xm0JEp_UBpGiQ"></script>
+<script src="https://static.addtoany.com/menu/page.js" defer></script>
+<script src="/sites/default/files/js/js_LZk1NGtrK-m9jbG2WmbHipBNC-c6lPWfJXG8c1bgHVY.js?scope=footer&amp;delta=2&amp;language=en&amp;theme=ihi&amp;include=eJwtjG0OxCAIRC-03R7JoOBHgtIAZtPbb2P9N-_BDCC6wLhP2OGbVYZ_Wm1nVAJMOntciPIbLIAhi_ZlsoiTrlhYIvBhfnMbZan6tPdVicEJg5LJ1ES27UvhgkLLWAWl4LW9D9b6xRQSKC6e4xm0JEp_UBpGiQ"></script>
+<script src="//cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js"></script>
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/241684.js"></script>
+    <!-- End of HubSpot Embed Code -->
+  </body>
+</html>
