@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import SubjectSelector from "./SubjectSelector";
+import FeedbackModal from "./FeedbackModal";
 
 interface Flashcard {
     term: string;
@@ -29,6 +30,19 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
     const [cardsReviewed, setCardsReviewed] = useState(0);
     const [cardHistory, setCardHistory] = useState<Flashcard[]>([]);
     const [totalCards, setTotalCards] = useState(10); // Target number of cards
+    const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+
+    const handleSubmitFeedback = async (studyMode: string, message: string) => {
+        try {
+            await fetch("http://localhost:8000/api/feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ study_mode: studyMode, message }),
+            });
+        } catch (err) {
+            console.error("Failed to submit feedback:", err);
+        }
+    };
 
     const handleContinueToStudy = () => {
         if (selectedSubjects.length > 0) {
@@ -223,10 +237,24 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
                 </button>
             </div>
 
-            {/* Keyboard Hint */}
-            <p className="text-center text-sm text-muted">
-                💡 Click card to flip • Use buttons to navigate
-            </p>
+            {/* Hint and Feedback */}
+            <div className="flex justify-between items-center text-sm text-muted">
+                <p>💡 Click card to flip • Use buttons to navigate</p>
+                <button
+                    onClick={() => setFeedbackModalOpen(true)}
+                    className="hover:text-ember-orange transition-colors flex items-center gap-1.5"
+                >
+                    <span>💡</span> Feedback
+                </button>
+            </div>
+
+            {/* Feedback Modal */}
+            <FeedbackModal
+                isOpen={feedbackModalOpen}
+                studyMode="flashcards"
+                onClose={() => setFeedbackModalOpen(false)}
+                onSubmit={handleSubmitFeedback}
+            />
         </div>
     );
 }

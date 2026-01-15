@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import SubjectSelector from "./SubjectSelector";
+import FeedbackModal from "./FeedbackModal";
 
 interface Message {
     role: "user" | "assistant";
@@ -26,6 +27,19 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+
+    const handleSubmitFeedback = async (studyMode: string, message: string) => {
+        try {
+            await fetch("http://localhost:8000/api/feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ study_mode: studyMode, message }),
+            });
+        } catch (err) {
+            console.error("Failed to submit feedback:", err);
+        }
+    };
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -134,12 +148,20 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
                         </p>
                     </div>
                 </div>
-                <button
-                    onClick={() => setPhase("subject-select")}
-                    className="text-muted hover:text-foreground transition-colors"
-                >
-                    ← Change Subjects
-                </button>
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={() => setFeedbackModalOpen(true)}
+                        className="text-muted hover:text-ember-orange transition-colors flex items-center gap-1.5 text-sm"
+                    >
+                        <span>💡</span> Feedback
+                    </button>
+                    <button
+                        onClick={() => setPhase("subject-select")}
+                        className="text-muted hover:text-foreground transition-colors"
+                    >
+                        ← Change Subjects
+                    </button>
+                </div>
             </div>
 
             {/* Chat Messages */}
@@ -151,8 +173,8 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
                     >
                         <div
                             className={`max-w-[85%] p-4 rounded-2xl ${message.role === "assistant"
-                                    ? "bg-card-border text-foreground rounded-bl-sm"
-                                    : "gradient-fire text-white rounded-br-sm"
+                                ? "bg-card-border text-foreground rounded-bl-sm"
+                                : "gradient-fire text-white rounded-br-sm"
                                 }`}
                         >
                             <p className="whitespace-pre-wrap leading-relaxed">{message.text}</p>
@@ -193,6 +215,14 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
                     Ask Cap
                 </button>
             </div>
+
+            {/* Feedback Modal */}
+            <FeedbackModal
+                isOpen={feedbackModalOpen}
+                studyMode="explain"
+                onClose={() => setFeedbackModalOpen(false)}
+                onSubmit={handleSubmitFeedback}
+            />
         </div>
     );
 }

@@ -16,6 +16,7 @@ interface QuizViewProps {
     onComplete: (results: { correct: number; total: number }) => void;
     onQuestionChange?: (index: number) => void;
     onSaveToStudyDeck?: (questionId: string) => Promise<boolean>;
+    onOpenReportModal?: (questionId: string) => void;
 }
 
 export default function QuizView({
@@ -24,6 +25,7 @@ export default function QuizView({
     onComplete,
     onQuestionChange,
     onSaveToStudyDeck,
+    onOpenReportModal,
 }: QuizViewProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -93,7 +95,7 @@ export default function QuizView({
             <div className="flex justify-between items-center text-sm text-muted">
                 <span>Question {currentIndex + 1} of {questions.length}</span>
                 <button
-                    onClick={() => onReportQuestion(currentQuestion.id)}
+                    onClick={() => onOpenReportModal ? onOpenReportModal(currentQuestion.id) : onReportQuestion(currentQuestion.id)}
                     className="text-muted hover:text-caution-yellow transition-colors flex items-center gap-1.5"
                 >
                     <span>⚠️</span> Report Question
@@ -154,8 +156,8 @@ export default function QuizView({
                                         }}
                                         disabled={savingQuestion || savedQuestions.has(currentQuestion.id)}
                                         className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${savedQuestions.has(currentQuestion.id)
-                                                ? "border-green-500/50 text-green-400 bg-green-500/10"
-                                                : "border-card-border hover:border-ember-orange hover:text-ember-orange"
+                                            ? "border-green-500/50 text-green-400 bg-green-500/10"
+                                            : "border-card-border hover:border-ember-orange hover:text-ember-orange"
                                             }`}
                                     >
                                         {savedQuestions.has(currentQuestion.id) ? (

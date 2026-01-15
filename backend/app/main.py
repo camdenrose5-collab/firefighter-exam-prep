@@ -123,6 +123,7 @@ class QuizRequest(BaseModel):
 
 
 class QuizResponse(BaseModel):
+    id: str | None = None
     question: str
     options: List[str]
     correct_answer: str
@@ -132,6 +133,11 @@ class QuizResponse(BaseModel):
 class ReportRequest(BaseModel):
     question_id: str
     reason: str | None = None
+
+
+class FeedbackRequest(BaseModel):
+    study_mode: str  # "quiz", "flashcards", or "explain"
+    message: str
 
 
 class TutorRequest(BaseModel):
@@ -279,6 +285,7 @@ async def get_questions_from_bank(request: QuestionBankRequest, token: str = "")
             deck_questions = db.get_study_deck_questions(user["user_id"], study_deck_count)
             for q in deck_questions:
                 questions.append(QuizResponse(
+                    id=q["id"],
                     question=q["question"],
                     options=q["options"],
                     correct_answer=q["correct_answer"],
@@ -290,6 +297,7 @@ async def get_questions_from_bank(request: QuestionBankRequest, token: str = "")
         bank_questions = db.get_random_questions(request.subjects, bank_count)
         for q in bank_questions:
             questions.append(QuizResponse(
+                id=q["id"],
                 question=q["question"],
                 options=q["options"],
                 correct_answer=q["correct_answer"],
@@ -472,6 +480,26 @@ async def report_question(request: ReportRequest):
         return {"status": "reported", "question_id": request.question_id, "report_id": report_id}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Reporting failed: {str(e)}")
+
+
+@app.post("/api/feedback")
+async def submit_feedback(request: FeedbackRequest):
+    """
+    Submit general user feedback/ideas for improvement.
+    Separate from question reports - for suggestions and feature ideas.
+    """
+    if not request.message.strip():
+        raise HTTPException(status_code=400, detail="Feedback message is required")
+    
+    try:
+        feedback_id = db.submit_feedback(
+            study_mode=request.study_mode,
+            message=request.message.strip()
+        )
+        print(f"💡 [FEEDBACK] New feedback from {request.study_mode}: {request.message[:50]}...")
+        return {"status": "submitted", "feedback_id": feedback_id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Feedback submission failed: {str(e)}")
 
 
 @app.post("/api/tutor/explain", response_model=TutorResponse)

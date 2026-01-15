@@ -1,0 +1,32 @@
+[
+  {
+    "question_id": "a106b8fe-5582-4a25-9750-b4a4808722c2",
+    "prompt": "Technical 2D line diagram of a wheelbarrow, viewed from the side. The wheel axle is labeled 'B'. The center of the load in the wheelbarrow bed is labeled 'A'. The handles where a person would lift are",
+    "error": "The PIL module is required for saving generation parameters.",
+    "timestamp": "2026-01-14T20:44:57.131627"
+  },
+  {
+    "question_id": "88c3c99b-d608-4c88-ba76-91b8814000f3",
+    "prompt": "Technical 2D line diagram of a single fixed pulley and a single movable pulley used to lift a load. The fixed pulley is attached to an overhead support labeled 'C'. A rope runs from the overhead suppo",
+    "error": "The PIL module is required for saving generation parameters.",
+    "timestamp": "2026-01-14T20:44:59.985941"
+  },
+  {
+    "question_id": "db44373c-1f4e-4d25-9d99-133c6d5ed7a7",
+    "prompt": "Technical 2D line diagram showing two meshed spur gears. The larger gear is on the left and labeled 'A'. The smaller gear is on the right and labeled 'B'. An arrow labeled 'C' shows gear A rotating cl",
+    "error": "The PIL module is required for saving generation parameters.",
+    "timestamp": "2026-01-14T20:45:02.920718"
+  },
+  {
+    "question_id": "cd401e4e-0d17-4040-afb8-df2577507390",
+    "prompt": "Technical 2D line diagram of a ramp (inclined plane). The bottom end of the ramp is labeled 'A'. The top end of the ramp is labeled 'B'. An object, represented by a block, is on the ramp and labeled '",
+    "error": "The PIL module is required for saving generation parameters.",
+    "timestamp": "2026-01-14T20:45:05.581231"
+  },
+  {
+    "question_id": "d1226d9f-085e-43ce-96b9-d1a81704de4a",
+    "prompt": "Technical 2D line diagram of a pair of pliers. The handles where a hand would grip are labeled 'A'. The pivot point (joint) of the pliers is labeled 'B'. The tips of the jaws where an object would be ",
+    "error": "The PIL module is required for saving generation parameters.",
+    "timestamp": "2026-01-14T20:45:08.226556"
+  }
+]

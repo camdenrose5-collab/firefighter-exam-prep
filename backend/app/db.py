@@ -44,6 +44,7 @@ def init_db():
                 options TEXT NOT NULL,
                 correct_answer TEXT NOT NULL,
                 explanation TEXT NOT NULL,
+                image_path TEXT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 quality_score REAL DEFAULT 1.0,
                 reported_count INTEGER DEFAULT 0,
@@ -79,11 +80,21 @@ def init_db():
                 FOREIGN KEY (question_id) REFERENCES questions(id)
             );
 
+            -- User feedback (general ideas/suggestions)
+            CREATE TABLE IF NOT EXISTS user_feedback (
+                id TEXT PRIMARY KEY,
+                study_mode TEXT NOT NULL,
+                message TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                reviewed BOOLEAN DEFAULT FALSE
+            );
+
             -- Indexes
             CREATE INDEX IF NOT EXISTS idx_questions_subject ON questions(subject);
             CREATE INDEX IF NOT EXISTS idx_questions_approved ON questions(is_approved);
             CREATE INDEX IF NOT EXISTS idx_study_deck_user ON study_deck(user_id);
             CREATE INDEX IF NOT EXISTS idx_reports_reviewed ON reported_questions(reviewed);
+            CREATE INDEX IF NOT EXISTS idx_feedback_reviewed ON user_feedback(reviewed);
         """)
 
 
@@ -98,16 +109,17 @@ def add_question(
     correct_answer: str,
     explanation: str,
     quality_score: float = 1.0,
-    is_approved: bool = True
+    is_approved: bool = True,
+    image_path: Optional[str] = None
 ) -> str:
     """Add a question to the bank. Returns the question ID."""
     question_id = str(uuid.uuid4())
     with get_db() as conn:
         conn.execute(
             """INSERT INTO questions 
-               (id, subject, question, options, correct_answer, explanation, quality_score, is_approved)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-            (question_id, subject, question, json.dumps(options), correct_answer, explanation, quality_score, is_approved)
+               (id, subject, question, options, correct_answer, explanation, quality_score, is_approved, image_path)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (question_id, subject, question, json.dumps(options), correct_answer, explanation, quality_score, is_approved, image_path)
         )
     return question_id
 
@@ -331,6 +343,53 @@ def mark_report_reviewed(report_id: str):
         conn.execute(
             "UPDATE reported_questions SET reviewed = TRUE WHERE id = ?",
             (report_id,)
+        )
+
+
+# =============================================================================
+# USER FEEDBACK CRUD
+# =============================================================================
+
+def submit_feedback(study_mode: str, message: str) -> str:
+    """Submit user feedback. Returns feedback ID."""
+    feedback_id = str(uuid.uuid4())
+    with get_db() as conn:
+        conn.execute(
+            "INSERT INTO user_feedback (id, study_mode, message) VALUES (?, ?, ?)",
+            (feedback_id, study_mode, message)
+        )
+    return feedback_id
+
+
+def get_all_feedback(reviewed_only: bool = False) -> List[Dict[str, Any]]:
+    """Get all feedback entries."""
+    with get_db() as conn:
+        if reviewed_only:
+            rows = conn.execute(
+                """SELECT * FROM user_feedback WHERE reviewed = TRUE ORDER BY created_at DESC"""
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                """SELECT * FROM user_feedback ORDER BY created_at DESC"""
+            ).fetchall()
+        return [dict(row) for row in rows]
+
+
+def get_pending_feedback() -> List[Dict[str, Any]]:
+    """Get all unreviewed feedback."""
+    with get_db() as conn:
+        rows = conn.execute(
+            """SELECT * FROM user_feedback WHERE reviewed = FALSE ORDER BY created_at DESC"""
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+
+def mark_feedback_reviewed(feedback_id: str):
+    """Mark feedback as reviewed."""
+    with get_db() as conn:
+        conn.execute(
+            "UPDATE user_feedback SET reviewed = TRUE WHERE id = ?",
+            (feedback_id,)
         )
 
 

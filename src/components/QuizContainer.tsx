@@ -3,7 +3,8 @@
 import { useState } from "react";
 import QuizView, { QuizQuestion } from "./QuizView";
 import SubjectSelector from "./SubjectSelector";
-
+import ReportModal from "./ReportModal";
+import FeedbackModal from "./FeedbackModal";
 // The 4 core exam subjects
 const EXAM_SUBJECTS = [
     { id: "human-relations", label: "Human Relations" },
@@ -28,6 +29,11 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
     const [isGenerating, setIsGenerating] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
+    // Modal state
+    const [reportModalOpen, setReportModalOpen] = useState(false);
+    const [reportQuestionId, setReportQuestionId] = useState<string | null>(null);
+    const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+
     const handleSubjectsSelected = (subjects: string[]) => {
         setSelectedSubjects(subjects);
     };
@@ -45,17 +51,14 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
         setQuizQuestions([]);
 
         try {
-            // Use batch endpoint for parallel generation
-            const topics = selectedSubjects.map(
-                (s) => EXAM_SUBJECTS.find((sub) => sub.id === s)?.label || s
-            );
-
-            const res = await fetch("http://localhost:8000/api/quiz/batch", {
+            // Use pre-generated question bank (no AI latency)
+            const res = await fetch("http://localhost:8000/api/quiz/bank", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    topics: topics,
+                    subjects: selectedSubjects,
                     count: questionCount,
+                    study_deck_ratio: 0.0,
                 }),
             });
 
@@ -65,9 +68,9 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
 
             const data = await res.json();
             const questions: QuizQuestion[] = data.questions.map(
-                (q: Omit<QuizQuestion, "id">) => ({
+                (q: QuizQuestion & { id?: string }) => ({
                     ...q,
-                    id: crypto.randomUUID(),
+                    id: q.id || crypto.randomUUID(),
                 })
             );
 
@@ -90,15 +93,32 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
         }
     };
 
-    const handleReportQuestion = async (id: string) => {
+    const handleReportQuestion = async (id: string, reason: string) => {
         try {
             await fetch("http://localhost:8000/api/quiz/report", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ question_id: id, reason: "User flagged in UI" }),
+                body: JSON.stringify({ question_id: id, reason: reason || "User flagged in UI" }),
             });
         } catch (err) {
             console.error("Failed to report question:", err);
+        }
+    };
+
+    const handleOpenReportModal = (questionId: string) => {
+        setReportQuestionId(questionId);
+        setReportModalOpen(true);
+    };
+
+    const handleSubmitFeedback = async (studyMode: string, message: string) => {
+        try {
+            await fetch("http://localhost:8000/api/feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ study_mode: studyMode, message }),
+            });
+        } catch (err) {
+            console.error("Failed to submit feedback:", err);
         }
     };
 
@@ -214,9 +234,17 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
                         >
                             ← Exit Quiz
                         </button>
-                        <span className="text-sm font-medium text-muted">
-                            Question {currentQuestionIndex + 1} / {quizQuestions.length}
-                        </span>
+                        <div className="flex items-center gap-4">
+                            <button
+                                onClick={() => setFeedbackModalOpen(true)}
+                                className="text-muted hover:text-ember-orange transition-colors flex items-center gap-1.5 text-sm"
+                            >
+                                <span>💡</span> Feedback
+                            </button>
+                            <span className="text-sm font-medium text-muted">
+                                Question {currentQuestionIndex + 1} / {quizQuestions.length}
+                            </span>
+                        </div>
                     </div>
                     {/* Progress bar visual */}
                     <div className="w-full h-2 bg-card-border rounded-full overflow-hidden">
@@ -231,9 +259,29 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
 
                 <QuizView
                     questions={quizQuestions}
-                    onReportQuestion={handleReportQuestion}
+                    onReportQuestion={(id) => handleReportQuestion(id, "")}
+                    onOpenReportModal={handleOpenReportModal}
                     onComplete={handleQuizComplete}
                     onQuestionChange={(index) => setCurrentQuestionIndex(index)}
+                />
+
+                {/* Report Modal */}
+                <ReportModal
+                    isOpen={reportModalOpen}
+                    questionId={reportQuestionId || ""}
+                    onClose={() => {
+                        setReportModalOpen(false);
+                        setReportQuestionId(null);
+                    }}
+                    onSubmit={handleReportQuestion}
+                />
+
+                {/* Feedback Modal */}
+                <FeedbackModal
+                    isOpen={feedbackModalOpen}
+                    studyMode="quiz"
+                    onClose={() => setFeedbackModalOpen(false)}
+                    onSubmit={handleSubmitFeedback}
                 />
             </div>
         );
