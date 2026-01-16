@@ -130,7 +130,7 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
                 ? "Outstanding work, candidate!"
                 : percentage >= 60
                     ? "Good effort. Keep studying!"
-                    : "Let's hit the books harder, rookie."
+                    : "Let's hit the books harder. You've got this!"
             }`
         );
         setPhase("subject-select");

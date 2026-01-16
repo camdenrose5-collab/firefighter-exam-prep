@@ -54,7 +54,7 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
             setMessages([
                 {
                     role: "assistant",
-                    text: `Hey there, rookie. You've chosen to focus on: **${subjectNames}**.\n\nWhat's got you stuck? I'll break it down using firehouse analogies — no paper or calculator needed.`,
+                    text: `Hey there, candidate! You've chosen to focus on: **${subjectNames}**.\n\nWhat's got you stuck? I'll break it down in simple terms with real-world examples — no paper or calculator needed.`,
                 },
             ]);
             setPhase("chat");

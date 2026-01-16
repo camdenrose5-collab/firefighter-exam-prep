@@ -9,10 +9,13 @@ from pathlib import Path
 from typing import List
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI, UploadFile, File, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from slowapi.errors import RateLimitExceeded
+
+from app.rate_limit import limiter, RateLimits, get_rate_limit_exceeded_handler
 
 from app.ingestion import PDFIngestionPipeline
 from app.rag_engine import RAGEngine
@@ -84,6 +87,10 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan,
 )
+
+# Rate limiting configuration
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, get_rate_limit_exceeded_handler())
 
 # CORS for Next.js frontend
 # Supports both local development and production
@@ -491,19 +498,20 @@ async def list_documents():
 
 
 @app.post("/api/review", response_model=ReviewResponse)
-async def submit_for_review(request: ReviewRequest):
+@limiter.limit(RateLimits.AI_GENERATE)
+async def submit_for_review(request: Request, review_request: ReviewRequest):
     """
     Captain's Review: Submit a question and answer pair.
     The AI will grade the answer using RAG-retrieved context.
     """
-    if not request.question.strip() or not request.answer.strip():
+    if not review_request.question.strip() or not review_request.answer.strip():
         raise HTTPException(status_code=400, detail="Question and answer are required")
     
     try:
         result = await captains_review.review(
-            question=request.question,
-            user_answer=request.answer,
-            document_ids=request.document_ids,
+            question=review_request.question,
+            user_answer=review_request.answer,
+            document_ids=review_request.document_ids,
         )
         
         return ReviewResponse(
@@ -524,16 +532,17 @@ async def submit_for_review(request: ReviewRequest):
 
 
 @app.post("/api/quiz/generate", response_model=QuizResponse)
-async def generate_quiz_question(request: QuizRequest):
+@limiter.limit(RateLimits.AI_GENERATE)
+async def generate_quiz_question(request: Request, quiz_request: QuizRequest):
     """
     Fire Captain Quiz: Generate a multiple-choice question on a topic.
     Uses Discovery Engine for retrieval and Vertex AI for generation.
     """
-    if not request.topic.strip():
+    if not quiz_request.topic.strip():
         raise HTTPException(status_code=400, detail="Topic is required")
     
     try:
-        result = await quiz_engine.generate_quiz_question(request.topic)
+        result = await quiz_engine.generate_quiz_question(quiz_request.topic)
         return QuizResponse(
             question=result["question"],
             options=result["options"],
@@ -590,18 +599,19 @@ async def submit_feedback(request: FeedbackRequest):
 
 
 @app.post("/api/tutor/explain", response_model=TutorResponse)
-async def get_tutoring(request: TutorRequest):
+@limiter.limit(RateLimits.AI_GENERATE)
+async def get_tutoring(request: Request, tutor_request: TutorRequest):
     """
     Fire Captain Tutor: Get scaffolded explanation using firehouse analogies.
     Follows the 4-step pedagogical flow: Hook → Analogy → Practice → Verify
     """
-    if not request.subject.strip():
+    if not tutor_request.subject.strip():
         raise HTTPException(status_code=400, detail="Subject is required")
     
     try:
         explanation = await tutor_engine.explain(
-            subject=request.subject,
-            user_input=request.user_input or "Help me understand this"
+            subject=tutor_request.subject,
+            user_input=tutor_request.user_input or "Help me understand this"
         )
         return TutorResponse(explanation=explanation)
     except Exception as e:
@@ -626,7 +636,8 @@ class BatchQuizResponse(BaseModel):
 
 
 @app.post("/api/quiz/batch", response_model=BatchQuizResponse)
-async def generate_batch_quiz(request: BatchQuizRequest):
+@limiter.limit(RateLimits.AI_BATCH)
+async def generate_batch_quiz(request: Request, batch_request: BatchQuizRequest):
     """
     Generate multiple quiz questions in parallel for faster loading.
     Includes retry logic to ensure we get the requested count.
@@ -639,7 +650,7 @@ async def generate_batch_quiz(request: BatchQuizRequest):
     questions = []
     
     # Distribute questions across topics
-    topics = request.topics if request.topics else ["General Fire Service"]
+    topics = batch_request.topics if batch_request.topics else ["General Fire Service"]
     
     async def generate_one(topic: str, attempt: int = 1):
         try:
@@ -655,9 +666,9 @@ async def generate_batch_quiz(request: BatchQuizRequest):
             return None
     
     # Initial batch - generate requested count + buffer for failures
-    buffer_count = min(request.count, 3)  # Extra attempts to account for failures
+    buffer_count = min(batch_request.count, 3)  # Extra attempts to account for failures
     tasks = []
-    topic_cycle = (topics * ((request.count + buffer_count) // len(topics) + 1))[:request.count + buffer_count]
+    topic_cycle = (topics * ((batch_request.count + buffer_count) // len(topics) + 1))[:batch_request.count + buffer_count]
     
     for topic in topic_cycle:
         tasks.append(generate_one(topic))
@@ -669,9 +680,9 @@ async def generate_batch_quiz(request: BatchQuizRequest):
     # If we still need more, do targeted retries
     max_retries = 2
     retry_count = 0
-    while len(questions) < request.count and retry_count < max_retries:
+    while len(questions) < batch_request.count and retry_count < max_retries:
         retry_count += 1
-        needed = request.count - len(questions)
+        needed = batch_request.count - len(questions)
         retry_tasks = [generate_one(topics[i % len(topics)], retry_count + 1) for i in range(needed)]
         retry_results = await asyncio.gather(*retry_tasks)
         questions.extend([q for q in retry_results if q is not None])
@@ -680,7 +691,7 @@ async def generate_batch_quiz(request: BatchQuizRequest):
         raise HTTPException(status_code=503, detail="Failed to generate any questions")
     
     # Return exactly the requested count (or all we got if fewer)
-    return BatchQuizResponse(questions=questions[:request.count])
+    return BatchQuizResponse(questions=questions[:batch_request.count])
 
 
 # ============== FLASHCARD BANK ENDPOINTS ==============
