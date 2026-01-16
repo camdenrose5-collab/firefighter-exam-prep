@@ -48,3 +48,13 @@ next-env.d.ts
 *credentials*.json
 key.json
 
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Databases (keep backups out of git)
+*.db
+*.sqlite3
