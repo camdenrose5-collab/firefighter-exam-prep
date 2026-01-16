@@ -39,18 +39,18 @@ if not env_file.exists():
 load_dotenv(env_file)
 print(f"🔧 Running in {env_mode} mode (loaded: {env_file.name})")
 
-# Initialize Sentry for error monitoring (production only)
-import sentry_sdk
-sentry_dsn = os.environ.get("SENTRY_DSN")
-if env_mode == "production" and sentry_dsn:
-    sentry_sdk.init(
-        dsn=sentry_dsn,
-        traces_sample_rate=0.1,  # 10% of requests for performance monitoring
-        profiles_sample_rate=0.1,
-        environment="production",
-        send_default_pii=False,  # Don't send personally identifiable info
-    )
-    print("🛡️ Sentry error monitoring initialized")
+# Initialize Google Cloud Logging for structured error reporting (production only)
+# Errors automatically appear in Cloud Console → Error Reporting
+cloud_logging_enabled = False
+if env_mode == "production":
+    try:
+        import google.cloud.logging
+        client = google.cloud.logging.Client()
+        client.setup_logging()
+        cloud_logging_enabled = True
+        print("🛡️ Google Cloud Logging initialized → Error Reporting enabled")
+    except Exception as e:
+        print(f"⚠️ Could not initialize Cloud Logging: {e}")
 
 # Initialize components
 ingestion_pipeline: PDFIngestionPipeline = None
@@ -251,25 +251,28 @@ async def health_check():
     return {
         "status": "healthy", 
         "rag_ready": rag_engine is not None,
-        "sentry_enabled": sentry_dsn is not None and env_mode == "production"
+        "cloud_logging_enabled": cloud_logging_enabled
     }
 
 
-@app.get("/api/sentry-test")
-async def sentry_test():
+@app.get("/api/error-test")
+async def error_test():
     """
-    Test endpoint to verify Sentry is working.
-    Only works in production with SENTRY_DSN configured.
+    Test endpoint to verify Google Cloud Error Reporting is working.
+    Logs an error that will appear in Cloud Console → Error Reporting.
     """
-    if env_mode != "production" or not sentry_dsn:
-        return {"status": "skipped", "reason": "Sentry only enabled in production"}
+    import logging
+    logger = logging.getLogger(__name__)
     
-    # This will be captured by Sentry
+    if env_mode != "production":
+        return {"status": "skipped", "reason": "Error reporting only active in production"}
+    
+    # This will be captured by Cloud Error Reporting
     try:
-        raise ValueError("Sentry test error - ignore this!")
+        raise ValueError("Test error for Cloud Error Reporting - ignore this!")
     except Exception as e:
-        sentry_sdk.capture_exception(e)
-        return {"status": "sent", "message": "Test error sent to Sentry"}
+        logger.exception("Test error triggered via /api/error-test")
+        return {"status": "logged", "message": "Test error logged to Cloud Error Reporting"}
 
 
 # ============== AUTH ENDPOINTS ==============

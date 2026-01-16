@@ -21,7 +21,7 @@ interface FlashcardsContainerProps {
 const SUBJECT_LABELS: Record<string, string> = {
     "human-relations": "Human Relations",
     "mechanical-aptitude": "Mechanical Aptitude",
-    "reading-ability": "Reading Ability",
+    "fire-terms": "Fire Terms",
     "math": "Math (Mental)",
 };
 

@@ -81,7 +81,7 @@ export default function StudyDeckView({ onStartQuiz }: StudyDeckViewProps) {
         const colors: Record<string, string> = {
             "human-relations": "text-blue-400 bg-blue-400/10 border-blue-400/30",
             "mechanical-aptitude": "text-purple-400 bg-purple-400/10 border-purple-400/30",
-            "reading-ability": "text-green-400 bg-green-400/10 border-green-400/30",
+            "fire-terms": "text-green-400 bg-green-400/10 border-green-400/30",
             "math": "text-amber-400 bg-amber-400/10 border-amber-400/30",
         };
         return colors[subject] || "text-gray-400 bg-gray-400/10 border-gray-400/30";

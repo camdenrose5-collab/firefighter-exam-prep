@@ -216,6 +216,56 @@ def increment_report_count(question_id: str):
         )
 
 
+def find_matching_mechanical_image(query: str) -> Optional[str]:
+    """
+    Find a mechanical aptitude image that matches the user's query.
+    Searches question content for keyword matches.
+    Returns image_path if found, None otherwise.
+    """
+    # Define keyword groups for different mechanical concepts
+    CONCEPT_KEYWORDS = {
+        "pulley": ["pulley", "block and tackle", "rope", "lift", "hoist"],
+        "lever": ["lever", "crowbar", "pry", "fulcrum", "halligan"],
+        "gear": ["gear", "teeth", "rotation", "clockwise", "counter-clockwise", "mesh"],
+        "wheel": ["wheelbarrow", "wheel", "axle"],
+        "incline": ["ramp", "incline", "slope", "wedge"],
+        "screw": ["screw", "thread", "jack"],
+        "force": ["force", "effort", "load", "mechanical advantage", "ma"],
+    }
+    
+    query_lower = query.lower()
+    matched_concepts = []
+    
+    # Find which concepts the query mentions
+    for concept, keywords in CONCEPT_KEYWORDS.items():
+        if any(kw in query_lower for kw in keywords):
+            matched_concepts.extend(keywords)
+    
+    if not matched_concepts:
+        return None
+    
+    with get_db() as conn:
+        # Build search query - look for questions containing any matched keywords
+        conditions = " OR ".join(["question LIKE ?" for _ in matched_concepts])
+        params = [f"%{kw}%" for kw in matched_concepts]
+        
+        row = conn.execute(
+            f"""SELECT image_path FROM questions 
+                WHERE subject = 'mechanical-aptitude' 
+                AND image_path IS NOT NULL 
+                AND ({conditions})
+                ORDER BY RANDOM()
+                LIMIT 1""",
+            tuple(params)
+        ).fetchone()
+        
+        if row and row["image_path"]:
+            return row["image_path"]
+    
+    return None
+
+
+
 # =============================================================================
 # USER CRUD
 # =============================================================================

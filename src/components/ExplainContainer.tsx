@@ -8,7 +8,14 @@ import { apiUrl } from "@/lib/api";
 interface Message {
     role: "user" | "assistant";
     text: string;
+    imageUrl?: string;
 }
+
+const LOADING_PHASES = [
+    "🔍 Analyzing your question...",
+    "🧠 Formulating answer...",
+    "📝 Preparing delivery..."
+];
 
 interface ExplainContainerProps {
     onBack: () => void;
@@ -17,7 +24,7 @@ interface ExplainContainerProps {
 const SUBJECT_LABELS: Record<string, string> = {
     "human-relations": "Human Relations",
     "mechanical-aptitude": "Mechanical Aptitude",
-    "reading-ability": "Reading Ability",
+    "fire-terms": "Fire Terms",
     "math": "Math (Mental)",
 };
 
@@ -27,7 +34,9 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [loadingPhase, setLoadingPhase] = useState(0);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const loadingIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
 
     const handleSubmitFeedback = async (studyMode: string, message: string) => {
@@ -68,6 +77,12 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
         setInput("");
         setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
         setIsLoading(true);
+        setLoadingPhase(0);
+
+        // Start cycling through loading phases
+        loadingIntervalRef.current = setInterval(() => {
+            setLoadingPhase((prev) => Math.min(prev + 1, LOADING_PHASES.length - 1));
+        }, 1500);
 
         try {
             const response = await fetch(apiUrl("/api/tutor/explain"), {
@@ -87,7 +102,11 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
             const data = await response.json();
             setMessages((prev) => [
                 ...prev,
-                { role: "assistant", text: data.explanation },
+                {
+                    role: "assistant",
+                    text: data.explanation,
+                    imageUrl: data.image_url,
+                },
             ]);
         } catch (err) {
             console.error("Tutoring error:", err);
@@ -99,7 +118,12 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
                 },
             ]);
         } finally {
+            if (loadingIntervalRef.current) {
+                clearInterval(loadingIntervalRef.current);
+                loadingIntervalRef.current = null;
+            }
             setIsLoading(false);
+            setLoadingPhase(0);
         }
     };
 
@@ -179,16 +203,27 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
                                 }`}
                         >
                             <p className="whitespace-pre-wrap leading-relaxed">{message.text}</p>
+                            {message.imageUrl && (
+                                <div className="mt-3">
+                                    <img
+                                        src={message.imageUrl}
+                                        alt="Explanation diagram"
+                                        className="rounded-lg max-w-full h-auto border border-card-border"
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}
 
                 {isLoading && (
                     <div className="flex justify-start">
-                        <div className="bg-card-border text-foreground p-4 rounded-2xl rounded-bl-sm">
+                        <div className="bg-card-border text-foreground p-4 rounded-2xl rounded-bl-sm min-w-[200px]">
                             <div className="flex items-center gap-2">
-                                <span className="animate-bounce">🔥</span>
-                                <span className="text-muted">Captain is thinking...</span>
+                                <span className="animate-spin">⚙️</span>
+                                <span className="text-muted transition-all duration-300">
+                                    {LOADING_PHASES[loadingPhase]}
+                                </span>
                             </div>
                         </div>
                     </div>

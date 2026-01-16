@@ -10,7 +10,7 @@ import { apiUrl } from "@/lib/api";
 const EXAM_SUBJECTS = [
     { id: "human-relations", label: "Human Relations" },
     { id: "mechanical-aptitude", label: "Mechanical Aptitude" },
-    { id: "reading-ability", label: "Reading Ability" },
+    { id: "fire-terms", label: "Fire Terms" },
     { id: "math", label: "Math (Mental)" },
 ];
 

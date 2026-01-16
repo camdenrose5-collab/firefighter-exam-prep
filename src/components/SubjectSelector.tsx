@@ -21,10 +21,10 @@ const SUBJECTS = [
         description: "Tools, leverage, hydraulics, troubleshooting",
     },
     {
-        id: "reading-ability",
-        label: "Reading Ability",
-        icon: "📖",
-        description: "Passage comprehension, following instructions",
+        id: "fire-terms",
+        label: "Fire Terms",
+        icon: "🔥",
+        description: "GPM, PSI, SCBA, Flashover, and essential fire terminology",
     },
     {
         id: "math",
@@ -97,16 +97,16 @@ export default function SubjectSelector({
                             key={subject.id}
                             onClick={() => toggleSubject(subject.id)}
                             className={`p-5 rounded-xl border-2 text-left transition-all duration-200 ${isSelected
-                                    ? "border-fire-red bg-fire-red/10 fire-glow"
-                                    : "border-card-border bg-card hover:border-muted"
+                                ? "border-fire-red bg-fire-red/10 fire-glow"
+                                : "border-card-border bg-card hover:border-muted"
                                 }`}
                         >
                             <div className="flex items-start gap-4">
                                 {/* Checkbox */}
                                 <div
                                     className={`w-6 h-6 rounded-md border-2 flex items-center justify-center flex-shrink-0 mt-1 ${isSelected
-                                            ? "border-fire-red bg-fire-red"
-                                            : "border-muted"
+                                        ? "border-fire-red bg-fire-red"
+                                        : "border-muted"
                                         }`}
                                 >
                                     {isSelected && (
@@ -148,8 +148,8 @@ export default function SubjectSelector({
                     onClick={onContinue}
                     disabled={selected.length === 0}
                     className={`btn-primary px-8 py-4 text-lg font-bold rounded-xl transition-all ${selected.length === 0
-                            ? "opacity-50 cursor-not-allowed"
-                            : "fire-glow hover:fire-glow-hover"
+                        ? "opacity-50 cursor-not-allowed"
+                        : "fire-glow hover:fire-glow-hover"
                         }`}
                 >
                     Continue with {selected.length} Subject{selected.length !== 1 ? "s" : ""}

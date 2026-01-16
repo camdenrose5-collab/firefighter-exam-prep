@@ -67,17 +67,19 @@ TERM_TOPICS = {
         "Siamese Connection", "Wye", "Gated Wye", "Fog Nozzle", "Smooth Bore Nozzle",
         "Master Stream", "Aerial Ladder", "Ground Ladder", "Extension Ladder", "Roof Ladder"
     ],
-    "reading-ability": [
-        "NFPA 1001", "NFPA 1500", "NFPA 1971", "SOP (Standard Operating Procedure)",
-        "SOG (Standard Operating Guideline)", "ICS (Incident Command System)",
-        "NIMS (National Incident Management System)", "Incident Commander (IC)",
-        "Operations Section Chief", "Staging Area", "Accountability System",
-        "PAR (Personnel Accountability Report)", "Mayday", "RIT (Rapid Intervention Team)",
-        "Two-In Two-Out", "IDLH (Immediately Dangerous to Life or Health)",
-        "PASS Device", "SCBA (Self-Contained Breathing Apparatus)", "APR", 
-        "Hazmat Placards", "MSDS/SDS", "ERG (Emergency Response Guidebook)",
-        "Fire Code", "Building Code", "Occupancy Classification", "Means of Egress",
-        "Fire Load", "Fire Resistance Rating", "Sprinkler System", "Standpipe System"
+    "fire-terms": [
+        # Fire service essential terminology (formerly fire terms)
+        "GPM (Gallons Per Minute)", "PSI (Pounds Per Square Inch)", "Flashover", "Backdraft",
+        "Rollover", "Flashover", "Halligan Bar", "Pike Pole", "SCBA", "PASS Device",
+        "Pre-connect", "Attack Line", "Supply Line", "Master Stream", "Fog Nozzle",
+        "Smooth Bore Nozzle", "Friction Loss", "Pump Pressure", "Residual Pressure",
+        "Static Pressure", "Flow Pressure", "Fire Load", "BTU (British Thermal Unit)",
+        "Ventilation", "Positive Pressure Ventilation (PPV)", "Horizontal Ventilation",
+        "Vertical Ventilation", "Overhaul", "Salvage", "Primary Search", "Secondary Search",
+        "Size-Up", "360 Walk-Around", "TIC (Thermal Imaging Camera)", "RIT/RIC (Rapid Intervention)",
+        "Mayday", "PAR (Personnel Accountability Report)", "Two-In Two-Out", "IDLH",
+        "Class A Fire", "Class B Fire", "Class C Fire", "Class D Fire", "Class K Fire",
+        "Fire Tetrahedron", "Conduction", "Convection", "Radiation", "Pyrolysis"
     ],
     "math": [
         "GPM Calculation", "Friction Loss Formula (FL = C × Q² × L)", "Pump Discharge Pressure",
@@ -172,7 +174,7 @@ Make this question specific and exam-relevant."""
 SUBJECT_CARD_TYPES = {
     "human-relations": ["term_definition", "scenario_action"],
     "mechanical-aptitude": ["term_definition", "fill_blank"],
-    "reading-ability": ["term_definition"],
+    "fire-terms": ["term_definition"],
     "math": ["term_definition", "fill_blank"]
 }
 
@@ -440,7 +442,7 @@ def main():
     
     args = parser.parse_args()
     
-    all_subjects = ["human-relations", "mechanical-aptitude", "reading-ability", "math"]
+    all_subjects = ["human-relations", "mechanical-aptitude", "fire-terms", "math"]
     all_card_types = ["term_definition", "scenario_action", "fill_blank"]
     
     # Parse subjects

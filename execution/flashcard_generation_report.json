@@ -1,0 +1,389 @@
+{
+  "generated_at": "2026-01-16T09:42:05.526640",
+  "stats": {
+    "total_generated": 97,
+    "total_passed": 67,
+    "total_failed": 83,
+    "by_combo": {
+      "mechanical-aptitude/term_definition": {
+        "generated": 22,
+        "failed": 1
+      },
+      "mechanical-aptitude/fill_blank": {
+        "generated": 0,
+        "failed": 11
+      },
+      "reading-ability/term_definition": {
+        "generated": 24,
+        "failed": 2
+      },
+      "math/term_definition": {
+        "generated": 21,
+        "failed": 4
+      },
+      "math/fill_blank": {
+        "generated": 0,
+        "failed": 12
+      }
+    },
+    "failures": [
+      {
+        "card": {
+          "term": "Mechanical Advantage",
+          "definition": "This is when you use a tool or system to multiply your force, making it easier to move or lift heavy objects, like using a Halligan to force a door or a rope system to haul equipment.",
+          "source": "Mechanical Aptitude",
+          "front_content": "Mechanical Advantage",
+          "back_content": "This is when you use a tool or system to multiply your force, making it easier to move or lift heavy objects, like using a Halligan to force a door or a rope system to haul equipment."
+        },
+        "issues": [
+          "Duplicate Check: Duplicate detected (similarity: 100.00%)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "When using a Halligan bar to force a door, if the fulcrum (the point where the bar pivots) is placed between the effort you apply and the door you're trying to move (the load), this is an example of a ______ class lever.",
+          "answer": "First",
+          "source": "Mechanical Aptitude",
+          "front_content": "When using a Halligan bar to force a door, if the fulcrum (the point where the bar pivots) is placed between the effort you apply and the door you're trying to move (the load), this is an example of a ______ class lever.",
+          "back_content": "First"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "The K-Tool is a specialized forcible entry tool designed to pull a lock's _____.",
+          "answer": "cylinder",
+          "source": "Mechanical Aptitude",
+          "front_content": "The K-Tool is a specialized forcible entry tool designed to pull a lock's _____.",
+          "back_content": "cylinder"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A 750-gallon booster tank, flowing at a steady rate of 150 GPM, will be empty in approximately _______ minutes.",
+          "answer": "5",
+          "source": "Mechanical Aptitude",
+          "front_content": "A 750-gallon booster tank, flowing at a steady rate of 150 GPM, will be empty in approximately _______ minutes.",
+          "back_content": "5"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A relief valve is a safety device designed to automatically open and divert flow when the system pressure exceeds a predetermined _________, protecting equipment from damage.",
+          "answer": "set point",
+          "source": "Mechanical Aptitude",
+          "front_content": "A relief valve is a safety device designed to automatically open and divert flow when the system pressure exceeds a predetermined _________, protecting equipment from damage.",
+          "back_content": "set point"
+        },
+        "issues": [
+          "Content Length: back_content too short (2 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A hydraulic ram is primarily designed for _______ operations, pushing apart objects to create space during extrication.",
+          "answer": "spreading",
+          "source": "Mechanical Aptitude",
+          "front_content": "A hydraulic ram is primarily designed for _______ operations, pushing apart objects to create space during extrication.",
+          "back_content": "spreading"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "Storz couplings are distinct because they connect with a simple _____-turn mechanism, eliminating separate male and female threaded ends.",
+          "answer": "quarter",
+          "source": "Mechanical Aptitude",
+          "front_content": "Storz couplings are distinct because they connect with a simple _____-turn mechanism, eliminating separate male and female threaded ends.",
+          "back_content": "quarter"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "When water flows through a hose, friction against the inside of the hose causes a loss of pressure, which we call \\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_.",
+          "answer": "Friction Loss",
+          "source": "Mechanical Aptitude",
+          "front_content": "When water flows through a hose, friction against the inside of the hose causes a loss of pressure, which we call \\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_.",
+          "back_content": "Friction Loss"
+        },
+        "issues": [
+          "Content Length: back_content too short (2 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A Siamese connection is a hose appliance that combines multiple smaller supply lines into one larger discharge line, typically used to provide water to a building's internal fire suppression system via the __________.",
+          "answer": "Fire Department Connection (FDC)",
+          "source": "Mechanical Aptitude",
+          "front_content": "A Siamese connection is a hose appliance that combines multiple smaller supply lines into one larger discharge line, typically used to provide water to a building's internal fire suppression system via the __________.",
+          "back_content": "Fire Department Connection (FDC)"
+        },
+        "issues": [
+          "Content Length: back_content too short (4 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A hose fitting used to connect a larger diameter hose to a smaller diameter hose is called a __________.",
+          "answer": "Reducer",
+          "source": "Mechanical Aptitude",
+          "front_content": "A hose fitting used to connect a larger diameter hose to a smaller diameter hose is called a __________.",
+          "back_content": "Reducer"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A fitting used to connect a smaller diameter hose to a larger diameter hose is called a(n) _________.",
+          "answer": "Increaser",
+          "source": "Mechanical Aptitude",
+          "front_content": "A fitting used to connect a smaller diameter hose to a larger diameter hose is called a(n) _________.",
+          "back_content": "Increaser"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "When using a Halligan bar to force a door, moving the ______ closer to the object you're prying will increase your mechanical advantage.",
+          "answer": "fulcrum",
+          "source": "Mechanical Aptitude",
+          "front_content": "When using a Halligan bar to force a door, moving the ______ closer to the object you're prying will increase your mechanical advantage.",
+          "back_content": "fulcrum"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "term": "Class C Fire",
+          "definition": "A Class C fire involves energized electrical equipment, meaning the electricity is still flowing. The primary danger is electrical shock, so these fires must be fought with non-conductive extinguishing agents.",
+          "source": "Reading Ability",
+          "front_content": "Class C Fire",
+          "back_content": "A Class C fire involves energized electrical equipment, meaning the electricity is still flowing. The primary danger is electrical shock, so these fires must be fought with non-conductive extinguishing agents."
+        },
+        "issues": [
+          "Duplicate Check: Duplicate detected (similarity: 91.67%)"
+        ]
+      },
+      {
+        "card": {
+          "term": "Flashover",
+          "definition": "Flash",
+          "front_content": "Flashover",
+          "back_content": "Flash"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "term": "Engine Pressure Formula",
+          "definition": "This",
+          "front_content": "Engine Pressure Formula",
+          "back_content": "This"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "term": "Parallel Lines",
+          "definition": "Lines that run side-by-side, maintaining the same distance from each other at all points, and will never intersect or cross, like the two sides of a long hallway or the rails of a train track.",
+          "source": "Math",
+          "front_content": "Parallel Lines",
+          "back_content": "Lines that run side-by-side, maintaining the same distance from each other at all points, and will never intersect or cross, like the two sides of a long hallway or the rails of a train track."
+        },
+        "issues": [
+          "Duplicate Check: Duplicate detected (similarity: 100.00%)"
+        ]
+      },
+      {
+        "card": {
+          "term": "Unit Conversion",
+          "definition": "This is about changing a measurement from one type to another, like converting feet to inches, or gallons per minute (GPM) to gallons per hour, so we can use the numbers correctly in our calculations and understand quantities.",
+          "source": "Math",
+          "front_content": "Unit Conversion",
+          "back_content": "This is about changing a measurement from one type to another, like converting feet to inches, or gallons per minute (GPM) to gallons per hour, so we can use the numbers correctly in our calculations and understand quantities."
+        },
+        "issues": [
+          "Duplicate Check: Duplicate detected (similarity: 100.00%)"
+        ]
+      },
+      {
+        "card": {
+          "term": "Head Pressure to PSI",
+          "definition": "Head Pressure is the pressure exerted by a column of water due to its height. In the fire service, this converts to approximately 0.434 PSI for every foot of elevation change, impacting pump discharge pressure calculations for uphill or downhill operations.",
+          "source": "Math",
+          "front_content": "Head Pressure to PSI",
+          "back_content": "Head Pressure is the pressure exerted by a column of water due to its height. In the fire service, this converts to approximately 0.434 PSI for every foot of elevation change, impacting pump discharge pressure calculations for uphill or downhill operations."
+        },
+        "issues": [
+          "Duplicate Check: Duplicate detected (similarity: 100.00%)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A standard 1.75-inch attack line flowing 150 GPM will empty a 750-gallon booster tank in ______ minutes.",
+          "answer": "5",
+          "source": "Math",
+          "front_content": "A standard 1.75-inch attack line flowing 150 GPM will empty a 750-gallon booster tank in ______ minutes.",
+          "back_content": "5"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "For every 100 feet of 2\u00bd-inch hose flowing 250 GPM, the friction loss is approximately ____ PSI.",
+          "answer": "25",
+          "source": "Math",
+          "front_content": "For every 100 feet of 2\u00bd-inch hose flowing 250 GPM, the friction loss is approximately ____ PSI.",
+          "back_content": "25"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "For every 1 PSI of pressure, water can be pushed approximately ______ feet high (head pressure).",
+          "answer": "2.31",
+          "source": "Math",
+          "front_content": "For every 1 PSI of pressure, water can be pushed approximately ______ feet high (head pressure).",
+          "back_content": "2.31"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "In the Friction Loss Formula (FL = C \u00d7 Q\u00b2 \u00d7 L), the 'L' stands for the total ________ of the hose in hundreds of feet.",
+          "answer": "Length",
+          "source": "Math",
+          "front_content": "In the Friction Loss Formula (FL = C \u00d7 Q\u00b2 \u00d7 L), the 'L' stands for the total ________ of the hose in hundreds of feet.",
+          "back_content": "Length"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "The two main rails of a ground ladder, which are always the same distance apart and will never intersect, are an example of _________ lines.",
+          "answer": "Parallel",
+          "source": "Math",
+          "front_content": "The two main rails of a ground ladder, which are always the same distance apart and will never intersect, are an example of _________ lines.",
+          "back_content": "Parallel"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A 500-gallon booster tank flowing at 125 GPM will be empty in ____ minutes.",
+          "answer": "4",
+          "source": "Math",
+          "front_content": "A 500-gallon booster tank flowing at 125 GPM will be empty in ____ minutes.",
+          "back_content": "4"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "To create a 3% foam solution using 500 gallons of water, you would need to add \\_\\_\\_\\_ gallons of foam concentrate.",
+          "answer": "15",
+          "source": "Math",
+          "front_content": "To create a 3% foam solution using 500 gallons of water, you would need to add \\_\\_\\_\\_ gallons of foam concentrate.",
+          "back_content": "15"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "A rectangular booster tank on an engine measures 8 feet long, 4 feet wide, and 3 feet high. The total volume of water it can hold is ____ cubic feet.",
+          "answer": "96",
+          "source": "Math",
+          "front_content": "A rectangular booster tank on an engine measures 8 feet long, 4 feet wide, and 3 feet high. The total volume of water it can hold is ____ cubic feet.",
+          "back_content": "96"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "To create a 0.5% Class A foam solution for a 400-gallon tank of water, you would need ______ gallons of foam concentrate.",
+          "answer": "2",
+          "source": "Math",
+          "front_content": "To create a 0.5% Class A foam solution for a 400-gallon tank of water, you would need ______ gallons of foam concentrate.",
+          "back_content": "2"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "In the Friction Loss Formula (FL = C \u00d7 Q\u00b2 \u00d7 L), 'Q' stands for the flow rate in _________.",
+          "answer": "gallons per minute (GPM)",
+          "source": "Math",
+          "front_content": "In the Friction Loss Formula (FL = C \u00d7 Q\u00b2 \u00d7 L), 'Q' stands for the flow rate in _________.",
+          "back_content": "gallons per minute (GPM)"
+        },
+        "issues": [
+          "Content Length: back_content too short (4 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "When calculating the Pump Discharge Pressure (PDP) required for a single hoseline, you add the desired Nozzle Pressure (NP) to the total __________ in the line.",
+          "answer": "Friction",
+          "front_content": "When calculating the Pump Discharge Pressure (PDP) required for a single hoseline, you add the desired Nozzle Pressure (NP) to the total __________ in the line.",
+          "back_content": "Friction"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      },
+      {
+        "card": {
+          "prompt": "In the Friction Loss formula (FL = C \u00d7 Q\u00b2 \u00d7 L), the 'L' represents the total ______ of the hoseline in hundreds of feet.",
+          "answer": "Length",
+          "source": "Math",
+          "front_content": "In the Friction Loss formula (FL = C \u00d7 Q\u00b2 \u00d7 L), the 'L' represents the total ______ of the hoseline in hundreds of feet.",
+          "back_content": "Length"
+        },
+        "issues": [
+          "Content Length: back_content too short (1 words, min 5)"
+        ]
+      }
+    ]
+  }
+}
