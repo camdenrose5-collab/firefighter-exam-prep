@@ -39,6 +39,19 @@ if not env_file.exists():
 load_dotenv(env_file)
 print(f"🔧 Running in {env_mode} mode (loaded: {env_file.name})")
 
+# Initialize Sentry for error monitoring (production only)
+import sentry_sdk
+sentry_dsn = os.environ.get("SENTRY_DSN")
+if env_mode == "production" and sentry_dsn:
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        traces_sample_rate=0.1,  # 10% of requests for performance monitoring
+        profiles_sample_rate=0.1,
+        environment="production",
+        send_default_pii=False,  # Don't send personally identifiable info
+    )
+    print("🛡️ Sentry error monitoring initialized")
+
 # Initialize components
 ingestion_pipeline: PDFIngestionPipeline = None
 rag_engine: RAGEngine = None
@@ -166,10 +179,12 @@ class FeedbackRequest(BaseModel):
 class TutorRequest(BaseModel):
     subject: str  # e.g., "fractions" or "hydraulics"
     user_input: str  # The specific question or "I'm stuck"
+    subjects: List[str] = []  # Subject IDs from frontend (for image selection)
 
 
 class TutorResponse(BaseModel):
     explanation: str
+    image_url: str | None = None  # Optional diagram for mechanical aptitude
 
 
 class FlashcardResponse(BaseModel):
@@ -233,7 +248,28 @@ async def root():
 
 @app.get("/api/health")
 async def health_check():
-    return {"status": "healthy", "rag_ready": rag_engine is not None}
+    return {
+        "status": "healthy", 
+        "rag_ready": rag_engine is not None,
+        "sentry_enabled": sentry_dsn is not None and env_mode == "production"
+    }
+
+
+@app.get("/api/sentry-test")
+async def sentry_test():
+    """
+    Test endpoint to verify Sentry is working.
+    Only works in production with SENTRY_DSN configured.
+    """
+    if env_mode != "production" or not sentry_dsn:
+        return {"status": "skipped", "reason": "Sentry only enabled in production"}
+    
+    # This will be captured by Sentry
+    try:
+        raise ValueError("Sentry test error - ignore this!")
+    except Exception as e:
+        sentry_sdk.capture_exception(e)
+        return {"status": "sent", "message": "Test error sent to Sentry"}
 
 
 # ============== AUTH ENDPOINTS ==============
@@ -367,7 +403,7 @@ async def get_questions_from_bank(request: QuestionBankRequest, token: str = "")
 @app.get("/api/quiz/bank/stats")
 async def get_bank_stats():
     """Get question bank statistics."""
-    subjects = ["human-relations", "mechanical-aptitude", "reading-ability", "math"]
+    subjects = ["human-relations", "mechanical-aptitude", "fire-terms", "math"]
     stats = {}
     for subject in subjects:
         stats[subject] = db.get_question_count(subject)
@@ -602,18 +638,26 @@ async def submit_feedback(request: FeedbackRequest):
 @limiter.limit(RateLimits.AI_GENERATE)
 async def get_tutoring(request: Request, tutor_request: TutorRequest):
     """
-    Fire Captain Tutor: Get scaffolded explanation using firehouse analogies.
-    Follows the 4-step pedagogical flow: Hook → Analogy → Practice → Verify
+    Fire Captain Tutor: Get scaffolded explanation with ELI5 approach.
+    Includes relevant diagrams for mechanical aptitude topics.
     """
     if not tutor_request.subject.strip():
         raise HTTPException(status_code=400, detail="Subject is required")
+    
+    image_url = None
+    
+    # If mechanical aptitude is selected, find a diagram matching the user's question
+    if "mechanical-aptitude" in tutor_request.subjects:
+        matched_image = db.find_matching_mechanical_image(tutor_request.user_input)
+        if matched_image:
+            image_url = matched_image
     
     try:
         explanation = await tutor_engine.explain(
             subject=tutor_request.subject,
             user_input=tutor_request.user_input or "Help me understand this"
         )
-        return TutorResponse(explanation=explanation)
+        return TutorResponse(explanation=explanation, image_url=image_url)
     except Exception as e:
         error_msg = str(e)
         if "404" in error_msg or "500" in error_msg or "ServiceUnavailable" in error_msg:
@@ -622,6 +666,7 @@ async def get_tutoring(request: Request, tutor_request: TutorRequest):
                 detail="The Captain is currently on a call. Please try again in a moment."
             )
         raise HTTPException(status_code=500, detail=f"Tutoring failed: {error_msg}")
+
 
 
 # ============== BATCH QUIZ ENDPOINT ==============
@@ -702,7 +747,7 @@ import random
 FLASHCARD_PROMPTS = {
     "human-relations": "teamwork, communication, conflict resolution, leadership in fire service",
     "mechanical-aptitude": "fire tools, hydraulics, pumps, mechanical advantage, leverage",
-    "reading-ability": "SOP terminology, fire codes, incident command, NFPA standards",
+    "fire-terms": "SOP terminology, fire codes, incident command, NFPA standards",
     "math": "flow rates GPM, friction loss, percentages, pump pressure calculations",
 }
 
@@ -710,7 +755,7 @@ FLASHCARD_PROMPTS = {
 @app.get("/api/flashcards/bank/stats")
 async def get_flashcard_stats():
     """Get flashcard bank statistics."""
-    subjects = ["human-relations", "mechanical-aptitude", "reading-ability", "math"]
+    subjects = ["human-relations", "mechanical-aptitude", "fire-terms", "math"]
     card_types = ["term_definition", "scenario_action", "fill_blank"]
     
     stats = {"by_subject": {}, "by_type": {}, "total": db.get_flashcard_count()}
@@ -734,7 +779,7 @@ async def get_flashcard(subjects: str = ""):
         # Parse subjects from query parameter
         subject_list = [s.strip() for s in subjects.split(",") if s.strip()]
         if not subject_list:
-            subject_list = ["human-relations", "mechanical-aptitude", "reading-ability", "math"]
+            subject_list = ["human-relations", "mechanical-aptitude", "fire-terms", "math"]
         
         # Try to get from database first
         flashcards = db.get_random_flashcards(subjects=subject_list, count=1)
