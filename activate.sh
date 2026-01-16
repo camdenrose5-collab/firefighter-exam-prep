@@ -5,6 +5,11 @@
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_DIR="$PROJECT_DIR/.venv"
 
+# Add gcloud to PATH if installed
+if [ -d "$HOME/google-cloud-sdk/bin" ]; then
+    export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+fi
+
 if [ -d "$VENV_DIR" ]; then
     source "$VENV_DIR/bin/activate"
     echo "✓ Virtual environment activated: $VENV_DIR"
