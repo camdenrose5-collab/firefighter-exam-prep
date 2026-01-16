@@ -41,90 +41,132 @@ from app import db
 
 
 # =============================================================================
-# CARD TYPE CONFIGURATIONS
+# TOPIC LISTS FOR VARIETY
 # =============================================================================
 
-CARD_TYPE_PROMPTS = {
-    "term_definition": {
-        "human-relations": """Generate ONE flashcard for firefighter exam prep on Human Relations.
-Create a term/definition card about: teamwork, communication, leadership, conflict resolution, or station culture.
+import random
+
+TERM_TOPICS = {
+    "human-relations": [
+        "Crew Resource Management (CRM)", "Active Listening", "Constructive Feedback", 
+        "Chain of Command", "Peer Support", "Accountability Partners", "Morale",
+        "Team Cohesion", "Conflict De-escalation", "Empathy", "Trust Building",
+        "Professional Boundaries", "Mentorship", "360-Degree Feedback", "Authority",
+        "Delegation", "Span of Control", "Unity of Command", "Followership",
+        "Station Pride", "Brotherhood/Sisterhood", "Professionalism", "Cultural Competency",
+        "Situational Awareness", "Stress Management", "Emotional Intelligence",
+        "Assertive Communication", "I-Statements", "Grievance Process", "Progressive Discipline"
+    ],
+    "mechanical-aptitude": [
+        "Halligan Bar", "Pike Pole", "K-Tool", "A-Tool", "Hydraulic Spreader",
+        "Hydraulic Cutter", "Ram (Hydraulic)", "Fulcrum", "Lever Classes (1st, 2nd, 3rd)",
+        "Mechanical Advantage", "Pulley Systems", "Block and Tackle", "Friction Loss",
+        "Pump Pressure", "Nozzle Reaction", "GPM (Gallons Per Minute)", "PSI (Pounds Per Square Inch)",
+        "Centrifugal Pump", "Positive Displacement Pump", "Relief Valve", "Intake Valve",
+        "Discharge Valve", "Hose Coupling", "Storz Coupling", "Reducer", "Increaser",
+        "Siamese Connection", "Wye", "Gated Wye", "Fog Nozzle", "Smooth Bore Nozzle",
+        "Master Stream", "Aerial Ladder", "Ground Ladder", "Extension Ladder", "Roof Ladder"
+    ],
+    "reading-ability": [
+        "NFPA 1001", "NFPA 1500", "NFPA 1971", "SOP (Standard Operating Procedure)",
+        "SOG (Standard Operating Guideline)", "ICS (Incident Command System)",
+        "NIMS (National Incident Management System)", "Incident Commander (IC)",
+        "Operations Section Chief", "Staging Area", "Accountability System",
+        "PAR (Personnel Accountability Report)", "Mayday", "RIT (Rapid Intervention Team)",
+        "Two-In Two-Out", "IDLH (Immediately Dangerous to Life or Health)",
+        "PASS Device", "SCBA (Self-Contained Breathing Apparatus)", "APR", 
+        "Hazmat Placards", "MSDS/SDS", "ERG (Emergency Response Guidebook)",
+        "Fire Code", "Building Code", "Occupancy Classification", "Means of Egress",
+        "Fire Load", "Fire Resistance Rating", "Sprinkler System", "Standpipe System"
+    ],
+    "math": [
+        "GPM Calculation", "Friction Loss Formula (FL = C × Q² × L)", "Pump Discharge Pressure",
+        "Engine Pressure Formula", "Nozzle Reaction Formula", "Flow Rate", "Volume Calculation",
+        "Area Calculation", "Percentage Problems", "Ratio and Proportion", "Unit Conversion",
+        "PSI to Head Pressure", "Head Pressure to PSI", "Foam Proportioning (1%, 3%, 6%)",
+        "Hose Diameter Coefficients", "Appliance Friction Loss", "Elevation Pressure",
+        "Residual Pressure", "Static Pressure", "Flow Pressure", "Water Supply Duration",
+        "Tank Capacity", "Drafting Calculations", "Relay Pumping", "Parallel Lines"
+    ]
+}
+
+SCENARIO_TOPICS = {
+    "human-relations": [
+        "new recruit making mistakes", "senior firefighter being dismissive",
+        "crew member not pulling their weight", "conflict over station chores",
+        "disagreement about tactics", "rumor spreading in the station",
+        "personality clash between crew members", "junior member questioning orders",
+        "experienced member resistant to change", "crew member with personal problems",
+        "gossip about another shift", "credit-taking for team effort",
+        "criticism from officer", "new policy causing friction", "hazing concerns",
+        "equipment disagreement", "training exercise conflict", "communication breakdown",
+        "shift change issues", "meal preparation disputes"
+    ]
+}
+
+def get_term_prompt(subject: str, used_terms: set) -> str:
+    """Generate a prompt with a specific random term for variety."""
+    available = [t for t in TERM_TOPICS.get(subject, []) if t not in used_terms]
+    if not available:
+        available = TERM_TOPICS.get(subject, ["General Concept"])
+    
+    term = random.choice(available)
+    used_terms.add(term)
+    
+    return f"""Generate ONE flashcard for firefighter exam prep.
+Create a term/definition card for: **{term}**
 
 Return in this exact format:
-TERM: [A specific fire service term or leadership concept]
-DEFINITION: [A clear, concise definition in 1-2 sentences]
-SOURCE: Human Relations""",
+TERM: {term}
+DEFINITION: [A clear, accurate definition in 1-2 sentences explaining what this means in fire service context]
+SOURCE: {subject.replace('-', ' ').title()}
 
-        "mechanical-aptitude": """Generate ONE flashcard for firefighter exam prep on Mechanical Aptitude.
-Create a term/definition card about: fire tools, hydraulics, pumps, mechanical advantage, or leverage.
+IMPORTANT: Use the exact term provided above. Give a professional, exam-ready definition."""
 
-Return in this exact format:
-TERM: [A specific tool, equipment, or mechanical concept]
-DEFINITION: [A clear, concise definition in 1-2 sentences]
-SOURCE: Mechanical Aptitude""",
 
-        "reading-ability": """Generate ONE flashcard for firefighter exam prep on Reading Comprehension.
-Create a term/definition card about: SOP terminology, fire codes, NFPA standards, or incident command.
-
-Return in this exact format:
-TERM: [A specific fire service term or acronym]
-DEFINITION: [A clear, concise definition in 1-2 sentences]
-SOURCE: SOPs & Standards""",
-
-        "math": """Generate ONE flashcard for firefighter exam prep on Fire Math.
-Create a term/definition card about: flow rates, friction loss, percentages, or pump calculations.
-
-Return in this exact format:
-TERM: [A specific formula name or calculation concept]
-DEFINITION: [The formula and brief explanation]
-SOURCE: Fire Math"""
-    },
-
-    "scenario_action": {
-        "human-relations": """Generate ONE flashcard for firefighter exam prep on Human Relations.
-Create a SCENARIO -> ACTION card testing decision-making.
+def get_scenario_prompt(subject: str, used_scenarios: set) -> str:
+    """Generate a scenario prompt with variety."""
+    topics = SCENARIO_TOPICS.get(subject, ["workplace situation"])
+    available = [t for t in topics if t not in used_scenarios]
+    if not available:
+        available = topics
+    
+    topic = random.choice(available)
+    used_scenarios.add(topic)
+    
+    return f"""Generate ONE flashcard for firefighter exam prep on Human Relations.
+Create a SCENARIO -> ACTION card about: **{topic}**
 
 IMPORTANT: Follow "Frictionless Logic" - always prioritize private, peer-to-peer resolution at the lowest level.
 
 Return in this exact format:
-SCENARIO: [A realistic firehouse scenario requiring judgment - 1-2 sentences]
+SCENARIO: [A realistic firehouse scenario about {topic} - 1-2 sentences]
 ACTION: [The best response following frictionless logic - 1-2 sentences]
-SOURCE: Human Relations""",
+SOURCE: Human Relations
 
-        "default": """Generate ONE flashcard for firefighter exam prep.
-Create a SCENARIO -> ACTION card.
+Make this scenario unique and specific."""
 
-Return in this exact format:
-SCENARIO: [A realistic fire service scenario - 1-2 sentences]
-ACTION: [The correct response - 1-2 sentences]
-SOURCE: Fire Service"""
-    },
 
-    "fill_blank": {
-        "math": """Generate ONE flashcard for firefighter exam prep on Fire Math.
-Create a FILL-IN-THE-BLANK card testing specific numeric knowledge.
-
-Return in this exact format:
-PROMPT: [A question with a blank, e.g., "Standard handline flow rate is ___ GPM"]
-ANSWER: [The correct value, e.g., "150-200 GPM"]
-SOURCE: Fire Math""",
-
-        "mechanical-aptitude": """Generate ONE flashcard for firefighter exam prep on Mechanical Aptitude.
-Create a FILL-IN-THE-BLANK card testing technical knowledge.
+def get_fill_blank_prompt(subject: str, used_prompts: set) -> str:
+    """Generate a fill-in-the-blank prompt with variety."""
+    topics = TERM_TOPICS.get(subject, [])
+    available = [t for t in topics if t not in used_prompts][:20]  # Use subset
+    if not available:
+        available = topics[:10] if topics else ["fire equipment"]
+    
+    topic = random.choice(available)
+    used_prompts.add(topic)
+    
+    return f"""Generate ONE flashcard for firefighter exam prep.
+Create a FILL-IN-THE-BLANK card testing knowledge about: **{topic}**
 
 Return in this exact format:
-PROMPT: [A question with a blank about tools or equipment]
-ANSWER: [The correct answer]
-SOURCE: Mechanical Aptitude""",
+PROMPT: [A question with a blank testing specific knowledge about {topic}]
+ANSWER: [The correct value or answer]
+SOURCE: {subject.replace('-', ' ').title()}
 
-        "default": """Generate ONE flashcard for firefighter exam prep.
-Create a FILL-IN-THE-BLANK card.
+Make this question specific and exam-relevant."""
 
-Return in this exact format:
-PROMPT: [A question with a blank]
-ANSWER: [The correct value]
-SOURCE: Fire Service"""
-    }
-}
 
 # Subject to card type mapping (which types work best for each subject)
 SUBJECT_CARD_TYPES = {
@@ -297,13 +339,8 @@ async def generate_flashcards(
             generated = []
             failed = []
             
-            # Get prompt template
-            prompts = CARD_TYPE_PROMPTS.get(card_type, {})
-            prompt_template = prompts.get(subject, prompts.get("default", ""))
-            
-            if not prompt_template:
-                print(f"  ⚠️ No prompt template for {combo_key}")
-                continue
+            # Track used topics to ensure variety
+            used_topics = set()
             
             batches = (count_per_combo + batch_size - 1) // batch_size
             
@@ -317,7 +354,18 @@ async def generate_flashcards(
                 # Generate one at a time to avoid overwhelming the API
                 for i in range(current_batch_size):
                     try:
-                        response = await tutor_engine.explain("flashcard", prompt_template)
+                        # Get dynamic prompt based on card type
+                        if card_type == "term_definition":
+                            prompt = get_term_prompt(subject, used_topics)
+                        elif card_type == "scenario_action":
+                            prompt = get_scenario_prompt(subject, used_topics)
+                        elif card_type == "fill_blank":
+                            prompt = get_fill_blank_prompt(subject, used_topics)
+                        else:
+                            print(f"  ⚠️ Unknown card type: {card_type}")
+                            continue
+                        
+                        response = await tutor_engine.explain("flashcard", prompt)
                         card = parse_response(response, card_type)
                         
                         if not card:
