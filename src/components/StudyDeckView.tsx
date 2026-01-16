@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { apiUrl } from "@/lib/api";
 
 interface StudyDeckQuestion {
     id: string;
@@ -35,7 +36,7 @@ export default function StudyDeckView({ onStartQuiz }: StudyDeckViewProps) {
         }
 
         try {
-            const response = await fetch(`http://localhost:8000/api/study-deck?token=${token}`);
+            const response = await fetch(apiUrl(`/api/study-deck?token=${token}`));
             const data = await response.json();
 
             if (!response.ok) {
@@ -56,7 +57,7 @@ export default function StudyDeckView({ onStartQuiz }: StudyDeckViewProps) {
 
         try {
             const response = await fetch(
-                `http://localhost:8000/api/study-deck/${questionId}?token=${token}`,
+                apiUrl(`/api/study-deck/${questionId}?token=${token}`),
                 { method: "DELETE" }
             );
 
@@ -189,8 +190,8 @@ export default function StudyDeckView({ onStartQuiz }: StudyDeckViewProps) {
                                             <div
                                                 key={idx}
                                                 className={`p-2 rounded-lg border ${opt === q.correct_answer
-                                                        ? "border-green-500/50 bg-green-500/10 text-green-400"
-                                                        : "border-card-border"
+                                                    ? "border-green-500/50 bg-green-500/10 text-green-400"
+                                                    : "border-card-border"
                                                     }`}
                                             >
                                                 <span className="text-muted mr-2">{String.fromCharCode(65 + idx)}.</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { apiUrl } from "@/lib/api";
 
 interface AuthModalProps {
     isOpen: boolean;
@@ -34,8 +35,8 @@ export default function AuthModal({ isOpen, onClose, onAuthenticated }: AuthModa
 
         try {
             const endpoint = mode === "login"
-                ? "http://localhost:8000/api/auth/login"
-                : "http://localhost:8000/api/auth/register";
+                ? apiUrl("/api/auth/login")
+                : apiUrl("/api/auth/register");
 
             const response = await fetch(endpoint, {
                 method: "POST",

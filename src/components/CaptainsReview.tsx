@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { apiUrl } from "@/lib/api";
 
 interface Document {
     id: string;
@@ -38,7 +39,7 @@ export default function CaptainsReview({ documents }: CaptainsReviewProps) {
         setReview(null);
 
         try {
-            const response = await fetch("http://localhost:8000/api/review", {
+            const response = await fetch(apiUrl("/api/review"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

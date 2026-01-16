@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import SubjectSelector from "./SubjectSelector";
 import FeedbackModal from "./FeedbackModal";
+import { apiUrl } from "@/lib/api";
 
 interface Flashcard {
     id?: string;
@@ -37,7 +38,7 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
 
     const handleSubmitFeedback = async (studyMode: string, message: string) => {
         try {
-            await fetch("http://localhost:8000/api/feedback", {
+            await fetch(apiUrl("/api/feedback"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ study_mode: studyMode, message }),
@@ -60,7 +61,7 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
 
         try {
             const response = await fetch(
-                `http://localhost:8000/api/quiz/flashcards?subjects=${selectedSubjects.join(",")}`
+                apiUrl(`/api/quiz/flashcards?subjects=${selectedSubjects.join(",")}`)
             );
             if (!response.ok) throw new Error("Failed to fetch flashcard");
 

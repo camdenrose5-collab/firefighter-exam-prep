@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { apiUrl } from "@/lib/api";
 
 interface WelcomeModalProps {
     isOpen: boolean;
@@ -24,7 +25,7 @@ export default function WelcomeModal({ isOpen, onEmailSubmit }: WelcomeModalProp
         setLoading(true);
 
         try {
-            const response = await fetch("http://localhost:8000/api/leads", {
+            const response = await fetch(apiUrl("/api/leads"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),

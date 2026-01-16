@@ -5,6 +5,7 @@ import QuizView, { QuizQuestion } from "./QuizView";
 import SubjectSelector from "./SubjectSelector";
 import ReportModal from "./ReportModal";
 import FeedbackModal from "./FeedbackModal";
+import { apiUrl } from "@/lib/api";
 // The 4 core exam subjects
 const EXAM_SUBJECTS = [
     { id: "human-relations", label: "Human Relations" },
@@ -52,7 +53,7 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
 
         try {
             // Use pre-generated question bank (no AI latency)
-            const res = await fetch("http://localhost:8000/api/quiz/bank", {
+            const res = await fetch(apiUrl("/api/quiz/bank"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -95,7 +96,7 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
 
     const handleReportQuestion = async (id: string, reason: string) => {
         try {
-            await fetch("http://localhost:8000/api/quiz/report", {
+            await fetch(apiUrl("/api/quiz/report"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ question_id: id, reason: reason || "User flagged in UI" }),
@@ -112,7 +113,7 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
 
     const handleSubmitFeedback = async (studyMode: string, message: string) => {
         try {
-            await fetch("http://localhost:8000/api/feedback", {
+            await fetch(apiUrl("/api/feedback"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ study_mode: studyMode, message }),

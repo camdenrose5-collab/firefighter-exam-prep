@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import SubjectSelector from "./SubjectSelector";
 import FeedbackModal from "./FeedbackModal";
+import { apiUrl } from "@/lib/api";
 
 interface Message {
     role: "user" | "assistant";
@@ -31,7 +32,7 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
 
     const handleSubmitFeedback = async (studyMode: string, message: string) => {
         try {
-            await fetch("http://localhost:8000/api/feedback", {
+            await fetch(apiUrl("/api/feedback"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ study_mode: studyMode, message }),
@@ -69,7 +70,7 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:8000/api/tutor/explain", {
+            const response = await fetch(apiUrl("/api/tutor/explain"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

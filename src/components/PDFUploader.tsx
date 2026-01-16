@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { apiUrl } from "@/lib/api";
 
 interface PDFUploaderProps {
     onUploadSuccess: (doc: { id: string; name: string }) => void;
@@ -36,7 +37,7 @@ export default function PDFUploader({ onUploadSuccess }: PDFUploaderProps) {
                 setUploadProgress((prev) => Math.min(prev + 10, 90));
             }, 200);
 
-            const response = await fetch("http://localhost:8000/api/upload", {
+            const response = await fetch(apiUrl("/api/upload"), {
                 method: "POST",
                 body: formData,
             });
