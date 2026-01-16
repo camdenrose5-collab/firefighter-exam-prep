@@ -88,9 +88,10 @@ app = FastAPI(
 # CORS for Next.js frontend
 # Supports both local development and production
 ALLOWED_ORIGINS = [
-    "http://localhost:3000",           # Local development
-    "https://firefighterhire.com",     # Production
-    "https://www.firefighterhire.com", # Production with www
+    "http://localhost:3000",                          # Local development
+    "https://firefighterhire.com",                    # Production domain
+    "https://www.firefighterhire.com",                # Production with www
+    "https://firefighter-exam-prep.vercel.app",       # Vercel deployment
 ]
 
 app.add_middleware(
