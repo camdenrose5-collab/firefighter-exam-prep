@@ -1,8 +1,46 @@
 "use client";
 
-import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import WelcomeModal from "@/components/WelcomeModal";
 
 export default function Home() {
+  const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Check if user has already submitted email
+    const emailSubmitted = localStorage.getItem("email_submitted");
+    if (emailSubmitted) {
+      // Already submitted, redirect to study hub
+      router.push("/study-hub");
+    } else {
+      // First visit, show modal
+      setShowModal(true);
+      setIsLoading(false);
+    }
+  }, [router]);
+
+  const handleEmailSubmit = (email: string) => {
+    // Email captured, redirect to study hub
+    router.push("/study-hub");
+  };
+
+  // Show loading state while checking localStorage
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-lg gradient-fire flex items-center justify-center animate-pulse">
+            <span className="text-2xl">🔥</span>
+          </div>
+          <span className="text-muted">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
@@ -20,7 +58,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section (background for modal) */}
       <main className="flex-1 flex items-center justify-center px-6">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}
@@ -44,16 +82,6 @@ export default function Home() {
             Quizzes, flashcards, and personalized tutoring — all powered by real fire service
             manuals, not generic AI. Pass your written exam with the Captain&apos;s help.
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Link
-              href="/study-hub"
-              className="btn-primary px-10 py-5 text-xl font-bold rounded-xl fire-glow hover:fire-glow-hover transition-all"
-            >
-              🎯 Enter Study Hub
-            </Link>
-          </div>
 
           {/* Features Preview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12">
@@ -89,6 +117,9 @@ export default function Home() {
           <p className="mt-1 text-xs">Powered by Vertex AI + Discovery Engine</p>
         </div>
       </footer>
+
+      {/* Welcome Modal */}
+      <WelcomeModal isOpen={showModal} onEmailSubmit={handleEmailSubmit} />
     </div>
   );
 }

@@ -1,0 +1,43 @@
+# Ignore build artifacts
+*.pyc
+__pycache__/
+.git/
+.gitignore
+*.md
+*.txt
+!requirements.txt
+
+# Ignore local development files
+.env
+.env.*
+venv/
+.venv/
+node_modules/
+.next/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore test files
+*_test.py
+test_*.py
+tests/
+
+# Ignore frontend (backend-only container)
+src/
+public/
+*.tsx
+*.ts
+*.mjs
+package*.json
+tsconfig.json
+next*.ts
+postcss*.mjs
+eslint*.mjs
+
+# Ignore execution scripts (not needed in container)
+execution/
+scan_*.py
+*.log
+logs/

@@ -25,8 +25,16 @@ from app.auth import (
     get_user_from_token, invalidate_session
 )
 
-# Load environment variables
-load_dotenv()
+# Load environment variables based on NODE_ENV
+env_mode = os.environ.get("NODE_ENV", "development")
+env_file = Path(__file__).parent.parent.parent / f".env.{env_mode}"
+
+# Fall back to .env if specific file doesn't exist
+if not env_file.exists():
+    env_file = Path(__file__).parent.parent.parent / ".env"
+
+load_dotenv(env_file)
+print(f"🔧 Running in {env_mode} mode (loaded: {env_file.name})")
 
 # Initialize components
 ingestion_pipeline: PDFIngestionPipeline = None
@@ -78,9 +86,16 @@ app = FastAPI(
 )
 
 # CORS for Next.js frontend
+# Supports both local development and production
+ALLOWED_ORIGINS = [
+    "http://localhost:3000",           # Local development
+    "https://firefighterhire.com",     # Production
+    "https://www.firefighterhire.com", # Production with www
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -150,8 +165,11 @@ class TutorResponse(BaseModel):
 
 
 class FlashcardResponse(BaseModel):
-    term: str
-    definition: str
+    id: str | None = None
+    front_content: str
+    back_content: str
+    card_type: str | None = None
+    hint: str | None = None
     source: str | None = None
 
 
@@ -180,6 +198,11 @@ class UserResponse(BaseModel):
 # Study Deck Models
 class StudyDeckAddRequest(BaseModel):
     question_id: str
+
+
+# Email Lead Models
+class EmailLeadRequest(BaseModel):
+    email: str
 
 
 # Question Bank Models
@@ -259,6 +282,25 @@ async def get_current_user(token: str):
     if not user:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
     return UserResponse(user_id=user["user_id"], email=user["email"])
+
+
+# ============== EMAIL LEADS ENDPOINTS ==============
+
+@app.post("/api/leads")
+async def create_lead(request: EmailLeadRequest):
+    """
+    Capture email lead from welcome modal.
+    Saves email for marketing before full registration.
+    """
+    if not request.email or "@" not in request.email:
+        raise HTTPException(status_code=400, detail="Valid email required")
+    
+    try:
+        lead_id = db.create_email_lead(request.email)
+        print(f"📧 [LEAD] Email captured: {request.email}")
+        return {"status": "captured", "lead_id": lead_id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to capture email: {str(e)}")
 
 
 # ============== QUESTION BANK ENDPOINTS ==============
@@ -360,6 +402,50 @@ async def remove_from_study_deck(question_id: str, token: str):
         raise HTTPException(status_code=401, detail="Invalid or expired token")
     
     removed = db.remove_from_study_deck(user["user_id"], question_id)
+    if removed:
+        return {"status": "removed"}
+    return {"status": "not_found"}
+
+
+# ============== FLASHCARD STUDY DECK ENDPOINTS ==============
+
+class FlashcardStudyDeckAddRequest(BaseModel):
+    flashcard_id: str
+
+
+@app.get("/api/flashcard-study-deck")
+async def get_flashcard_study_deck(token: str):
+    """Get all flashcards in user's flashcard study deck."""
+    user = get_user_from_token(token)
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    
+    flashcards = db.get_flashcard_study_deck(user["user_id"])
+    return {"flashcards": flashcards, "count": len(flashcards)}
+
+
+@app.post("/api/flashcard-study-deck/add")
+async def add_to_flashcard_study_deck(request: FlashcardStudyDeckAddRequest, token: str):
+    """Add a flashcard to user's flashcard study deck."""
+    user = get_user_from_token(token)
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    
+    try:
+        entry_id = db.add_to_flashcard_study_deck(user["user_id"], request.flashcard_id)
+        return {"status": "added", "entry_id": entry_id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to add to deck: {str(e)}")
+
+
+@app.delete("/api/flashcard-study-deck/{flashcard_id}")
+async def remove_from_flashcard_study_deck(flashcard_id: str, token: str):
+    """Remove a flashcard from user's flashcard study deck."""
+    user = get_user_from_token(token)
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    
+    removed = db.remove_from_flashcard_study_deck(user["user_id"], flashcard_id)
     if removed:
         return {"status": "removed"}
     return {"status": "not_found"}
@@ -596,11 +682,11 @@ async def generate_batch_quiz(request: BatchQuizRequest):
     return BatchQuizResponse(questions=questions[:request.count])
 
 
-# ============== AI-POWERED FLASHCARDS ==============
+# ============== FLASHCARD BANK ENDPOINTS ==============
 
 import random
 
-# Subject-specific flashcard prompts
+# Subject-specific flashcard prompts (for AI fallback)
 FLASHCARD_PROMPTS = {
     "human-relations": "teamwork, communication, conflict resolution, leadership in fire service",
     "mechanical-aptitude": "fire tools, hydraulics, pumps, mechanical advantage, leverage",
@@ -609,18 +695,51 @@ FLASHCARD_PROMPTS = {
 }
 
 
+@app.get("/api/flashcards/bank/stats")
+async def get_flashcard_stats():
+    """Get flashcard bank statistics."""
+    subjects = ["human-relations", "mechanical-aptitude", "reading-ability", "math"]
+    card_types = ["term_definition", "scenario_action", "fill_blank"]
+    
+    stats = {"by_subject": {}, "by_type": {}, "total": db.get_flashcard_count()}
+    
+    for subject in subjects:
+        stats["by_subject"][subject] = db.get_flashcard_count(subject=subject)
+    
+    for card_type in card_types:
+        stats["by_type"][card_type] = db.get_flashcard_count(card_type=card_type)
+    
+    return stats
+
+
 @app.get("/api/quiz/flashcards", response_model=FlashcardResponse)
 async def get_flashcard(subjects: str = ""):
     """
-    Generate a flashcard using AI based on the data store content.
-    Falls back to cached terms if AI is unavailable.
+    Get a flashcard from the pre-generated bank.
+    Falls back to AI generation if bank is empty.
     """
     try:
         # Parse subjects from query parameter
         subject_list = [s.strip() for s in subjects.split(",") if s.strip()]
+        if not subject_list:
+            subject_list = ["human-relations", "mechanical-aptitude", "reading-ability", "math"]
         
-        if tutor_engine and subject_list:
-            # Use AI to generate a flashcard-style term/definition
+        # Try to get from database first
+        flashcards = db.get_random_flashcards(subjects=subject_list, count=1)
+        
+        if flashcards:
+            card = flashcards[0]
+            return FlashcardResponse(
+                id=card["id"],
+                front_content=card["front_content"],
+                back_content=card["back_content"],
+                card_type=card["card_type"],
+                hint=card["hint"],
+                source=card["source"]
+            )
+        
+        # Fallback to AI if bank is empty
+        if tutor_engine:
             subject_context = ", ".join([FLASHCARD_PROMPTS.get(s, s) for s in subject_list])
             
             prompt = f"""Generate ONE flashcard for firefighter exam prep.
@@ -630,15 +749,12 @@ Return in this exact format:
 TERM: [A specific fire service term or concept]
 DEFINITION: [A clear, concise definition in 1-2 sentences]
 
-Make it relevant to written exam preparation. Use realistic numbers and examples."""
+Make it relevant to written exam preparation."""
 
             try:
                 response = await tutor_engine.explain("flashcard", prompt)
-                
-                # Parse the response
                 lines = response.strip().split("\n")
-                term = ""
-                definition = ""
+                term, definition = "", ""
                 
                 for line in lines:
                     if line.startswith("TERM:"):
@@ -648,27 +764,29 @@ Make it relevant to written exam preparation. Use realistic numbers and examples
                 
                 if term and definition:
                     return FlashcardResponse(
-                        term=term,
-                        definition=definition,
+                        front_content=term,
+                        back_content=definition,
+                        card_type="term_definition",
                         source="Fire Captain AI"
                     )
             except Exception as e:
                 print(f"⚠️ AI flashcard generation failed: {e}")
         
-        # Fallback to hardcoded terms
+        # Hardcoded fallback
         FALLBACK_TERMS = [
-            {"term": "GPM", "definition": "Gallons Per Minute - flow rate through hose/nozzle. Handlines: 150-200 GPM.", "source": "Hydraulics"},
-            {"term": "Friction Loss", "definition": "Pressure lost in hose from turbulence. Formula: FL = C × Q² × L", "source": "Hydraulics"},
-            {"term": "Pre-connect", "definition": "Hoseline pre-connected to pump, ready for immediate deployment. Typically 200ft.", "source": "Operations"},
-            {"term": "Flashover", "definition": "Near-simultaneous ignition of all combustibles when reaching ignition temp (900-1100°F).", "source": "Fire Behavior"},
-            {"term": "Halligan Bar", "definition": "Multipurpose forcible entry tool: claw, blade, and pike. Named for Deputy Chief Halligan.", "source": "Tools"},
+            {"front": "GPM", "back": "Gallons Per Minute - flow rate through hose/nozzle. Handlines: 150-200 GPM.", "source": "Hydraulics"},
+            {"front": "Friction Loss", "back": "Pressure lost in hose from turbulence. Formula: FL = C × Q² × L", "source": "Hydraulics"},
+            {"front": "Pre-connect", "back": "Hoseline pre-connected to pump, ready for immediate deployment. Typically 200ft.", "source": "Operations"},
+            {"front": "Flashover", "back": "Near-simultaneous ignition of all combustibles (900-1100°F).", "source": "Fire Behavior"},
+            {"front": "Halligan Bar", "back": "Multipurpose forcible entry tool: claw, blade, and pike.", "source": "Tools"},
         ]
         
         card = random.choice(FALLBACK_TERMS)
         return FlashcardResponse(
-            term=card["term"],
-            definition=card["definition"],
-            source=card.get("source")
+            front_content=card["front"],
+            back_content=card["back"],
+            card_type="term_definition",
+            source=card["source"]
         )
         
     except Exception as e:

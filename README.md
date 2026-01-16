@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔥 Firefighter Exam Prep
 
-## Getting Started
+A RAG-powered study platform for firefighter written exam preparation.
 
-First, run the development server:
+**Live at:** [firefighterhire.com](https://firefighterhire.com)
 
+## Quick Start
+
+### Prerequisites
+- Node.js 18+
+- Python 3.11+
+- Google Cloud project with Vertex AI enabled
+
+### Frontend (Next.js)
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Backend (FastAPI)
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python -m uvicorn app.main:app --reload --port 8000
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Copy example files:
+```bash
+cp .env.development.example .env.development
+cp .env.production.example .env.production
+```
 
-## Learn More
+2. Fill in your Google Cloud credentials
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Quiz Engine** - 1,200+ pre-generated questions across 4 subjects
+- **Study Deck** - Save questions for personalized review
+- **Flashcards** - AI-generated term/definition cards
+- **Fire Captain AI** - Tutoring with firehouse analogies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Deploy backend to Google Cloud Run:
+```bash
+./deploy.sh
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## API Docs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Backend API documentation available at `/docs` when running.
+
+## Tech Stack
+
+- **Frontend:** Next.js 16, React 19, Tailwind CSS
+- **Backend:** FastAPI, SQLite, ChromaDB
+- **AI:** Vertex AI (Gemini 2.0 Flash), Discovery Engine

@@ -5,8 +5,11 @@ import SubjectSelector from "./SubjectSelector";
 import FeedbackModal from "./FeedbackModal";
 
 interface Flashcard {
-    term: string;
-    definition: string;
+    id?: string;
+    front_content: string;
+    back_content: string;
+    card_type?: string;
+    hint?: string | null;
     source: string | null;
 }
 
@@ -67,8 +70,8 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
         } catch (err) {
             console.error("Flashcard error:", err);
             setCurrentCard({
-                term: "Connection Error",
-                definition: "Unable to load flashcard. Please check your connection and try again.",
+                front_content: "Connection Error",
+                back_content: "Unable to load flashcard. Please check your connection and try again.",
                 source: null,
             });
         } finally {
@@ -180,7 +183,7 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
                                         Term
                                     </p>
                                     <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
-                                        {currentCard?.term}
+                                        {currentCard?.front_content}
                                     </h3>
                                     <p className="text-muted text-sm mt-8">Tap to reveal definition</p>
                                 </>
@@ -201,7 +204,7 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
                                 Definition
                             </p>
                             <p className="text-lg md:text-xl text-foreground leading-relaxed">
-                                {currentCard?.definition}
+                                {currentCard?.back_content}
                             </p>
                             {currentCard?.source && (
                                 <p className="text-sm text-muted mt-6">

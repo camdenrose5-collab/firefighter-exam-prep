@@ -1,17 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import QuizContainer from "@/components/QuizContainer";
 import ExplainContainer from "@/components/ExplainContainer";
 import FlashcardsContainer from "@/components/FlashcardsContainer";
+import AuthModal from "@/components/AuthModal";
 
 type StudyMode = "quiz" | "flashcards" | "explain" | null;
 
 export default function StudyHub() {
     const [activeMode, setActiveMode] = useState<StudyMode>(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [showAuthModal, setShowAuthModal] = useState(false);
+    const [userEmail, setUserEmail] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Check auth status on mount
+        const token = localStorage.getItem("auth_token");
+        const email = localStorage.getItem("user_email");
+        if (token && email) {
+            setIsAuthenticated(true);
+            setUserEmail(email);
+        }
+    }, []);
+
+    const handleAuthenticated = (token: string, email: string) => {
+        setIsAuthenticated(true);
+        setUserEmail(email);
+        setShowAuthModal(false);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("user_email");
+        localStorage.removeItem("user_id");
+        setIsAuthenticated(false);
+        setUserEmail(null);
+    };
 
     return (
         <div className="min-h-screen bg-background">
+            {/* Sign-up Banner for non-authenticated users */}
+            {!isAuthenticated && (
+                <div className="bg-gradient-to-r from-fire-red/10 to-ember-orange/10 border-b border-ember-orange/20">
+                    <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+                        <p className="text-sm text-ember-orange">
+                            📌 Sign up to save your progress and build your study deck
+                        </p>
+                        <button
+                            onClick={() => setShowAuthModal(true)}
+                            className="px-4 py-1.5 bg-ember-orange/20 hover:bg-ember-orange/30 text-ember-orange rounded-lg text-sm font-medium transition-colors"
+                        >
+                            Sign Up Free
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* Header */}
             <header className="border-b border-card-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -24,9 +69,29 @@ export default function StudyHub() {
                             <p className="text-xs text-muted">Study Hub</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                        Brain Ready
+                    <div className="flex items-center gap-4">
+                        {isAuthenticated ? (
+                            <>
+                                <span className="text-sm text-muted">{userEmail}</span>
+                                <button
+                                    onClick={handleLogout}
+                                    className="text-sm text-muted hover:text-foreground transition-colors"
+                                >
+                                    Logout
+                                </button>
+                            </>
+                        ) : (
+                            <button
+                                onClick={() => setShowAuthModal(true)}
+                                className="text-sm text-ember-orange hover:text-fire-red transition-colors font-medium"
+                            >
+                                Sign In
+                            </button>
+                        )}
+                        <div className="flex items-center gap-2 text-sm text-muted">
+                            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                            Brain Ready
+                        </div>
                     </div>
                 </div>
             </header>
@@ -142,6 +207,13 @@ export default function StudyHub() {
                     <p className="mt-1 text-xs">Powered by Vertex AI + Discovery Engine</p>
                 </div>
             </footer>
+
+            {/* Auth Modal */}
+            <AuthModal
+                isOpen={showAuthModal}
+                onClose={() => setShowAuthModal(false)}
+                onAuthenticated={handleAuthenticated}
+            />
         </div>
     );
 }

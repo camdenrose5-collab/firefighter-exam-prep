@@ -1,0 +1,57 @@
+# Ignore git
+.git/
+.gitignore
+
+# Ignore Python virtual environments
+venv/
+.venv/
+backend/venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Node modules
+node_modules/
+.next/
+.pnp/
+.yarn/
+
+# Ignore local dev files
+.env
+.env.*
+*.log
+logs/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore test/dev only files
+*_test.py
+test_*.py
+tests/
+coverage/
+
+# Ignore frontend source (backend-only container)
+src/
+public/
+*.tsx
+*.ts
+*.mjs
+package*.json
+tsconfig.json
+next*.ts
+postcss*.mjs
+eslint*.mjs
+
+# Ignore execution scripts
+execution/
+scan_*.py
+*.json
+!backend/data/*.json
+
+# Ignore data files not needed for build
+data/pdfs/
+*.pdf
+questions_backup*.json
+questions_backup*.db

@@ -89,12 +89,48 @@ def init_db():
                 reviewed BOOLEAN DEFAULT FALSE
             );
 
+            -- Email leads (pre-registration email capture)
+            CREATE TABLE IF NOT EXISTS email_leads (
+                id TEXT PRIMARY KEY,
+                email TEXT UNIQUE NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                converted BOOLEAN DEFAULT FALSE
+            );
+
+            -- Pre-generated flashcard bank
+            CREATE TABLE IF NOT EXISTS flashcards (
+                id TEXT PRIMARY KEY,
+                subject TEXT NOT NULL,
+                card_type TEXT NOT NULL,
+                front_content TEXT NOT NULL,
+                back_content TEXT NOT NULL,
+                hint TEXT,
+                source TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                reported_count INTEGER DEFAULT 0,
+                is_approved BOOLEAN DEFAULT TRUE
+            );
+
+            -- User flashcard study deck
+            CREATE TABLE IF NOT EXISTS flashcard_study_deck (
+                id TEXT PRIMARY KEY,
+                user_id TEXT NOT NULL,
+                flashcard_id TEXT NOT NULL,
+                added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users(id),
+                FOREIGN KEY (flashcard_id) REFERENCES flashcards(id)
+            );
+
             -- Indexes
             CREATE INDEX IF NOT EXISTS idx_questions_subject ON questions(subject);
             CREATE INDEX IF NOT EXISTS idx_questions_approved ON questions(is_approved);
             CREATE INDEX IF NOT EXISTS idx_study_deck_user ON study_deck(user_id);
             CREATE INDEX IF NOT EXISTS idx_reports_reviewed ON reported_questions(reviewed);
             CREATE INDEX IF NOT EXISTS idx_feedback_reviewed ON user_feedback(reviewed);
+            CREATE INDEX IF NOT EXISTS idx_flashcards_subject ON flashcards(subject);
+            CREATE INDEX IF NOT EXISTS idx_flashcards_type ON flashcards(card_type);
+            CREATE INDEX IF NOT EXISTS idx_flashcards_approved ON flashcards(is_approved);
+            CREATE INDEX IF NOT EXISTS idx_flashcard_study_deck_user ON flashcard_study_deck(user_id);
         """)
 
 
@@ -393,5 +429,214 @@ def mark_feedback_reviewed(feedback_id: str):
         )
 
 
+# =============================================================================
+# EMAIL LEADS CRUD
+# =============================================================================
+
+def create_email_lead(email: str) -> str:
+    """Create an email lead. Returns the lead ID."""
+    lead_id = str(uuid.uuid4())
+    with get_db() as conn:
+        # Check if email already exists
+        existing = conn.execute(
+            "SELECT id FROM email_leads WHERE email = ?",
+            (email,)
+        ).fetchone()
+        if existing:
+            return existing["id"]
+        
+        conn.execute(
+            "INSERT INTO email_leads (id, email) VALUES (?, ?)",
+            (lead_id, email)
+        )
+    return lead_id
+
+
+def get_email_lead_by_email(email: str) -> Optional[Dict[str, Any]]:
+    """Get email lead by email address."""
+    with get_db() as conn:
+        row = conn.execute(
+            "SELECT * FROM email_leads WHERE email = ?",
+            (email,)
+        ).fetchone()
+        if row:
+            return dict(row)
+    return None
+
+
+# =============================================================================
+# FLASHCARD BANK CRUD
+# =============================================================================
+
+def add_flashcard(
+    subject: str,
+    card_type: str,
+    front_content: str,
+    back_content: str,
+    hint: Optional[str] = None,
+    source: Optional[str] = None,
+    is_approved: bool = True
+) -> str:
+    """Add a flashcard to the bank. Returns the flashcard ID."""
+    flashcard_id = str(uuid.uuid4())
+    with get_db() as conn:
+        conn.execute(
+            """INSERT INTO flashcards 
+               (id, subject, card_type, front_content, back_content, hint, source, is_approved)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+            (flashcard_id, subject, card_type, front_content, back_content, hint, source, is_approved)
+        )
+    return flashcard_id
+
+
+def get_random_flashcards(
+    subjects: List[str],
+    count: int = 10,
+    card_types: Optional[List[str]] = None,
+    approved_only: bool = True
+) -> List[Dict[str, Any]]:
+    """Get random flashcards from the bank."""
+    with get_db() as conn:
+        subject_placeholders = ",".join("?" * len(subjects))
+        approved_clause = "AND is_approved = TRUE" if approved_only else ""
+        
+        params = list(subjects)
+        type_clause = ""
+        if card_types:
+            type_placeholders = ",".join("?" * len(card_types))
+            type_clause = f"AND card_type IN ({type_placeholders})"
+            params.extend(card_types)
+        
+        params.append(count)
+        
+        rows = conn.execute(
+            f"""SELECT id, subject, card_type, front_content, back_content, hint, source
+                FROM flashcards
+                WHERE subject IN ({subject_placeholders}) {type_clause} {approved_clause}
+                ORDER BY RANDOM()
+                LIMIT ?""",
+            tuple(params)
+        ).fetchall()
+        
+        return [
+            {
+                "id": row["id"],
+                "subject": row["subject"],
+                "card_type": row["card_type"],
+                "front_content": row["front_content"],
+                "back_content": row["back_content"],
+                "hint": row["hint"],
+                "source": row["source"]
+            }
+            for row in rows
+        ]
+
+
+def get_flashcard_count(subject: Optional[str] = None, card_type: Optional[str] = None) -> int:
+    """Get count of flashcards, optionally filtered by subject and/or card_type."""
+    with get_db() as conn:
+        query = "SELECT COUNT(*) as cnt FROM flashcards WHERE is_approved = TRUE"
+        params = []
+        
+        if subject:
+            query += " AND subject = ?"
+            params.append(subject)
+        if card_type:
+            query += " AND card_type = ?"
+            params.append(card_type)
+        
+        row = conn.execute(query, tuple(params)).fetchone()
+        return row["cnt"]
+
+
+# =============================================================================
+# FLASHCARD STUDY DECK CRUD
+# =============================================================================
+
+def add_to_flashcard_study_deck(user_id: str, flashcard_id: str) -> str:
+    """Add flashcard to user's flashcard study deck. Returns deck entry ID."""
+    entry_id = str(uuid.uuid4())
+    with get_db() as conn:
+        # Check if already in deck
+        existing = conn.execute(
+            "SELECT id FROM flashcard_study_deck WHERE user_id = ? AND flashcard_id = ?",
+            (user_id, flashcard_id)
+        ).fetchone()
+        if existing:
+            return existing["id"]
+        
+        conn.execute(
+            "INSERT INTO flashcard_study_deck (id, user_id, flashcard_id) VALUES (?, ?, ?)",
+            (entry_id, user_id, flashcard_id)
+        )
+    return entry_id
+
+
+def remove_from_flashcard_study_deck(user_id: str, flashcard_id: str) -> bool:
+    """Remove flashcard from study deck. Returns True if removed."""
+    with get_db() as conn:
+        cursor = conn.execute(
+            "DELETE FROM flashcard_study_deck WHERE user_id = ? AND flashcard_id = ?",
+            (user_id, flashcard_id)
+        )
+        return cursor.rowcount > 0
+
+
+def get_flashcard_study_deck(user_id: str) -> List[Dict[str, Any]]:
+    """Get all flashcards in user's flashcard study deck."""
+    with get_db() as conn:
+        rows = conn.execute(
+            """SELECT f.id, f.subject, f.card_type, f.front_content, f.back_content, f.hint, f.source, fsd.added_at
+               FROM flashcard_study_deck fsd
+               JOIN flashcards f ON fsd.flashcard_id = f.id
+               WHERE fsd.user_id = ?
+               ORDER BY fsd.added_at DESC""",
+            (user_id,)
+        ).fetchall()
+        
+        return [
+            {
+                "id": row["id"],
+                "subject": row["subject"],
+                "card_type": row["card_type"],
+                "front_content": row["front_content"],
+                "back_content": row["back_content"],
+                "hint": row["hint"],
+                "source": row["source"],
+                "added_at": row["added_at"]
+            }
+            for row in rows
+        ]
+
+
+def get_flashcard_study_deck_cards(user_id: str, count: int) -> List[Dict[str, Any]]:
+    """Get random flashcards from user's study deck."""
+    with get_db() as conn:
+        rows = conn.execute(
+            """SELECT f.id, f.subject, f.card_type, f.front_content, f.back_content, f.hint, f.source
+               FROM flashcard_study_deck fsd
+               JOIN flashcards f ON fsd.flashcard_id = f.id
+               WHERE fsd.user_id = ?
+               ORDER BY RANDOM()
+               LIMIT ?""",
+            (user_id, count)
+        ).fetchall()
+        
+        return [
+            {
+                "id": row["id"],
+                "subject": row["subject"],
+                "card_type": row["card_type"],
+                "front_content": row["front_content"],
+                "back_content": row["back_content"],
+                "hint": row["hint"],
+                "source": row["source"]
+            }
+            for row in rows
+        ]
+
+
 # Initialize on import
 init_db()
+
+
