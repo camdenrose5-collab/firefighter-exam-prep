@@ -186,6 +186,17 @@ body {
   }
 }
 
+/* Tablet breakpoint for intermediate screens */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .btn-primary {
+    min-width: 200px;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+}
+
 /* Focus states for accessibility */
 button:focus-visible,
 a:focus-visible,
@@ -209,4 +220,50 @@ input:focus-visible {
 
 .fire-pulse {
   animation: firePulse 1.5s ease-in-out infinite;
+}
+
+/* Reduced motion for accessibility - respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-in,
+  .flip-in,
+  .chat-bubble,
+  .fire-pulse {
+    animation: none !important;
+  }
+}
+
+/* Ensure all interactive elements have minimum 48x48 touch targets */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Skip to content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--fire-red);
+  color: var(--high-vis-white);
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
 }

@@ -1,0 +1,295 @@
+/home/camdenrose5/.gemini/antigravity/scratch/firefighter-exam-prep/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py:433: UserWarning: This feature is deprecated as of June 24, 2025 and will be removed on June 24, 2026. For details, see https://cloud.google.com/vertex-ai/generative-ai/docs/deprecations/genai-vertexai-sdk.
+  warning_logs.show_deprecation_warning()
+
+╔══════════════════════════════════════════════════════════════╗
+║     📇 PATTERN RECOGNITION FLASHCARD GENERATOR 📇            ║
+╠══════════════════════════════════════════════════════════════╣
+║  Subjects: math, mechanical-aptitude                         ║
+║  Cards per subject: 100                                      ║
+║  Mode: LIVE (saving to DB)                                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+📊 Current Flashcard Bank:
+   math: 15
+   mechanical-aptitude: 15
+
+
+============================================================
+🔄 Generating 100 math pattern-recognition cards
+============================================================
+
+📊 Existing math flashcards: 15
+🎯 Target: 100 new cards
+  ⚠️ #1 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #2 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #3 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #4 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #5 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #6 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #7 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #8 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #9 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #10 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #11 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #12 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]
+  ⚠️ #13 error: 403 Permission denied on resource project your-dev-project-id. [reason: "CONSUMER_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "aiplatform.googleapis.com"
+}
+metadata {
+  key: "containerInfo"
+  value: "your-dev-project-id"
+}
+metadata {
+  key: "consumer"
+  value: "projects/your-dev-project-id"
+}
+, locale: "en-US"
+message: "Permission denied on resource project your-dev-project-id."
+, links {
+  description: "Google developers console"
+  url: "https://console.developers.google.com"
+}
+]

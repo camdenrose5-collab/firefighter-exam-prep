@@ -2,12 +2,21 @@
 
 import { useState } from "react";
 
+export interface Subject {
+    id: string;
+    label: string;
+    icon: string;
+    description: string;
+}
+
 interface SubjectSelectorProps {
     onSelectionChange: (subjects: string[]) => void;
     onContinue: () => void;
+    subjects?: Subject[]; // Optional custom subjects list
 }
 
-const SUBJECTS = [
+// Default subjects for Flashcards (uses Fire Terms)
+const FLASHCARD_SUBJECTS: Subject[] = [
     {
         id: "human-relations",
         label: "Human Relations",
@@ -37,8 +46,10 @@ const SUBJECTS = [
 export default function SubjectSelector({
     onSelectionChange,
     onContinue,
+    subjects = FLASHCARD_SUBJECTS, // Default to flashcard subjects
 }: SubjectSelectorProps) {
     const [selected, setSelected] = useState<string[]>([]);
+
 
     const toggleSubject = (subjectId: string) => {
         const newSelection = selected.includes(subjectId)
@@ -49,7 +60,7 @@ export default function SubjectSelector({
     };
 
     const selectAll = () => {
-        const allIds = SUBJECTS.map((s) => s.id);
+        const allIds = subjects.map((s) => s.id);
         setSelected(allIds);
         onSelectionChange(allIds);
     };
@@ -90,7 +101,7 @@ export default function SubjectSelector({
 
             {/* Subject Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {SUBJECTS.map((subject) => {
+                {subjects.map((subject) => {
                     const isSelected = selected.includes(subject.id);
                     return (
                         <button

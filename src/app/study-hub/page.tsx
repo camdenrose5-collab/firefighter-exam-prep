@@ -201,10 +201,20 @@ export default function StudyHub() {
             </div>
 
             {/* Footer */}
-            <footer className="border-t border-card-border mt-16 py-6">
-                <div className="max-w-7xl mx-auto px-6 text-center text-sm text-muted">
-                    <p>🔥 Captain&apos;s Academy — Your AI Fire Instructor</p>
-                    <p className="mt-1 text-xs">Powered by Vertex AI + Discovery Engine</p>
+            <footer className="border-t border-card-border mt-16 py-8">
+                <div className="max-w-7xl mx-auto px-6 text-center">
+                    {/* Built by a Firefighter message */}
+                    <div className="mb-4 p-4 rounded-lg bg-gradient-to-r from-fire-red/5 to-ember-orange/5 border border-ember-orange/20 max-w-2xl mx-auto">
+                        <p className="text-foreground font-medium mb-2">
+                            👨‍🚒 Built by a firefighter, for future firefighters
+                        </p>
+                        <p className="text-sm text-muted">
+                            This platform was created by someone who&apos;s been in your boots. Your feedback helps make it better for the next candidate.
+                            <span className="text-ember-orange font-medium"> Hit the feedback button in any study mode to share your thoughts!</span>
+                        </p>
+                    </div>
+                    <p className="text-sm text-muted">🔥 Captain&apos;s Academy — Your AI Fire Instructor</p>
+                    <p className="mt-1 text-xs text-muted">Powered by Vertex AI + Discovery Engine</p>
                 </div>
             </footer>
 

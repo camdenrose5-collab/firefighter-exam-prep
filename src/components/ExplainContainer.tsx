@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import SubjectSelector from "./SubjectSelector";
+import SubjectSelector, { Subject } from "./SubjectSelector";
 import FeedbackModal from "./FeedbackModal";
 import { apiUrl } from "@/lib/api";
 
@@ -24,9 +24,37 @@ interface ExplainContainerProps {
 const SUBJECT_LABELS: Record<string, string> = {
     "human-relations": "Human Relations",
     "mechanical-aptitude": "Mechanical Aptitude",
-    "fire-terms": "Fire Terms",
+    "reading-comprehension": "Reading Comprehension",
     "math": "Math (Mental)",
 };
+
+// Explain subjects - uses Reading Comprehension (for helping decode reading prompts)
+const EXPLAIN_SUBJECTS: Subject[] = [
+    {
+        id: "human-relations",
+        label: "Human Relations",
+        icon: "🤝",
+        description: "Teamwork, conflict resolution, communication",
+    },
+    {
+        id: "mechanical-aptitude",
+        label: "Mechanical Aptitude",
+        icon: "🔧",
+        description: "Tools, leverage, hydraulics, troubleshooting",
+    },
+    {
+        id: "reading-comprehension",
+        label: "Reading Comprehension",
+        icon: "📖",
+        description: "Passage comprehension, following instructions",
+    },
+    {
+        id: "math",
+        label: "Math (Mental)",
+        icon: "🧮",
+        description: "Arithmetic, percentages, ratios — no calculator",
+    },
+];
 
 export default function ExplainContainer({ onBack }: ExplainContainerProps) {
     const [phase, setPhase] = useState<"subject-select" | "chat">("subject-select");
@@ -148,6 +176,7 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
                     </button>
                 </div>
                 <SubjectSelector
+                    subjects={EXPLAIN_SUBJECTS}
                     onSelectionChange={setSelectedSubjects}
                     onContinue={handleContinueToChat}
                 />
@@ -208,6 +237,7 @@ export default function ExplainContainer({ onBack }: ExplainContainerProps) {
                                     <img
                                         src={message.imageUrl}
                                         alt="Explanation diagram"
+                                        loading="lazy"
                                         className="rounded-lg max-w-full h-auto border border-card-border"
                                     />
                                 </div>

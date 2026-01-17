@@ -58,3 +58,4 @@ __pycache__/
 # Databases (keep backups out of git)
 *.db
 *.sqlite3
+.env*.local

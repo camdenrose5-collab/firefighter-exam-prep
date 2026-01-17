@@ -80,6 +80,8 @@ RULES:
 3. **Encourage, don't judge**: "Good question!" not "You should know this."
 4. **Be concise**: Get to the point. Under 250 words unless they ask for more detail.
 5. **Ground in reality**: Use real scenarios, real equipment, real situations.
+6. **NO PRACTICE QUESTIONS**: Do NOT ask the user questions. Just explain clearly. No "Quick quiz!" or "Let me test you" sections.
+7. **Complete the thought**: End with a solid conclusion, not a question. They came for an explanation, give them one.
 """
 
 
@@ -203,13 +205,11 @@ class MockTutorGenerator(BaseGenerator):
 
     async def generate(self, topic: str, context: str) -> str:
         return f"""
-**HOOK**: Alright, let's talk about {topic}. On the fireground, this matters because you'll need to calculate flow rates, pressure drops, and equipment capacity—all while under pressure.
+Alright, let's talk about {topic}. On the fireground, this matters because you'll need to calculate flow rates, pressure drops, and equipment capacity—all while under pressure.
 
-**ANALOGY**: Think of it like hose sections. A standard pre-connect is 200 feet. If someone asks you for "a quarter of the line," you'd know that's 50 feet—one section. That's fractions in action.
+Think of it like hose sections. A standard pre-connect is 200 feet. If someone asks you for "a quarter of the line," you'd know that's 50 feet—one section. That's fractions in action.
 
-**PRACTICE**: Quick one for you: If your engine carries 500 gallons and you're flowing at 125 GPM, how many minutes until you're dry?
-
-**VERIFY**: Walk me through how you'd solve that. What's the first step?
+For example: If your engine carries 500 gallons and you're flowing at 125 GPM, you've got 4 minutes of water. Simple division: 500 ÷ 125 = 4.
 
 [Mock Response - Configure Vertex AI credentials for personalized tutoring]
 """
@@ -223,22 +223,30 @@ def create_tutor_engine(
     """
     Factory function to create tutor engine with appropriate backends.
     Falls back to mocks if credentials/config are missing.
+    
+    On Cloud Run, uses default service account (no explicit credentials needed).
+    Locally, uses GOOGLE_APPLICATION_CREDENTIALS file.
     """
     project_id = project_id or os.getenv("GOOGLE_CLOUD_PROJECT")
     data_store_id = data_store_id or os.getenv("DATA_STORE_ID")
     credentials_path = credentials_path or os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 
-    has_credentials = bool(credentials_path and os.path.exists(credentials_path))
+    # Check if we have explicit credentials file OR are running on Cloud Run
+    has_explicit_creds = bool(credentials_path and os.path.exists(credentials_path))
+    is_cloud_run = os.getenv("K_SERVICE") is not None  # Cloud Run sets this automatically
+    has_credentials = has_explicit_creds or is_cloud_run
     has_config = bool(project_id and data_store_id)
 
     if has_credentials and has_config:
         try:
             retriever = DiscoveryEngineRetriever(project_id, data_store_id)
             generator = TutorGenerator(project_id)
-            print("🎓 Fire Captain Tutor initialized (production mode)")
+            mode = "Cloud Run" if is_cloud_run else "local credentials"
+            print(f"🎓 Fire Captain Tutor initialized (production mode - {mode})")
             return FireCaptainTutor(retriever, generator)
         except Exception as e:
             print(f"⚠️ Failed to init tutor backends, falling back to mocks: {e}")
 
     print("⚠️ Tutor Engine using mock mode")
     return FireCaptainTutor(MockRetriever(), MockTutorGenerator())
+

@@ -57,11 +57,17 @@ export default function WelcomeModal({ isOpen, onEmailSubmit }: WelcomeModalProp
                         🔥
                     </div>
                     <h2 className="text-3xl font-bold text-foreground mb-2">
-                        Welcome to Captain&apos;s Academy
+                        Stop Stressing the Written Exam.
                     </h2>
-                    <p className="text-muted text-lg">
-                        Your AI-powered firefighter exam prep assistant
+                    <p className="text-muted text-lg mb-3">
+                        Get hired faster with AI-powered quizzes and 24/7 exam coaching.
                     </p>
+                    <p className="text-muted text-sm mb-3">
+                        Join 50+ aspiring firefighters prepping this week.
+                    </p>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
+                        <span className="text-green-500 font-semibold text-sm">✓ 100% Free — No credit card required</span>
+                    </div>
                 </div>
 
                 {/* Value Props */}
@@ -116,7 +122,7 @@ export default function WelcomeModal({ isOpen, onEmailSubmit }: WelcomeModalProp
                             </span>
                         ) : (
                             <span className="flex items-center justify-center gap-2">
-                                🚒 Try it Free
+                                🚒 Start Prepping Free
                             </span>
                         )}
                     </button>

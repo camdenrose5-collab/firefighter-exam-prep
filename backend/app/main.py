@@ -853,8 +853,97 @@ Make it relevant to written exam preparation."""
         raise HTTPException(status_code=500, detail=f"Flashcard retrieval failed: {str(e)}")
 
 
+# ============== ADMIN DASHBOARD ENDPOINTS ==============
+
+# Admin emails whitelist (add your email here)
+ADMIN_EMAILS = [
+    "camdenrose5@gmail.com",
+]
+
+
+class AdminStatsResponse(BaseModel):
+    email_leads: int
+    total_users: int
+    total_questions: int
+    total_flashcards: int
+    pending_reports: int
+    pending_feedback: int
+
+
+def get_admin_user(token: str = None, admin_email: str = None):
+    """Verify token or email and check if user is an admin."""
+    # First try token-based auth
+    if token:
+        user = get_user_from_token(token)
+        if user and user["email"] in ADMIN_EMAILS:
+            return user
+    
+    # Fall back to email-based auth (for when user account was wiped)
+    if admin_email and admin_email in ADMIN_EMAILS:
+        return {"email": admin_email, "id": "admin-bypass"}
+    
+    raise HTTPException(status_code=401, detail="Not authenticated")
+
+
+@app.get("/api/admin/verify")
+async def verify_admin(token: str = None, admin_email: str = None):
+    """Verify if current user is an admin."""
+    user = get_admin_user(token, admin_email)
+    return {"status": "authenticated", "email": user["email"]}
+
+
+@app.get("/api/admin/email-leads")
+async def get_admin_email_leads(token: str = None, admin_email: str = None):
+    """Get all email leads (admin only)."""
+    get_admin_user(token, admin_email)  # Verify admin
+    
+    leads = db.get_all_email_leads()
+    return {"leads": leads, "count": len(leads)}
+
+
+@app.get("/api/admin/stats")
+async def get_admin_stats(token: str = None, admin_email: str = None):
+    """Get dashboard statistics (admin only)."""
+    get_admin_user(token, admin_email)  # Verify admin
+    
+    return AdminStatsResponse(
+        email_leads=db.get_email_leads_count(),
+        total_users=db.get_users_count(),
+        total_questions=db.get_question_count(),
+        total_flashcards=db.get_flashcard_count(),
+        pending_reports=len(db.get_pending_reports()),
+        pending_feedback=len(db.get_pending_feedback())
+    )
+
+
+@app.get("/api/admin/reports")
+async def get_admin_reports(token: str = None, admin_email: str = None):
+    """Get all pending question reports (admin only)."""
+    get_admin_user(token, admin_email)  # Verify admin
+    
+    reports = db.get_pending_reports()
+    return {"reports": reports, "count": len(reports)}
+
+
+@app.get("/api/admin/feedback")
+async def get_admin_feedback(token: str = None, admin_email: str = None):
+    """Get all pending user feedback (admin only)."""
+    get_admin_user(token, admin_email)  # Verify admin
+    
+    feedback = db.get_pending_feedback()
+    return {"feedback": feedback, "count": len(feedback)}
+
+
+@app.get("/api/admin/users")
+async def get_admin_users(token: str = None, admin_email: str = None):
+    """Get all registered users (admin only)."""
+    get_admin_user(token, admin_email)  # Verify admin
+    
+    users = db.get_all_users()
+    return {"users": users, "count": len(users)}
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
-
 

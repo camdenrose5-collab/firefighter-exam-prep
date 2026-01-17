@@ -302,27 +302,25 @@ def create_quiz_engine(
     Factory function to create quiz engine with appropriate backends.
     Falls back to mocks if credentials/config are missing.
 
-    Args:
-        project_id: Google Cloud project ID
-        data_store_id: Discovery Engine data store ID
-        credentials_path: Path to service account JSON (GOOGLE_APPLICATION_CREDENTIALS)
-
-    Returns:
-        Configured FireCaptainQuizEngine instance
+    On Cloud Run, uses default service account (no explicit credentials needed).
+    Locally, uses GOOGLE_APPLICATION_CREDENTIALS file.
     """
     project_id = project_id or os.getenv("GOOGLE_CLOUD_PROJECT")
     data_store_id = data_store_id or os.getenv("DATA_STORE_ID")
     credentials_path = credentials_path or os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 
-    # Check if we have valid Google Cloud credentials
-    has_credentials = bool(credentials_path and os.path.exists(credentials_path))
+    # Check if we have explicit credentials file OR are running on Cloud Run
+    has_explicit_creds = bool(credentials_path and os.path.exists(credentials_path))
+    is_cloud_run = os.getenv("K_SERVICE") is not None  # Cloud Run sets this automatically
+    has_credentials = has_explicit_creds or is_cloud_run
     has_config = bool(project_id and data_store_id)
 
     if has_credentials and has_config:
         try:
             retriever = DiscoveryEngineRetriever(project_id, data_store_id)
             generator = VertexAIGenerator(project_id)
-            print(f"🔥 Fire Captain Quiz Engine initialized (production mode)")
+            mode = "Cloud Run" if is_cloud_run else "local credentials"
+            print(f"🔥 Fire Captain Quiz Engine initialized (production mode - {mode})")
             print(f"   Project: {project_id}, DataStore: {data_store_id}")
             return FireCaptainQuizEngine(retriever, generator)
         except Exception as e:
@@ -330,10 +328,8 @@ def create_quiz_engine(
 
     # Fallback to mock implementations
     missing = []
-    if not credentials_path:
-        missing.append("GOOGLE_APPLICATION_CREDENTIALS")
-    elif not os.path.exists(credentials_path):
-        missing.append(f"credentials file at {credentials_path}")
+    if not has_credentials:
+        missing.append("credentials (no file and not on Cloud Run)")
     if not project_id:
         missing.append("GOOGLE_CLOUD_PROJECT")
     if not data_store_id:
@@ -341,3 +337,4 @@ def create_quiz_engine(
 
     print(f"⚠️ Quiz Engine using mock mode. Missing: {', '.join(missing)}")
     return FireCaptainQuizEngine(MockRetriever(), MockGenerator())
+

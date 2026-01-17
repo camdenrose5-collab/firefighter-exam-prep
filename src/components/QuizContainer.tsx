@@ -2,16 +2,36 @@
 
 import { useState } from "react";
 import QuizView, { QuizQuestion } from "./QuizView";
-import SubjectSelector from "./SubjectSelector";
+import SubjectSelector, { Subject } from "./SubjectSelector";
 import ReportModal from "./ReportModal";
 import FeedbackModal from "./FeedbackModal";
 import { apiUrl } from "@/lib/api";
-// The 4 core exam subjects
-const EXAM_SUBJECTS = [
-    { id: "human-relations", label: "Human Relations" },
-    { id: "mechanical-aptitude", label: "Mechanical Aptitude" },
-    { id: "fire-terms", label: "Fire Terms" },
-    { id: "math", label: "Math (Mental)" },
+// Quiz subjects - uses Reading Comprehension (for reading prompts)
+const QUIZ_SUBJECTS: Subject[] = [
+    {
+        id: "human-relations",
+        label: "Human Relations",
+        icon: "🤝",
+        description: "Teamwork, conflict resolution, communication",
+    },
+    {
+        id: "mechanical-aptitude",
+        label: "Mechanical Aptitude",
+        icon: "🔧",
+        description: "Tools, leverage, hydraulics, troubleshooting",
+    },
+    {
+        id: "reading-comprehension",
+        label: "Reading Comprehension",
+        icon: "📖",
+        description: "Passage comprehension, following instructions",
+    },
+    {
+        id: "math",
+        label: "Math (Mental)",
+        icon: "🧮",
+        description: "Arithmetic, percentages, ratios — no calculator",
+    },
 ];
 
 const QUESTION_COUNTS = [5, 10, 15, 25, 50];
@@ -152,6 +172,7 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
                     </button>
                 </div>
                 <SubjectSelector
+                    subjects={QUIZ_SUBJECTS}
                     onSelectionChange={handleSubjectsSelected}
                     onContinue={handleContinueToCount}
                 />

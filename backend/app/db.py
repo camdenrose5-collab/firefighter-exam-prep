@@ -1,19 +1,76 @@
 """
 Database module for Question Bank & Study Deck.
 Uses SQLite for storage of pre-generated questions, user accounts, and study decks.
+Syncs with Cloud Storage for persistence across Cloud Run deployments.
 """
 
 import os
 import json
 import sqlite3
 import uuid
+import threading
 from datetime import datetime
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 from contextlib import contextmanager
 
-# Database location
+# Cloud Storage configuration
+GCS_BUCKET = os.environ.get("GCS_DB_BUCKET", "firefighter-exam-prep-db")
+GCS_DB_BLOB = "questions.db"
 DB_PATH = Path(__file__).parent.parent / "data" / "questions.db"
+
+# Track if we need to sync
+_db_modified = False
+_sync_lock = threading.Lock()
+
+
+def _download_db_from_gcs():
+    """Download database from Cloud Storage on startup."""
+    try:
+        from google.cloud import storage
+        client = storage.Client()
+        bucket = client.bucket(GCS_BUCKET)
+        blob = bucket.blob(GCS_DB_BLOB)
+        
+        if blob.exists():
+            DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+            blob.download_to_filename(str(DB_PATH))
+            print(f"📥 Downloaded database from gs://{GCS_BUCKET}/{GCS_DB_BLOB}")
+            return True
+        else:
+            print(f"⚠️ No database found in Cloud Storage, starting fresh")
+            return False
+    except Exception as e:
+        print(f"⚠️ Could not download from GCS: {e}")
+        return False
+
+
+def _upload_db_to_gcs():
+    """Upload database to Cloud Storage after modifications."""
+    global _db_modified
+    with _sync_lock:
+        if not _db_modified:
+            return
+        try:
+            from google.cloud import storage
+            client = storage.Client()
+            bucket = client.bucket(GCS_BUCKET)
+            blob = bucket.blob(GCS_DB_BLOB)
+            blob.upload_from_filename(str(DB_PATH))
+            _db_modified = False
+            print(f"📤 Uploaded database to gs://{GCS_BUCKET}/{GCS_DB_BLOB}")
+        except Exception as e:
+            print(f"⚠️ Could not upload to GCS: {e}")
+
+
+def _mark_modified():
+    """Mark database as modified to trigger sync."""
+    global _db_modified
+    _db_modified = True
+
+
+# Download database on module import (startup)
+_download_db_from_gcs()
 
 
 @contextmanager
@@ -25,6 +82,25 @@ def get_db():
     try:
         yield conn
         conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+
+@contextmanager
+def get_db_write():
+    """Context manager for write operations - triggers Cloud Storage sync."""
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(str(DB_PATH))
+    conn.row_factory = sqlite3.Row
+    try:
+        yield conn
+        conn.commit()
+        _mark_modified()
+        # Sync to Cloud Storage after successful write
+        _upload_db_to_gcs()
     except Exception:
         conn.rollback()
         raise
@@ -219,10 +295,40 @@ def increment_report_count(question_id: str):
 def find_matching_mechanical_image(query: str) -> Optional[str]:
     """
     Find a mechanical aptitude image that matches the user's query.
-    Searches question content for keyword matches.
+    Uses CURATED HERO IMAGES for teaching common concepts.
+    Falls back to searching question content for keyword matches.
     Returns image_path if found, None otherwise.
     """
-    # Define keyword groups for different mechanical concepts
+    # CURATED HERO IMAGES - clean teaching diagrams generated with Imagen
+    # These illustrate concepts clearly with labels, not confusing quiz diagrams
+    HERO_IMAGES = {
+        # Lever concepts -> crowbar lifting rock with LOAD/EFFORT/FULCRUM labels
+        "lever": "/assets/teaching/lever.png",
+        "crowbar": "/assets/teaching/lever.png",
+        "halligan": "/assets/teaching/lever.png",
+        "fulcrum": "/assets/teaching/lever.png",
+        "pry": "/assets/teaching/lever.png",
+        "wheelbarrow": "/assets/teaching/lever.png",  # Also a lever (class 2)
+        # Pulley concepts -> single pulley with EFFORT/LOAD/GRAVITY labels
+        "pulley": "/assets/teaching/pulley.png",
+        "block and tackle": "/assets/teaching/pulley.png",
+        "hoist": "/assets/teaching/pulley.png",
+        "rope": "/assets/teaching/pulley.png",
+        # Gear concepts -> two meshing gears with DRIVER/DRIVEN labels
+        "gear": "/assets/teaching/gears.png",
+        "gears": "/assets/teaching/gears.png",
+        "teeth": "/assets/teaching/gears.png",
+        "bicycle": "/assets/teaching/gears.png",
+    }
+    
+    query_lower = query.lower()
+    
+    # First, check for exact hero image matches (prioritize teaching images)
+    for keyword, image_path in HERO_IMAGES.items():
+        if keyword in query_lower:
+            return image_path
+    
+    # Fallback: search question bank for relevant images
     CONCEPT_KEYWORDS = {
         "pulley": ["pulley", "block and tackle", "rope", "lift", "hoist"],
         "lever": ["lever", "crowbar", "pry", "fulcrum", "halligan"],
@@ -233,10 +339,7 @@ def find_matching_mechanical_image(query: str) -> Optional[str]:
         "force": ["force", "effort", "load", "mechanical advantage", "ma"],
     }
     
-    query_lower = query.lower()
     matched_concepts = []
-    
-    # Find which concepts the query mentions
     for concept, keywords in CONCEPT_KEYWORDS.items():
         if any(kw in query_lower for kw in keywords):
             matched_concepts.extend(keywords)
@@ -245,7 +348,6 @@ def find_matching_mechanical_image(query: str) -> Optional[str]:
         return None
     
     with get_db() as conn:
-        # Build search query - look for questions containing any matched keywords
         conditions = " OR ".join(["question LIKE ?" for _ in matched_concepts])
         params = [f"%{kw}%" for kw in matched_concepts]
         
@@ -273,7 +375,7 @@ def find_matching_mechanical_image(query: str) -> Optional[str]:
 def create_user(email: str, password_hash: str) -> str:
     """Create a new user. Returns user ID."""
     user_id = str(uuid.uuid4())
-    with get_db() as conn:
+    with get_db_write() as conn:
         conn.execute(
             "INSERT INTO users (id, email, password_hash) VALUES (?, ?, ?)",
             (user_id, email, password_hash)
@@ -303,6 +405,24 @@ def get_user_by_id(user_id: str) -> Optional[Dict[str, Any]]:
         if row:
             return dict(row)
     return None
+
+
+def get_all_users() -> List[Dict[str, Any]]:
+    """Get all registered users for admin dashboard."""
+    with get_db() as conn:
+        rows = conn.execute(
+            """SELECT id, email, created_at 
+               FROM users 
+               ORDER BY created_at DESC"""
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+
+def get_users_count() -> int:
+    """Get total count of registered users."""
+    with get_db() as conn:
+        row = conn.execute("SELECT COUNT(*) as cnt FROM users").fetchone()
+        return row["cnt"]
 
 
 # =============================================================================
@@ -397,7 +517,7 @@ def get_study_deck_questions(user_id: str, count: int) -> List[Dict[str, Any]]:
 def report_question(question_id: str, user_id: Optional[str] = None, reason: Optional[str] = None) -> str:
     """Report a question. Returns report ID."""
     report_id = str(uuid.uuid4())
-    with get_db() as conn:
+    with get_db_write() as conn:
         conn.execute(
             "INSERT INTO reported_questions (id, question_id, user_id, reason) VALUES (?, ?, ?, ?)",
             (report_id, question_id, user_id, reason)
@@ -439,7 +559,7 @@ def mark_report_reviewed(report_id: str):
 def submit_feedback(study_mode: str, message: str) -> str:
     """Submit user feedback. Returns feedback ID."""
     feedback_id = str(uuid.uuid4())
-    with get_db() as conn:
+    with get_db_write() as conn:
         conn.execute(
             "INSERT INTO user_feedback (id, study_mode, message) VALUES (?, ?, ?)",
             (feedback_id, study_mode, message)
@@ -486,7 +606,7 @@ def mark_feedback_reviewed(feedback_id: str):
 def create_email_lead(email: str) -> str:
     """Create an email lead. Returns the lead ID."""
     lead_id = str(uuid.uuid4())
-    with get_db() as conn:
+    with get_db_write() as conn:
         # Check if email already exists
         existing = conn.execute(
             "SELECT id FROM email_leads WHERE email = ?",
@@ -512,6 +632,24 @@ def get_email_lead_by_email(email: str) -> Optional[Dict[str, Any]]:
         if row:
             return dict(row)
     return None
+
+
+def get_all_email_leads() -> List[Dict[str, Any]]:
+    """Get all email leads for admin dashboard."""
+    with get_db() as conn:
+        rows = conn.execute(
+            """SELECT id, email, created_at, converted 
+               FROM email_leads 
+               ORDER BY created_at DESC"""
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+
+def get_email_leads_count() -> int:
+    """Get total count of email leads."""
+    with get_db() as conn:
+        row = conn.execute("SELECT COUNT(*) as cnt FROM email_leads").fetchone()
+        return row["cnt"]
 
 
 # =============================================================================
