@@ -59,3 +59,4 @@ __pycache__/
 *.db
 *.sqlite3
 .env*.local
+\n# Large PNG backup folder (WebP versions in use)\npublic/assets/mechanical_png_backup/
