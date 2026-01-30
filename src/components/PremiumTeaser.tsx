@@ -65,13 +65,15 @@ export default function PremiumTeaser({
                             </p>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Link
-                                href="/services"
+                            <a
+                                href="https://buy.stripe.com/00wfZa8V6fOZasO1pf1ZS03"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1 px-3 py-1 bg-fire-red text-white text-xs font-medium rounded-full hover:bg-ember-orange transition-colors"
                             >
                                 {config.cta}
                                 <ArrowRight className="w-3 h-3" />
-                            </Link>
+                            </a>
                             {onDismiss && (
                                 <button
                                     onClick={handleDismiss}

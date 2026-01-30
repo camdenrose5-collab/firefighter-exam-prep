@@ -39,10 +39,10 @@ const PRICING = {
 export default function ServicesPage() {
     const [selectedPlan, setSelectedPlan] = useState<"monthly" | "annual">("annual");
 
-    // Replace with your actual Stripe checkout URLs
-    const COACHING_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfa4KhrhICuxiDLRD5UdEaFZGBtVNZ8_9YqTnPUQ0kWWnrc7w/viewform?usp=header";
-    const SUBSCRIPTION_URL_MONTHLY = "#"; // Replace with Stripe monthly link
-    const SUBSCRIPTION_URL_ANNUAL = "#"; // Replace with Stripe annual link
+    // Stripe checkout URLs
+    const COACHING_URL = "https://buy.stripe.com/4gM00c7R2byJasOfg51ZS01";
+    const SUBSCRIPTION_URL_MONTHLY = "https://buy.stripe.com/00wfZa8V6fOZasO1pf1ZS03";
+    const SUBSCRIPTION_URL_ANNUAL = "https://buy.stripe.com/00w14gdbm7it8kG8RH1ZS04";
 
     const coachingPackageIncludes = [
         {
@@ -118,8 +118,8 @@ export default function ServicesPage() {
                         <button
                             onClick={() => setSelectedPlan("monthly")}
                             className={`flex-1 py-2 px-3 rounded-md text-sm font-medium transition-colors ${selectedPlan === "monthly"
-                                    ? "bg-card text-foreground shadow"
-                                    : "text-muted hover:text-foreground"
+                                ? "bg-card text-foreground shadow"
+                                : "text-muted hover:text-foreground"
                                 }`}
                         >
                             Monthly
@@ -127,8 +127,8 @@ export default function ServicesPage() {
                         <button
                             onClick={() => setSelectedPlan("annual")}
                             className={`flex-1 py-2 px-3 rounded-md text-sm font-medium transition-colors relative ${selectedPlan === "annual"
-                                    ? "bg-card text-foreground shadow"
-                                    : "text-muted hover:text-foreground"
+                                ? "bg-card text-foreground shadow"
+                                : "text-muted hover:text-foreground"
                                 }`}
                         >
                             Annual

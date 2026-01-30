@@ -168,8 +168,8 @@ export default function UpgradeModal({
                                         <button
                                             onClick={() => setSelectedPlan("monthly")}
                                             className={`flex-1 py-2 px-3 rounded-md text-sm font-medium transition-colors ${selectedPlan === "monthly"
-                                                    ? "bg-card text-foreground shadow"
-                                                    : "text-muted hover:text-foreground"
+                                                ? "bg-card text-foreground shadow"
+                                                : "text-muted hover:text-foreground"
                                                 }`}
                                         >
                                             Monthly
@@ -177,8 +177,8 @@ export default function UpgradeModal({
                                         <button
                                             onClick={() => setSelectedPlan("annual")}
                                             className={`flex-1 py-2 px-3 rounded-md text-sm font-medium transition-colors relative ${selectedPlan === "annual"
-                                                    ? "bg-card text-foreground shadow"
-                                                    : "text-muted hover:text-foreground"
+                                                ? "bg-card text-foreground shadow"
+                                                : "text-muted hover:text-foreground"
                                                 }`}
                                         >
                                             Annual
@@ -190,8 +190,8 @@ export default function UpgradeModal({
 
                                     {/* Pricing Card */}
                                     <div className={`p-4 rounded-lg border-2 transition-colors ${selectedPlan === "annual"
-                                            ? "bg-gradient-to-br from-fire-red/10 to-ember-orange/10 border-fire-red/30"
-                                            : "bg-background border-card-border"
+                                        ? "bg-gradient-to-br from-fire-red/10 to-ember-orange/10 border-fire-red/30"
+                                        : "bg-background border-card-border"
                                         }`}>
                                         {selectedPlan === "annual" && (
                                             <div className="flex items-center gap-1.5 text-xs text-fire-red font-medium mb-2">
@@ -242,14 +242,18 @@ export default function UpgradeModal({
                                         <span>Join 1,000+ candidates studying with us</span>
                                     </div>
 
-                                    <Link
-                                        href="/services"
+                                    <a
+                                        href={selectedPlan === "annual"
+                                            ? "https://buy.stripe.com/00w14gdbm7it8kG8RH1ZS04"
+                                            : "https://buy.stripe.com/00wfZa8V6fOZasO1pf1ZS03"}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-fire-red text-white font-medium rounded-lg hover:bg-ember-orange transition-colors"
                                     >
                                         <CreditCard className="w-4 h-4" />
                                         {selectedPlan === "annual" ? "Get Annual Plan" : "Upgrade to Premium"}
                                         <ArrowRight className="w-4 h-4" />
-                                    </Link>
+                                    </a>
 
                                     <button
                                         onClick={onClose}
