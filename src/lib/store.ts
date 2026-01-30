@@ -24,6 +24,14 @@ interface UserState {
     flashcardCount: number;
     lastResetDate: string | null;
 
+    // Progress tracking (Endowed Progress Effect)
+    diagnosticCompleted: boolean;
+    diagnosticScore: number;
+    totalQuestionsAnswered: number;
+    currentStreak: number;
+    longestStreak: number;
+    currentLevel: number; // 1-6 (5 questions per level after artificial advancement)
+
     // Actions
     login: (email: string, token: string) => void;
     signup: (email: string, userId: string, token: string) => void;
@@ -33,6 +41,10 @@ interface UserState {
     incrementQuizCount: () => void;
     incrementFlashcardCount: () => void;
     resetDailyLimits: () => void;
+    setDiagnosticComplete: (score: number) => void;
+    incrementStreak: () => void;
+    resetStreak: () => void;
+    incrementTotalQuestions: () => void;
 }
 
 // Tier limits
@@ -69,6 +81,14 @@ export const useUserStore = create<UserState>()(
             quizCount: 0,
             flashcardCount: 0,
             lastResetDate: null,
+
+            // Progress tracking - starts with artificial advancement (10 "pre-filled")
+            diagnosticCompleted: false,
+            diagnosticScore: 0,
+            totalQuestionsAnswered: 0,
+            currentStreak: 0,
+            longestStreak: 0,
+            currentLevel: 2, // Start at level 2 (10 questions pre-filled = levels 1-2 complete)
 
             // Capture lead email (before signup)
             captureLeadEmail: (email) => {
@@ -156,6 +176,37 @@ export const useUserStore = create<UserState>()(
                     quizCount: 0,
                     flashcardCount: 0,
                     lastResetDate: getTodayString(),
+                });
+            },
+
+            // Diagnostic completion (curiosity gap email capture)
+            setDiagnosticComplete: (score: number) => {
+                set({ diagnosticCompleted: true, diagnosticScore: score });
+            },
+
+            // Streak tracking for gamification
+            incrementStreak: () => {
+                const state = get();
+                const newStreak = state.currentStreak + 1;
+                set({
+                    currentStreak: newStreak,
+                    longestStreak: Math.max(newStreak, state.longestStreak),
+                });
+            },
+
+            resetStreak: () => {
+                set({ currentStreak: 0 });
+            },
+
+            // Track total questions for level progression
+            incrementTotalQuestions: () => {
+                const state = get();
+                const newTotal = state.totalQuestionsAnswered + 1;
+                // Level up every 5 questions (starting from level 2 with 10 pre-filled)
+                const newLevel = Math.min(6, 2 + Math.floor(newTotal / 5));
+                set({
+                    totalQuestionsAnswered: newTotal,
+                    currentLevel: newLevel,
                 });
             },
         }),

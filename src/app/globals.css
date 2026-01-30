@@ -267,3 +267,70 @@ textarea,
 .skip-link:focus {
   top: 0;
 }
+
+/* Mobile UX Optimizations - Behavioral Economics */
+
+/* Touch-friendly targets - ensure all interactive elements are easy to tap */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Email-optimized input */
+input[type="email"] {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent zoom on iOS when focusing inputs */
+@media screen and (max-width: 640px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Progress bar animations for gamification */
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress-animate {
+  animation: progressFill 0.5s ease-out forwards;
+}
+
+/* Level-up celebration animation */
+@keyframes levelUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.level-up-animate {
+  animation: levelUp 0.3s ease-out;
+}
+
+/* Streak fire pulse */
+@keyframes streakPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.streak-pulse {
+  animation: streakPulse 0.6s ease-in-out infinite;
+}
