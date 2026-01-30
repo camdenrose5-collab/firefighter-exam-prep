@@ -1,35 +1,41 @@
 "use client";
 
 import { useState } from "react";
+import { Users, Wrench, BookOpen, Calculator } from "lucide-react";
 import QuizView, { QuizQuestion } from "./QuizView";
 import SubjectSelector, { Subject } from "./SubjectSelector";
 import ReportModal from "./ReportModal";
 import FeedbackModal from "./FeedbackModal";
+import UpgradeModal from "./UpgradeModal";
+import { getQuestions } from "@/data/questionBank";
 import { apiUrl } from "@/lib/api";
+import { useUserStore, useCanStartQuiz, useRemainingQuizzes, FREE_TIER_LIMITS } from "@/lib/store";
+import confetti from "canvas-confetti";
+
 // Quiz subjects - uses Reading Comprehension (for reading prompts)
 const QUIZ_SUBJECTS: Subject[] = [
     {
         id: "human-relations",
         label: "Human Relations",
-        icon: "🤝",
+        icon: Users,
         description: "Teamwork, conflict resolution, communication",
     },
     {
         id: "mechanical-aptitude",
         label: "Mechanical Aptitude",
-        icon: "🔧",
+        icon: Wrench,
         description: "Tools, leverage, hydraulics, troubleshooting",
     },
     {
         id: "reading-comprehension",
         label: "Reading Comprehension",
-        icon: "📖",
+        icon: BookOpen,
         description: "Passage comprehension, following instructions",
     },
     {
         id: "math",
         label: "Math (Mental)",
-        icon: "🧮",
+        icon: Calculator,
         description: "Arithmetic, percentages, ratios — no calculator",
     },
 ];
@@ -54,64 +60,55 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
     const [reportModalOpen, setReportModalOpen] = useState(false);
     const [reportQuestionId, setReportQuestionId] = useState<string | null>(null);
     const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+    const [upgradeModalOpen, setUpgradeModalOpen] = useState(false);
+
+    // Freemium state
+    const canStartQuiz = useCanStartQuiz();
+    const remainingQuizzes = useRemainingQuizzes();
+    const incrementQuizCount = useUserStore((state) => state.incrementQuizCount);
+    const tier = useUserStore((state) => state.tier);
 
     const handleSubjectsSelected = (subjects: string[]) => {
         setSelectedSubjects(subjects);
     };
 
     const handleContinueToCount = () => {
+        // Check freemium limit before proceeding
+        if (!canStartQuiz) {
+            setUpgradeModalOpen(true);
+            return;
+        }
         if (selectedSubjects.length > 0) {
             setPhase("count-select");
         }
     };
 
-    const handleStartQuiz = async () => {
+    const handleStartQuiz = () => {
         if (selectedSubjects.length === 0) return;
 
-        setIsGenerating(true);
-        setQuizQuestions([]);
+        // Get questions instantly from client-side bank (no API latency)
+        const questions = getQuestions(selectedSubjects, questionCount);
 
-        try {
-            // Use pre-generated question bank (no AI latency)
-            const res = await fetch(apiUrl("/api/quiz/bank"), {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    subjects: selectedSubjects,
-                    count: questionCount,
-                    study_deck_ratio: 0.0,
-                }),
-            });
-
-            if (!res.ok) {
-                throw new Error("Failed to generate quiz");
-            }
-
-            const data = await res.json();
-            const questions: QuizQuestion[] = data.questions.map(
-                (q: QuizQuestion & { id?: string }) => ({
-                    ...q,
-                    id: q.id || crypto.randomUUID(),
-                })
-            );
-
-            if (questions.length === 0) {
-                alert("Failed to generate quiz questions. Please check your connection.");
-                setIsGenerating(false);
-                return;
-            }
-
-            // Shuffle questions
-            const shuffled = questions.sort(() => Math.random() - 0.5);
-            setQuizQuestions(shuffled);
-            setCurrentQuestionIndex(0);
-            setPhase("quiz");
-        } catch (err) {
-            console.error("Quiz generation error:", err);
-            alert("Error generating quiz. Please try again.");
-        } finally {
-            setIsGenerating(false);
+        if (questions.length === 0) {
+            alert("No questions available for selected subjects.");
+            return;
         }
+
+        // Map to QuizQuestion format
+        const quizQuestions: QuizQuestion[] = questions.map((q) => ({
+            id: q.id,
+            question: q.question,
+            options: q.options,
+            correct_answer: q.correct_answer,
+            explanation: q.explanation,
+        }));
+
+        setQuizQuestions(quizQuestions);
+        setCurrentQuestionIndex(0);
+        setPhase("quiz");
+
+        // Track quiz usage for freemium limits
+        incrementQuizCount();
     };
 
     const handleReportQuestion = async (id: string, reason: string) => {
@@ -145,6 +142,16 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
 
     const handleQuizComplete = (results: { correct: number; total: number }) => {
         const percentage = Math.round((results.correct / results.total) * 100);
+
+        // Trigger confetti for good scores!
+        if (percentage >= 70) {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
         alert(
             `Quiz Complete! 🔥\n\nScore: ${results.correct}/${results.total} (${percentage}%)\n\n${percentage >= 80
                 ? "Outstanding work, candidate!"
@@ -163,7 +170,14 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
         return (
             <div className="max-w-3xl mx-auto space-y-6">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-2xl font-bold text-foreground">📝 Quiz Me</h2>
+                    <div>
+                        <h2 className="text-xl font-bold text-foreground">Practice Quiz</h2>
+                        {tier === "free" && (
+                            <p className="text-sm text-muted mt-1">
+                                {remainingQuizzes === Infinity ? "Unlimited" : `${remainingQuizzes} of ${FREE_TIER_LIMITS.quizzesPerDay}`} quizzes remaining today
+                            </p>
+                        )}
+                    </div>
                     <button
                         onClick={onBack}
                         className="text-muted hover:text-foreground transition-colors"
@@ -176,6 +190,13 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
                     onSelectionChange={handleSubjectsSelected}
                     onContinue={handleContinueToCount}
                 />
+
+                {/* Upgrade Modal */}
+                <UpgradeModal
+                    isOpen={upgradeModalOpen}
+                    onClose={() => setUpgradeModalOpen(false)}
+                    limitType="quiz"
+                />
             </div>
         );
     }
@@ -186,7 +207,7 @@ export default function QuizContainer({ onBack }: QuizContainerProps) {
             <div className="max-w-3xl mx-auto space-y-8">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h2 className="text-2xl font-bold text-foreground">📝 Quiz Setup</h2>
+                        <h2 className="text-xl font-bold text-foreground">Quiz Setup</h2>
                         <p className="text-muted mt-1">
                             {selectedSubjects.length} subject{selectedSubjects.length !== 1 ? "s" : ""} selected
                         </p>

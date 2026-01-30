@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ComponentType } from "react";
+import { Check, Users, Wrench, BookOpen, Calculator, Flame, LucideProps } from "lucide-react";
 
 export interface Subject {
     id: string;
     label: string;
-    icon: string;
+    icon: ComponentType<LucideProps>;
     description: string;
 }
 
@@ -20,25 +21,25 @@ const FLASHCARD_SUBJECTS: Subject[] = [
     {
         id: "human-relations",
         label: "Human Relations",
-        icon: "🤝",
+        icon: Users,
         description: "Teamwork, conflict resolution, communication",
     },
     {
         id: "mechanical-aptitude",
         label: "Mechanical Aptitude",
-        icon: "🔧",
+        icon: Wrench,
         description: "Tools, leverage, hydraulics, troubleshooting",
     },
     {
         id: "fire-terms",
         label: "Fire Terms",
-        icon: "🔥",
+        icon: Flame,
         description: "GPM, PSI, SCBA, Flashover, and essential fire terminology",
     },
     {
         id: "math",
         label: "Math (Mental)",
-        icon: "🧮",
+        icon: Calculator,
         description: "Arithmetic, percentages, ratios — no calculator",
     },
 ];
@@ -73,17 +74,17 @@ export default function SubjectSelector({
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="text-center">
-                <h2 className="text-2xl font-bold text-foreground mb-2">
+            <div>
+                <h2 className="text-xl font-bold text-foreground mb-1">
                     Choose Your Subjects
                 </h2>
-                <p className="text-muted">
-                    Select 1 or more subjects to focus your study session
+                <p className="text-sm text-muted">
+                    Select one or more subjects to focus your study session
                 </p>
             </div>
 
             {/* Quick Actions */}
-            <div className="flex justify-center gap-4">
+            <div className="flex gap-4">
                 <button
                     onClick={selectAll}
                     className="text-sm text-fire-red hover:underline"
@@ -103,45 +104,34 @@ export default function SubjectSelector({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {subjects.map((subject) => {
                     const isSelected = selected.includes(subject.id);
+                    const Icon = subject.icon;
                     return (
                         <button
                             key={subject.id}
                             onClick={() => toggleSubject(subject.id)}
-                            className={`p-5 rounded-xl border-2 text-left transition-all duration-200 ${isSelected
-                                ? "border-fire-red bg-fire-red/10 fire-glow"
+                            className={`p-4 rounded-lg border text-left transition-all ${isSelected
+                                ? "border-fire-red bg-fire-red/10"
                                 : "border-card-border bg-card hover:border-muted"
                                 }`}
                         >
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-start gap-3">
                                 {/* Checkbox */}
                                 <div
-                                    className={`w-6 h-6 rounded-md border-2 flex items-center justify-center flex-shrink-0 mt-1 ${isSelected
-                                        ? "border-fire-red bg-fire-red"
-                                        : "border-muted"
+                                    className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${isSelected
+                                        ? "bg-fire-red"
+                                        : "border border-muted"
                                         }`}
                                 >
                                     {isSelected && (
-                                        <svg
-                                            className="w-4 h-4 text-white"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={3}
-                                                d="M5 13l4 4L19 7"
-                                            />
-                                        </svg>
+                                        <Check className="w-3 h-3 text-white" />
                                     )}
                                 </div>
 
                                 {/* Content */}
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <span className="text-2xl">{subject.icon}</span>
-                                        <span className="font-semibold text-foreground">
+                                        <Icon className={`w-4 h-4 ${isSelected ? "text-fire-red" : "text-muted"}`} />
+                                        <span className="font-medium text-foreground">
                                             {subject.label}
                                         </span>
                                     </div>
@@ -154,13 +144,13 @@ export default function SubjectSelector({
             </div>
 
             {/* Continue Button */}
-            <div className="flex justify-center pt-4">
+            <div className="pt-2">
                 <button
                     onClick={onContinue}
                     disabled={selected.length === 0}
-                    className={`btn-primary px-8 py-4 text-lg font-bold rounded-xl transition-all ${selected.length === 0
-                        ? "opacity-50 cursor-not-allowed"
-                        : "fire-glow hover:fire-glow-hover"
+                    className={`w-full sm:w-auto px-6 py-3 font-medium rounded-lg transition-all ${selected.length === 0
+                        ? "bg-card-border text-muted cursor-not-allowed"
+                        : "bg-fire-red text-white hover:bg-ember-orange"
                         }`}
                 >
                     Continue with {selected.length} Subject{selected.length !== 1 ? "s" : ""}

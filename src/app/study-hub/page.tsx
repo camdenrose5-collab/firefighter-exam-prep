@@ -1,187 +1,151 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { Target, BookOpen, ArrowRight, FileText, Clock, Zap } from "lucide-react";
 import QuizContainer from "@/components/QuizContainer";
-import ExplainContainer from "@/components/ExplainContainer";
 import FlashcardsContainer from "@/components/FlashcardsContainer";
 import AuthModal from "@/components/AuthModal";
+import AppShell from "@/components/AppShell";
+import { useUserStore } from "@/lib/store";
 
-type StudyMode = "quiz" | "flashcards" | "explain" | null;
+type StudyMode = "quiz" | "flashcards" | null;
 
-export default function StudyHub() {
+function StudyHubContent() {
+    const searchParams = useSearchParams();
     const [activeMode, setActiveMode] = useState<StudyMode>(null);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
-    const [userEmail, setUserEmail] = useState<string | null>(null);
+    const { isAuthenticated, email, login } = useUserStore();
 
     useEffect(() => {
-        // Check auth status on mount
-        const token = localStorage.getItem("auth_token");
-        const email = localStorage.getItem("user_email");
-        if (token && email) {
-            setIsAuthenticated(true);
-            setUserEmail(email);
+        const mode = searchParams.get("mode");
+        if (mode === "quiz" || mode === "flashcards") {
+            setActiveMode(mode);
         }
-    }, []);
+    }, [searchParams]);
 
-    const handleAuthenticated = (token: string, email: string) => {
-        setIsAuthenticated(true);
-        setUserEmail(email);
+    const handleAuthenticated = (token: string, userEmail: string) => {
+        login(userEmail, token);
         setShowAuthModal(false);
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem("auth_token");
-        localStorage.removeItem("user_email");
-        localStorage.removeItem("user_id");
-        setIsAuthenticated(false);
-        setUserEmail(null);
-    };
+    const studyModes = [
+        {
+            id: "quiz" as const,
+            title: "Practice Quizzes",
+            description: "Test your knowledge with multiple-choice questions from real fire service manuals and exam materials.",
+            icon: Target,
+            color: "text-blue-500",
+            bgColor: "bg-blue-500/10",
+            borderColor: "hover:border-blue-500/50",
+            features: ["5-100 questions per session", "Instant feedback", "Track weak areas"],
+        },
+        {
+            id: "flashcards" as const,
+            title: "Flashcards",
+            description: "Master key terminology and concepts using active recall. Study fire behavior, hydraulics, and more.",
+            icon: BookOpen,
+            color: "text-green-500",
+            bgColor: "bg-green-500/10",
+            borderColor: "hover:border-green-500/50",
+            features: ["Spaced repetition", "Term definitions", "Quick review"],
+        },
+    ];
+
+    const stats = [
+        { label: "Study Materials", value: "50+", icon: FileText },
+        { label: "Practice Questions", value: "1,000+", icon: Target },
+        { label: "Available 24/7", value: "Always", icon: Clock },
+    ];
 
     return (
-        <div className="min-h-screen bg-background">
-            {/* Sign-up Banner for non-authenticated users */}
-            {!isAuthenticated && (
-                <div className="bg-gradient-to-r from-fire-red/10 to-ember-orange/10 border-b border-ember-orange/20">
-                    <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
-                        <p className="text-sm text-ember-orange">
-                            📌 Sign up to save your progress and build your study deck
-                        </p>
+        <AppShell>
+            <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+                {/* Sign-up Banner for non-authenticated users */}
+                {!isAuthenticated && (
+                    <div className="mb-6 p-4 rounded-lg bg-gradient-to-r from-fire-red/10 to-ember-orange/10 border border-fire-red/20 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <Zap className="w-5 h-5 text-fire-red" />
+                            <p className="text-sm text-foreground">
+                                Sign up to save your progress and track your improvement
+                            </p>
+                        </div>
                         <button
                             onClick={() => setShowAuthModal(true)}
-                            className="px-4 py-1.5 bg-ember-orange/20 hover:bg-ember-orange/30 text-ember-orange rounded-lg text-sm font-medium transition-colors"
+                            className="px-4 py-2 bg-fire-red text-white rounded-lg text-sm font-medium hover:bg-ember-orange transition-colors"
                         >
                             Sign Up Free
                         </button>
                     </div>
-                </div>
-            )}
+                )}
 
-            {/* Header */}
-            <header className="border-b border-card-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg gradient-fire flex items-center justify-center">
-                            <span className="text-2xl">🔥</span>
-                        </div>
-                        <div>
-                            <h1 className="text-xl font-bold text-foreground">Captain&apos;s Academy</h1>
-                            <p className="text-xs text-muted">Study Hub</p>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        {isAuthenticated ? (
-                            <>
-                                <span className="text-sm text-muted">{userEmail}</span>
-                                <button
-                                    onClick={handleLogout}
-                                    className="text-sm text-muted hover:text-foreground transition-colors"
-                                >
-                                    Logout
-                                </button>
-                            </>
-                        ) : (
-                            <button
-                                onClick={() => setShowAuthModal(true)}
-                                className="text-sm text-ember-orange hover:text-fire-red transition-colors font-medium"
-                            >
-                                Sign In
-                            </button>
-                        )}
-                        <div className="flex items-center gap-2 text-sm text-muted">
-                            <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                            Brain Ready
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <div className="max-w-7xl mx-auto px-6 py-8">
-                {/* Hub View - The 3 Core CTAs */}
+                {/* Hub View - Mode Selection */}
                 {!activeMode && (
                     <div className="space-y-8">
-                        {/* Welcome Section */}
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                                🎯 Station 1: Study Mentor
-                            </h2>
-                            <p className="text-lg text-muted max-w-2xl mx-auto">
-                                Choose your training mode. All content is powered by the Fire Captain&apos;s Brain —
-                                built from real fire service manuals and exam materials.
+                        {/* Page Header */}
+                        <div>
+                            <h1 className="text-2xl font-bold text-foreground">Study Hub</h1>
+                            <p className="text-muted mt-1">
+                                Choose your study mode. All content sourced from official fire service materials.
                             </p>
                         </div>
 
-                        {/* CTA Cards */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {/* Quiz Me */}
-                            <button
-                                onClick={() => setActiveMode("quiz")}
-                                className="group p-8 card border-2 border-transparent hover:border-fire-red transition-all duration-300 hover:fire-glow text-left"
-                            >
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                                    📝
-                                </div>
-                                <h3 className="text-2xl font-bold text-foreground mb-2">Quiz Me</h3>
-                                <p className="text-muted leading-relaxed">
-                                    5-100 multiple-choice questions from the manuals. Test your knowledge with
-                                    immediate feedback from the Captain.
-                                </p>
-                                <div className="mt-6 flex items-center gap-2 text-fire-red font-semibold">
-                                    Start Quiz <span className="group-hover:translate-x-1 transition-transform">→</span>
-                                </div>
-                            </button>
-
-                            {/* Flashcards */}
-                            <button
-                                onClick={() => setActiveMode("flashcards")}
-                                className="group p-8 card border-2 border-transparent hover:border-ember-orange transition-all duration-300 hover:fire-glow text-left"
-                            >
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                                    📇
-                                </div>
-                                <h3 className="text-2xl font-bold text-foreground mb-2">Flashcards</h3>
-                                <p className="text-muted leading-relaxed">
-                                    Master fire service terms with active recall. Flip through key definitions
-                                    from hydraulics, fire behavior, and more.
-                                </p>
-                                <div className="mt-6 flex items-center gap-2 text-ember-orange font-semibold">
-                                    Study Cards <span className="group-hover:translate-x-1 transition-transform">→</span>
-                                </div>
-                            </button>
-
-                            {/* Explain */}
-                            <button
-                                onClick={() => setActiveMode("explain")}
-                                className="group p-8 card border-2 border-transparent hover:border-green-500 transition-all duration-300 hover:fire-glow text-left"
-                            >
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                                    💬
-                                </div>
-                                <h3 className="text-2xl font-bold text-foreground mb-2">Explain</h3>
-                                <p className="text-muted leading-relaxed">
-                                    Ask questions or get help with tough concepts. The Captain uses firehouse
-                                    analogies to make math and physics click.
-                                </p>
-                                <div className="mt-6 flex items-center gap-2 text-green-500 font-semibold">
-                                    Ask Captain <span className="group-hover:translate-x-1 transition-transform">→</span>
-                                </div>
-                            </button>
+                        {/* Study Mode Cards */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {studyModes.map((mode) => {
+                                const Icon = mode.icon;
+                                return (
+                                    <button
+                                        key={mode.id}
+                                        onClick={() => setActiveMode(mode.id)}
+                                        className={`group p-6 card text-left transition-all ${mode.borderColor}`}
+                                    >
+                                        <div className={`w-12 h-12 rounded-xl ${mode.bgColor} flex items-center justify-center mb-4`}>
+                                            <Icon className={`w-6 h-6 ${mode.color}`} />
+                                        </div>
+                                        <h3 className="text-xl font-semibold text-foreground mb-2">
+                                            {mode.title}
+                                        </h3>
+                                        <p className="text-muted text-sm leading-relaxed mb-4">
+                                            {mode.description}
+                                        </p>
+                                        <ul className="space-y-1 mb-4">
+                                            {mode.features.map((feature) => (
+                                                <li key={feature} className="text-xs text-muted flex items-center gap-2">
+                                                    <span className={`w-1.5 h-1.5 rounded-full ${mode.color.replace("text-", "bg-")}`} />
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <div className={`flex items-center gap-1 text-sm font-medium ${mode.color} group-hover:gap-2 transition-all`}>
+                                            Start Studying <ArrowRight className="w-4 h-4" />
+                                        </div>
+                                    </button>
+                                );
+                            })}
                         </div>
 
-                        {/* Quick Stats */}
-                        <div className="grid grid-cols-3 gap-4 mt-12 max-w-xl mx-auto">
-                            <div className="text-center p-4 card">
-                                <p className="text-2xl font-bold text-fire-red">50+</p>
-                                <p className="text-xs text-muted uppercase tracking-wider">PDFs Loaded</p>
-                            </div>
-                            <div className="text-center p-4 card">
-                                <p className="text-2xl font-bold text-ember-orange">∞</p>
-                                <p className="text-xs text-muted uppercase tracking-wider">Questions</p>
-                            </div>
-                            <div className="text-center p-4 card">
-                                <p className="text-2xl font-bold text-green-500">24/7</p>
-                                <p className="text-xs text-muted uppercase tracking-wider">Available</p>
-                            </div>
+                        {/* Stats */}
+                        <div className="grid grid-cols-3 gap-4">
+                            {stats.map((stat) => {
+                                const Icon = stat.icon;
+                                return (
+                                    <div key={stat.label} className="card p-4 text-center">
+                                        <Icon className="w-5 h-5 text-muted mx-auto mb-2" />
+                                        <p className="text-xl font-bold text-foreground">{stat.value}</p>
+                                        <p className="text-xs text-muted">{stat.label}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Info Card */}
+                        <div className="card p-5 border-l-4 border-l-fire-red">
+                            <h3 className="font-semibold text-foreground mb-1">Built for Firefighter Candidates</h3>
+                            <p className="text-sm text-muted">
+                                This platform was developed by a firefighter to help candidates prepare for written exams.
+                                Content is sourced from IFSTA manuals, fire service textbooks, and department-specific materials.
+                            </p>
                         </div>
                     </div>
                 )}
@@ -195,35 +159,34 @@ export default function StudyHub() {
                     <FlashcardsContainer onBack={() => setActiveMode(null)} />
                 )}
 
-                {activeMode === "explain" && (
-                    <ExplainContainer onBack={() => setActiveMode(null)} />
-                )}
+                {/* Auth Modal */}
+                <AuthModal
+                    isOpen={showAuthModal}
+                    onClose={() => setShowAuthModal(false)}
+                    onAuthenticated={handleAuthenticated}
+                />
             </div>
+        </AppShell>
+    );
+}
 
-            {/* Footer */}
-            <footer className="border-t border-card-border mt-16 py-8">
-                <div className="max-w-7xl mx-auto px-6 text-center">
-                    {/* Built by a Firefighter message */}
-                    <div className="mb-4 p-4 rounded-lg bg-gradient-to-r from-fire-red/5 to-ember-orange/5 border border-ember-orange/20 max-w-2xl mx-auto">
-                        <p className="text-foreground font-medium mb-2">
-                            👨‍🚒 Built by a firefighter, for future firefighters
-                        </p>
-                        <p className="text-sm text-muted">
-                            This platform was created by someone who&apos;s been in your boots. Your feedback helps make it better for the next candidate.
-                            <span className="text-ember-orange font-medium"> Hit the feedback button in any study mode to share your thoughts!</span>
-                        </p>
+export default function StudyHub() {
+    return (
+        <Suspense fallback={
+            <AppShell>
+                <div className="p-6 lg:p-8 max-w-6xl mx-auto">
+                    <div className="animate-pulse space-y-4">
+                        <div className="h-8 bg-card-border rounded w-1/4"></div>
+                        <div className="h-4 bg-card-border rounded w-1/2"></div>
+                        <div className="grid grid-cols-2 gap-6 mt-8">
+                            <div className="h-48 bg-card-border rounded-lg"></div>
+                            <div className="h-48 bg-card-border rounded-lg"></div>
+                        </div>
                     </div>
-                    <p className="text-sm text-muted">🔥 Captain&apos;s Academy — Your AI Fire Instructor</p>
-                    <p className="mt-1 text-xs text-muted">Powered by Vertex AI + Discovery Engine</p>
                 </div>
-            </footer>
-
-            {/* Auth Modal */}
-            <AuthModal
-                isOpen={showAuthModal}
-                onClose={() => setShowAuthModal(false)}
-                onAuthenticated={handleAuthenticated}
-            />
-        </div>
+            </AppShell>
+        }>
+            <StudyHubContent />
+        </Suspense>
     );
 }

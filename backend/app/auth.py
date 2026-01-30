@@ -1,16 +1,15 @@
 """
 Authentication module for user registration and login.
-Uses simple token-based session management with bcrypt password hashing.
+Uses persistent database sessions (survives Cloud Run restarts).
+Token-based session management with SHA-256 password hashing.
 """
 
-import os
 import secrets
 import hashlib
 from datetime import datetime, timedelta
-from typing import Optional, Dict, Any
+from typing import Optional, Dict
 
-# Simple in-memory session store (for MVP - would use Redis in production)
-_sessions: Dict[str, Dict[str, Any]] = {}
+from . import db
 
 SESSION_EXPIRY_HOURS = 24 * 7  # 1 week
 
@@ -33,42 +32,29 @@ def verify_password(password: str, password_hash: str) -> bool:
 
 
 def create_session(user_id: str, email: str) -> str:
-    """Create a new session token for a user."""
+    """Create a new persistent session token for a user."""
     token = secrets.token_urlsafe(32)
-    _sessions[token] = {
-        "user_id": user_id,
-        "email": email,
-        "created_at": datetime.now(),
-        "expires_at": datetime.now() + timedelta(hours=SESSION_EXPIRY_HOURS)
-    }
+    expires_at = datetime.now() + timedelta(hours=SESSION_EXPIRY_HOURS)
+    
+    # Store in database (persists to Cloud Storage)
+    db.create_session(token, user_id, email, expires_at)
+    
     return token
 
 
-def get_session(token: str) -> Optional[Dict[str, Any]]:
+def get_session(token: str) -> Optional[Dict[str, str]]:
     """Get session data from token. Returns None if invalid/expired."""
-    session = _sessions.get(token)
-    if not session:
-        return None
-    
-    if datetime.now() > session["expires_at"]:
-        # Session expired, clean it up
-        del _sessions[token]
-        return None
-    
-    return session
+    return db.get_session(token)
 
 
 def invalidate_session(token: str) -> bool:
     """Invalidate a session (logout)."""
-    if token in _sessions:
-        del _sessions[token]
-        return True
-    return False
+    return db.delete_session(token)
 
 
 def get_user_from_token(token: str) -> Optional[Dict[str, str]]:
     """Get user info from session token."""
-    session = get_session(token)
+    session = db.get_session(token)
     if session:
         return {
             "user_id": session["user_id"],

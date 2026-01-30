@@ -1,40 +1,40 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SubjectSelector from "./SubjectSelector";
 import FeedbackModal from "./FeedbackModal";
+import UpgradeModal from "./UpgradeModal";
+import { getFlashcards, ParsedQuestion } from "@/data/questionBank";
 import { apiUrl } from "@/lib/api";
+import { useUserStore, useCanStartFlashcards, FREE_TIER_LIMITS } from "@/lib/store";
 
 interface Flashcard {
-    id?: string;
+    id: string;
     front_content: string;
     back_content: string;
-    card_type?: string;
-    hint?: string | null;
-    source: string | null;
 }
 
 interface FlashcardsContainerProps {
     onBack: () => void;
 }
 
-const SUBJECT_LABELS: Record<string, string> = {
-    "human-relations": "Human Relations",
-    "mechanical-aptitude": "Mechanical Aptitude",
-    "fire-terms": "Fire Terms",
-    "math": "Math (Mental)",
-};
+const TOTAL_CARDS = 10;
 
 export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps) {
     const [phase, setPhase] = useState<"subject-select" | "study">("subject-select");
     const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
-    const [currentCard, setCurrentCard] = useState<Flashcard | null>(null);
+    const [allFlashcards, setAllFlashcards] = useState<Flashcard[]>([]);
+    const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [cardsReviewed, setCardsReviewed] = useState(0);
-    const [cardHistory, setCardHistory] = useState<Flashcard[]>([]);
-    const [totalCards, setTotalCards] = useState(10); // Target number of cards
     const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
+    const [upgradeModalOpen, setUpgradeModalOpen] = useState(false);
+
+    // Freemium state
+    const canStartFlashcards = useCanStartFlashcards();
+    const incrementFlashcardCount = useUserStore((state) => state.incrementFlashcardCount);
+    const tier = useUserStore((state) => state.tier);
+    const flashcardCount = useUserStore((state) => state.flashcardCount);
+    const remainingFlashcards = tier === "premium" ? Infinity : Math.max(0, FREE_TIER_LIMITS.flashcardSessionsPerDay - flashcardCount);
 
     const handleSubmitFeedback = async (studyMode: string, message: string) => {
         try {
@@ -49,53 +49,53 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
     };
 
     const handleContinueToStudy = () => {
+        // Check freemium limit before proceeding
+        if (!canStartFlashcards) {
+            setUpgradeModalOpen(true);
+            return;
+        }
         if (selectedSubjects.length > 0) {
+            // Get flashcards instantly from client-side bank (no API latency)
+            const questions = getFlashcards(selectedSubjects, TOTAL_CARDS);
+
+            // Convert questions to flashcard format
+            const cards: Flashcard[] = questions.map((q) => ({
+                id: q.id,
+                front_content: q.question,
+                back_content: `${q.correct_answer}\n\n${q.explanation}`,
+            }));
+
+            if (cards.length === 0) {
+                alert("No flashcards available for selected subjects.");
+                return;
+            }
+
+            setAllFlashcards(cards);
+            setCurrentCardIndex(0);
+            setIsFlipped(false);
             setPhase("study");
-            fetchNextCard();
+
+            // Track flashcard session usage
+            incrementFlashcardCount();
         }
     };
 
-    const fetchNextCard = async () => {
-        setIsLoading(true);
-        setIsFlipped(false);
-
-        try {
-            const response = await fetch(
-                apiUrl(`/api/quiz/flashcards?subjects=${selectedSubjects.join(",")}`)
-            );
-            if (!response.ok) throw new Error("Failed to fetch flashcard");
-
-            const card = await response.json();
-            setCurrentCard(card);
-            setCardHistory((prev) => [...prev, card]);
-        } catch (err) {
-            console.error("Flashcard error:", err);
-            setCurrentCard({
-                front_content: "Connection Error",
-                back_content: "Unable to load flashcard. Please check your connection and try again.",
-                source: null,
-            });
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    const currentCard = allFlashcards[currentCardIndex];
 
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
     };
 
     const handleNext = () => {
-        setCardsReviewed((prev) => prev + 1);
-        fetchNextCard();
+        if (currentCardIndex < allFlashcards.length - 1) {
+            setCurrentCardIndex((prev) => prev + 1);
+            setIsFlipped(false);
+        }
     };
 
     const handlePrevious = () => {
-        if (cardHistory.length > 1) {
-            const newHistory = [...cardHistory];
-            newHistory.pop();
-            const previousCard = newHistory[newHistory.length - 1];
-            setCurrentCard(previousCard);
-            setCardHistory(newHistory);
+        if (currentCardIndex > 0) {
+            setCurrentCardIndex((prev) => prev - 1);
             setIsFlipped(false);
         }
     };
@@ -105,7 +105,14 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
         return (
             <div className="max-w-3xl mx-auto space-y-6">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-2xl font-bold text-foreground">📇 Flashcards</h2>
+                    <div>
+                        <h2 className="text-xl font-bold text-foreground">Flashcards</h2>
+                        {tier === "free" && (
+                            <p className="text-sm text-muted mt-1">
+                                {remainingFlashcards === Infinity ? "Unlimited" : `${remainingFlashcards} of ${FREE_TIER_LIMITS.flashcardSessionsPerDay}`} sessions remaining today
+                            </p>
+                        )}
+                    </div>
                     <button
                         onClick={onBack}
                         className="text-muted hover:text-foreground transition-colors"
@@ -117,6 +124,13 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
                     onSelectionChange={setSelectedSubjects}
                     onContinue={handleContinueToStudy}
                 />
+
+                {/* Upgrade Modal */}
+                <UpgradeModal
+                    isOpen={upgradeModalOpen}
+                    onClose={() => setUpgradeModalOpen(false)}
+                    limitType="flashcard"
+                />
             </div>
         );
     }
@@ -127,7 +141,7 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
             {/* Header with Progress */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold text-foreground">📇 Flashcards</h2>
+                    <h2 className="text-2xl font-bold text-foreground">Flashcards</h2>
                     <p className="text-muted mt-1">
                         {selectedSubjects.length} subject{selectedSubjects.length !== 1 ? "s" : ""}
                     </p>
@@ -143,13 +157,13 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
             {/* Progress Bar */}
             <div className="space-y-2">
                 <div className="flex justify-between text-sm text-muted">
-                    <span>Card {cardsReviewed + 1}</span>
-                    <span>{cardsReviewed} reviewed</span>
+                    <span>Card {currentCardIndex + 1} of {allFlashcards.length}</span>
+                    <span>{currentCardIndex} reviewed</span>
                 </div>
                 <div className="w-full h-2 bg-card-border rounded-full overflow-hidden">
                     <div
                         className="h-full bg-fire-red transition-all duration-300"
-                        style={{ width: `${Math.min((cardsReviewed / totalCards) * 100, 100)}%` }}
+                        style={{ width: `${((currentCardIndex + 1) / allFlashcards.length) * 100}%` }}
                     />
                 </div>
             </div>
@@ -167,32 +181,23 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
                         transform: isFlipped ? "rotateY(180deg)" : "rotateY(0)",
                     }}
                 >
-                    {/* Front - Term */}
+                    {/* Front - Question */}
                     <div
                         className="absolute w-full h-full backface-hidden"
                         style={{ backfaceVisibility: "hidden" }}
                     >
-                        <div className="card p-8 h-full flex flex-col items-center justify-center text-center border-2 border-fire-red">
-                            {isLoading ? (
-                                <div className="flex flex-col items-center gap-4">
-                                    <span className="text-4xl animate-bounce">🔥</span>
-                                    <p className="text-muted">Loading card...</p>
-                                </div>
-                            ) : (
-                                <>
-                                    <p className="text-sm text-muted mb-4 uppercase tracking-wider">
-                                        Term
-                                    </p>
-                                    <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-relaxed">
-                                        {currentCard?.front_content}
-                                    </h3>
-                                    <p className="text-muted text-sm mt-8">Tap to reveal definition</p>
-                                </>
-                            )}
+                        <div className="card p-8 h-full flex flex-col items-center justify-center text-center border-2 border-fire-red min-h-[300px]">
+                            <p className="text-sm text-muted mb-4 uppercase tracking-wider">
+                                Question
+                            </p>
+                            <h3 className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
+                                {currentCard?.front_content}
+                            </h3>
+                            <p className="text-muted text-sm mt-8">Tap to reveal answer</p>
                         </div>
                     </div>
 
-                    {/* Back - Definition */}
+                    {/* Back - Answer */}
                     <div
                         className="absolute w-full h-full backface-hidden"
                         style={{
@@ -200,18 +205,13 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
                             transform: "rotateY(180deg)",
                         }}
                     >
-                        <div className="card p-8 h-full flex flex-col items-center justify-center text-center border-2 border-caution-yellow bg-card">
+                        <div className="card p-8 h-full flex flex-col items-center justify-center text-center border-2 border-caution-yellow bg-card min-h-[300px]">
                             <p className="text-sm text-caution-yellow mb-4 uppercase tracking-wider">
-                                Definition
+                                Answer
                             </p>
-                            <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                            <p className="text-lg md:text-xl text-foreground leading-relaxed whitespace-pre-line">
                                 {currentCard?.back_content}
                             </p>
-                            {currentCard?.source && (
-                                <p className="text-sm text-muted mt-6">
-                                    📚 Source: {currentCard.source}
-                                </p>
-                            )}
                             <p className="text-muted text-sm mt-6">Tap to flip back</p>
                         </div>
                     </div>
@@ -222,19 +222,19 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
             <div className="flex justify-between items-center">
                 <button
                     onClick={handlePrevious}
-                    disabled={cardHistory.length <= 1}
+                    disabled={currentCardIndex === 0}
                     className="px-6 py-3 rounded-lg border border-card-border text-muted hover:text-foreground hover:border-ember-orange transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                 >
                     ← Previous
                 </button>
 
                 <div className="text-center">
-                    <p className="text-sm text-muted">Card {cardHistory.length}</p>
+                    <p className="text-sm text-muted">Card {currentCardIndex + 1}</p>
                 </div>
 
                 <button
                     onClick={handleNext}
-                    disabled={isLoading}
+                    disabled={currentCardIndex >= allFlashcards.length - 1}
                     className="btn-primary px-6 py-3 rounded-lg fire-glow hover:fire-glow-hover disabled:opacity-50"
                 >
                     Next Card →
@@ -243,12 +243,12 @@ export default function FlashcardsContainer({ onBack }: FlashcardsContainerProps
 
             {/* Hint and Feedback */}
             <div className="flex justify-between items-center text-sm text-muted">
-                <p>💡 Click card to flip • Use buttons to navigate</p>
+                <p>Click card to flip • Use buttons to navigate</p>
                 <button
                     onClick={() => setFeedbackModalOpen(true)}
-                    className="hover:text-ember-orange transition-colors flex items-center gap-1.5"
+                    className="hover:text-ember-orange transition-colors"
                 >
-                    <span>💡</span> Feedback
+                    Feedback
                 </button>
             </div>
 

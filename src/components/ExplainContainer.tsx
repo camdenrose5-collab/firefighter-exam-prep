@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { Users, Wrench, BookOpen, Calculator } from "lucide-react";
 import SubjectSelector, { Subject } from "./SubjectSelector";
 import FeedbackModal from "./FeedbackModal";
 import { apiUrl } from "@/lib/api";
@@ -12,9 +13,9 @@ interface Message {
 }
 
 const LOADING_PHASES = [
-    "🔍 Analyzing your question...",
-    "🧠 Formulating answer...",
-    "📝 Preparing delivery..."
+    "Analyzing your question...",
+    "Formulating answer...",
+    "Preparing delivery..."
 ];
 
 interface ExplainContainerProps {
@@ -33,25 +34,25 @@ const EXPLAIN_SUBJECTS: Subject[] = [
     {
         id: "human-relations",
         label: "Human Relations",
-        icon: "🤝",
+        icon: Users,
         description: "Teamwork, conflict resolution, communication",
     },
     {
         id: "mechanical-aptitude",
         label: "Mechanical Aptitude",
-        icon: "🔧",
+        icon: Wrench,
         description: "Tools, leverage, hydraulics, troubleshooting",
     },
     {
         id: "reading-comprehension",
         label: "Reading Comprehension",
-        icon: "📖",
+        icon: BookOpen,
         description: "Passage comprehension, following instructions",
     },
     {
         id: "math",
         label: "Math (Mental)",
-        icon: "🧮",
+        icon: Calculator,
         description: "Arithmetic, percentages, ratios — no calculator",
     },
 ];

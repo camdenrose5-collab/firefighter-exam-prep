@@ -197,7 +197,19 @@ def init_db():
                 FOREIGN KEY (flashcard_id) REFERENCES flashcards(id)
             );
 
+            -- Persistent sessions (survives Cloud Run restarts)
+            CREATE TABLE IF NOT EXISTS sessions (
+                token TEXT PRIMARY KEY,
+                user_id TEXT NOT NULL,
+                email TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                expires_at TIMESTAMP NOT NULL,
+                FOREIGN KEY (user_id) REFERENCES users(id)
+            );
+
             -- Indexes
+            CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);
+            CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions(expires_at);
             CREATE INDEX IF NOT EXISTS idx_questions_subject ON questions(subject);
             CREATE INDEX IF NOT EXISTS idx_questions_approved ON questions(is_approved);
             CREATE INDEX IF NOT EXISTS idx_study_deck_user ON study_deck(user_id);
@@ -426,8 +438,76 @@ def get_users_count() -> int:
 
 
 # =============================================================================
+# SESSION CRUD (Persistent Sessions for Cloud Run)
+# =============================================================================
+
+def create_session(token: str, user_id: str, email: str, expires_at: datetime) -> bool:
+    """Create a persistent session. Returns True on success."""
+    with get_db_write() as conn:
+        conn.execute(
+            """INSERT OR REPLACE INTO sessions (token, user_id, email, expires_at)
+               VALUES (?, ?, ?, ?)""",
+            (token, user_id, email, expires_at.isoformat())
+        )
+    return True
+
+
+def get_session(token: str) -> Optional[Dict[str, Any]]:
+    """Get session by token. Returns None if expired or not found."""
+    with get_db() as conn:
+        row = conn.execute(
+            """SELECT token, user_id, email, created_at, expires_at 
+               FROM sessions WHERE token = ?""",
+            (token,)
+        ).fetchone()
+        
+        if not row:
+            return None
+        
+        # Check expiry
+        expires_at = datetime.fromisoformat(row["expires_at"])
+        if datetime.now() > expires_at:
+            # Session expired, clean it up
+            delete_session(token)
+            return None
+        
+        return dict(row)
+
+
+def delete_session(token: str) -> bool:
+    """Delete a session (logout). Returns True if deleted."""
+    with get_db_write() as conn:
+        cursor = conn.execute(
+            "DELETE FROM sessions WHERE token = ?",
+            (token,)
+        )
+        return cursor.rowcount > 0
+
+
+def delete_user_sessions(user_id: str) -> int:
+    """Delete all sessions for a user. Returns count of deleted sessions."""
+    with get_db_write() as conn:
+        cursor = conn.execute(
+            "DELETE FROM sessions WHERE user_id = ?",
+            (user_id,)
+        )
+        return cursor.rowcount
+
+
+def cleanup_expired_sessions() -> int:
+    """Clean up expired sessions. Returns count of deleted sessions."""
+    with get_db_write() as conn:
+        cursor = conn.execute(
+            "DELETE FROM sessions WHERE expires_at < ?",
+            (datetime.now().isoformat(),)
+        )
+        return cursor.rowcount
+
+
+# =============================================================================
 # STUDY DECK CRUD
 # =============================================================================
+
 
 def add_to_study_deck(user_id: str, question_id: str) -> str:
     """Add question to user's study deck. Returns deck entry ID."""
